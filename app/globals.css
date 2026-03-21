@@ -2,6 +2,12 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* 1. Define the layer order (this ensures Tailwind utilities always win) */
+@layer cyberpunk, base, components, utilities;
+
+/* 2. Import the library into that specific layer */
+@import "../components/ui/cybercn/styles/cyberpunk-2077.css" layer(cyberpunk);
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -118,13 +124,4 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
 }

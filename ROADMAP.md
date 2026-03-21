@@ -1,0 +1,77 @@
+# Shadcn Cyberpunk UI
+
+## Todos
+
+- [x] Init Next.js
+- [x] Init Shadcn UI
+- [x] import original cyberpunk-2077.css theme
+- [ ] add react-hook form?
+- [ ] migrate css to tailwind/shadcn?
+- [ ] size variants for buttons?
+- [ ] proper dark mode support, not just css modifiers
+- [ ] create components:
+  - [ ] header
+  - [x] section
+    - [x] both side borders
+    - [x] black (needs proper dark mode support)
+  - [x] button
+    - [x] red (default)
+    - [x] green
+    - [x] purple
+    - [x] blue
+  - [x] link
+    - [x] red (default)
+    - [x] green
+    - [x] purple
+    - [x] blue
+  - [x] headings
+    - [x] h1
+    - [x] h2
+    - [x] h3
+    - [x] h4
+    - [x] glitched
+  - [x] hr
+    - [x] normal
+    - [x] glitched
+  - [ ] forms
+    - [ ] input (text)
+    - [ ] input (date)
+    - [ ] input (time)
+    - [ ] input (file)
+    - [ ] input (phone)
+    - [ ] input (number)
+    - [ ] input (password)
+    - [ ] textarea
+    - [ ] select
+    - [ ] radio button
+    - [ ] checkbox
+    - [ ] submit btn
+    - [ ] dark
+  - [ ] image
+    - [ ] normal
+    - [ ] dotted
+    - [ ] dark
+  - [ ] paragraph
+    - [ ] default
+    - [ ] scannedh
+    - [ ] scannedv
+    - [ ] inverse
+    - [ ] dotted
+  - [ ] ul
+    - default
+    - glitched
+  - [ ] ol
+    - default
+    - glitched
+  - [ ] boxtree
+    - default
+    - dark
+  - [ ] steps
+    - default
+    - dark
+  - [ ] aside
+  - [ ] footer
+
+## Bugs:
+
+- [ ] before/after even/odd shifts
