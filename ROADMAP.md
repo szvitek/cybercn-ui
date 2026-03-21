@@ -47,22 +47,22 @@
     - [ ] checkbox
     - [ ] submit btn
     - [ ] dark
-  - [ ] image
-    - [ ] normal
-    - [ ] dotted
-    - [ ] dark
-  - [ ] paragraph
-    - [ ] default
-    - [ ] scannedh
-    - [ ] scannedv
-    - [ ] inverse
-    - [ ] dotted
-  - [ ] ul
-    - default
-    - glitched
-  - [ ] ol
-    - default
-    - glitched
+  - [x] image
+    - [x] normal
+    - [x] dotted
+    - [x] dark
+  - [x] paragraph
+    - [x] default
+    - [x] scannedh
+    - [x] scannedv
+    - [x] inverse
+    - [x] dotted
+  - [x] ul
+    - [x] default
+    - [x] glitched
+  - [x] ol
+    - [x] default
+    - [x] glitched
   - [ ] boxtree
     - default
     - dark
