@@ -1,3 +1,5 @@
+import { BoxTree } from "@/components/ui/cybercn/boxtree";
+import { Box } from "@/components/ui/cybercn/boxtree/box";
 import { Button } from "@/components/ui/cybercn/button";
 import { Heading } from "@/components/ui/cybercn/heading";
 import { Hr } from "@/components/ui/cybercn/hr";
@@ -231,6 +233,260 @@ export default function Home() {
             earlier science fiction.
           </LI>
         </List>
+      </Section>
+
+      <Section both>
+        <BoxTree>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={2}
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box title="Lorem ipsum sid amet." childrenCount={1} width="half">
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={2}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={2}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box title="Lorem ipsum sid amet." childrenCount={1} width="quarter">
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="quarter"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="quarter"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="quarter"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="quarter"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={2}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="quarter"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box title="Lorem ipsum sid amet." childrenCount={1} width="half">
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="full"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="full"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="half"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box title="Lorem ipsum sid amet." childrenCount={1} width="half">
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="resolved"
+            childrenCount={1}
+            width="full"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={1}
+            width="full"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+          <Box
+            title="Lorem ipsum sid amet."
+            variant="pending"
+            childrenCount={0}
+            width="full"
+          >
+            Cyberpunk is a subgenre of science fiction in a dystopian futuristic
+            setting that tends to focus on a &ldquo;combination of low-life and
+            high tech&rdquo;
+          </Box>
+        </BoxTree>
       </Section>
 
       <aside className="cyberpunk">

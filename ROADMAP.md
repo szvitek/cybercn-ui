@@ -63,12 +63,10 @@
   - [x] ol
     - [x] default
     - [x] glitched
-  - [ ] boxtree
-    - default
-    - dark
-  - [ ] steps
-    - default
-    - dark
+  - [x] boxtree
+    - [x] default
+    - [x] dark
+  - [ ] steps -[ ] default -[ ] dark
   - [ ] aside
   - [ ] footer
 
