@@ -123,5 +123,10 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  --color-cyber-yellow: var(--yellow-color);
+  --color-cyber-black: var(--black-color);
+}
+
 @layer base {
 }

@@ -1,6 +1,10 @@
+import { ModeToggle } from "@/components/mode-toggle";
+import { Aside, AsideItem } from "@/components/ui/cybercn/aside";
 import { BoxTree } from "@/components/ui/cybercn/boxtree";
 import { Box } from "@/components/ui/cybercn/boxtree/box";
 import { Button } from "@/components/ui/cybercn/button";
+import { Footer } from "@/components/ui/cybercn/footer";
+import { Header } from "@/components/ui/cybercn/header";
 import { Heading } from "@/components/ui/cybercn/heading";
 import { Hr } from "@/components/ui/cybercn/hr";
 import { Image } from "@/components/ui/cybercn/image";
@@ -9,10 +13,15 @@ import { List } from "@/components/ui/cybercn/list";
 import { LI } from "@/components/ui/cybercn/list-item";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";
+import { Step, Steps } from "@/components/ui/cybercn/steps";
+import { Biohazard, Recycle, Skull } from "lucide-react";
 
 export default function Home() {
   return (
     <>
+      <Header className="flex items-center justify-end">
+        <ModeToggle />
+      </Header>
       <Section>
         <Link className="cyberpunk red" href="#">
           Link red_
@@ -489,19 +498,43 @@ export default function Home() {
         </BoxTree>
       </Section>
 
-      <aside className="cyberpunk">
-        <ul>
-          <li>
-            <a href="#">&#9760; 555 555 555</a>
-          </li>
-          <li>
-            <a href="#">&#x2622; Contact us</a>
-          </li>
-          <li>
-            <a href="#">&#x267B; Location in the map</a>
-          </li>
-        </ul>
-      </aside>
+      <Section>
+        <Steps>
+          <Step>Text 1</Step>
+          <Step>Text extra extra large 2</Step>
+          <Step>Texto 3</Step>
+          <Step>Text extra extra large 4 </Step>
+          <Step>
+            Text 5<br />
+            new Stepne
+            <br />
+            new Stepne
+          </Step>
+          <Step>Text large 6</Step>
+          <Step current>Text 7</Step>
+          <Step>Text 8</Step>
+          <Step>Text 9</Step>
+          <Step>Text 10</Step>
+        </Steps>
+      </Section>
+
+      <Aside>
+        <AsideItem href="#" icon={Skull}>
+          555 555 555
+        </AsideItem>
+        <AsideItem href="#" icon={Biohazard}>
+          Contact us
+        </AsideItem>
+        <AsideItem href="#" icon={Recycle}>
+          Location in the map
+        </AsideItem>
+      </Aside>
+
+      <Footer className="flex items-center justify-center p-4">
+        <p className="text-center text-sm">
+          &copy; {new Date().getFullYear()} CyberCN UI. All rights reserved.
+        </p>
+      </Footer>
     </>
   );
 }

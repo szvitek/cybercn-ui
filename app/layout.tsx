@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -47,9 +46,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="bg-black h-12.5">
-            <ModeToggle />
-          </header>
           {children}
         </ThemeProvider>
       </body>

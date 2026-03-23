@@ -10,7 +10,7 @@
 - [ ] size variants for buttons?
 - [ ] proper dark mode support, not just css modifiers
 - [ ] create components:
-  - [ ] header
+  - [x] header
   - [x] section
     - [x] both side borders
     - [x] black (needs proper dark mode support)
@@ -66,9 +66,11 @@
   - [x] boxtree
     - [x] default
     - [x] dark
-  - [ ] steps -[ ] default -[ ] dark
-  - [ ] aside
-  - [ ] footer
+  - [x] steps
+    - [x] default
+    - [x] dark
+  - [x] aside
+  - [x] footer
 
 ## Bugs:
 
