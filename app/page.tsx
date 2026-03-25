@@ -1,3 +1,4 @@
+import { FormComponent } from "@/components/form";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Aside, AsideItem } from "@/components/ui/cybercn/aside";
 import { BoxTree } from "@/components/ui/cybercn/boxtree";
@@ -54,53 +55,9 @@ export default function Home() {
         <Hr glitched />
       </Section>
 
-      {/* TODO: FORM AND INPUTS INTO COMPONENTS */}
-      {/* <Section>
-        <form className="max-w-125">
-          <input className="cyberpunk" type="text" />
-          <input className="cyberpunk" type="date" />
-          <input className="cyberpunk" type="time" />
-          <input className="cyberpunk" type="file" />
-          <input className="cyberpunk" type="phone" />
-          <input className="cyberpunk" type="number" />
-          <input className="cyberpunk" type="password" />
-          <textarea className="cyberpunk"></textarea>
-          <select className="cyberpunk">
-            <option>Item 1</option>
-            <option>Item 2</option>
-            <option>Item 3</option>
-          </select>
-          <br />
-          <label className="cyberpunk">
-            <input className="cyberpunk" name="test" type="radio" /> RADIO
-            BUTTON Lorem ipsum sid amet.
-          </label>
-          <br />
-          <label className="cyberpunk">
-            <input
-              className="cyberpunk"
-              name="test"
-              type="radio"
-              checked="checked"
-            />{" "}
-            RADIO BUTTON Lorem ipsum sid amet.
-          </label>
-          <br />
-          <label className="cyberpunk">
-            <input className="cyberpunk" type="checkbox" /> CHECKBOX Lorem ipsum
-            sid amet.
-          </label>
-          <br />
-          <label className="cyberpunk">
-            <input className="cyberpunk" type="checkbox" checked="checked" />{" "}
-            CHECKBOX Lorem ipsum sid amet.
-          </label>
-          <br />
-          <button type="submit" className="cyberpunk red">
-            Submit_
-          </button>
-        </form>
-      </Section> */}
+      <Section both>
+        <FormComponent />
+      </Section>
 
       <Section className="flex gap-4">
         <Image

@@ -5,11 +5,12 @@
 - [x] Init Next.js
 - [x] Init Shadcn UI
 - [x] import original cyberpunk-2077.css theme
-- [ ] add react-hook form?
+- [x] add react-hook form?
+  - negative: keeping the components library agnostic
 - [ ] migrate css to tailwind/shadcn?
 - [ ] size variants for buttons?
 - [ ] proper dark mode support, not just css modifiers
-- [ ] create components:
+- [x] create components:
   - [x] header
   - [x] section
     - [x] both side borders
@@ -33,20 +34,20 @@
   - [x] hr
     - [x] normal
     - [x] glitched
-  - [ ] forms
-    - [ ] input (text)
-    - [ ] input (date)
-    - [ ] input (time)
-    - [ ] input (file)
-    - [ ] input (phone)
-    - [ ] input (number)
-    - [ ] input (password)
-    - [ ] textarea
-    - [ ] select
-    - [ ] radio button
-    - [ ] checkbox
-    - [ ] submit btn
-    - [ ] dark
+  - [x] forms
+    - [x] input (text)
+    - [x] input (date)
+    - [x] input (time)
+    - [x] input (file)
+    - [x] input (phone)
+    - [x] input (number)
+    - [x] input (password)
+    - [x] textarea
+    - [x] select
+    - [x] radio button
+    - [x] checkbox
+    - [x] submit btn
+    - [x] dark
   - [x] image
     - [x] normal
     - [x] dotted
