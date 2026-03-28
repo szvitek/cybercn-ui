@@ -8,7 +8,10 @@ export const CyberSelect = forwardRef<
   return (
     <select
       ref={ref}
-      className={cn("cyberpunk bg-white", className)}
+      className={cn(
+        "cyber-input clip-form-select appearance-none relative",
+        className,
+      )}
       {...props}
     >
       {children}

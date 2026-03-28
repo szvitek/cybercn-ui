@@ -9,11 +9,15 @@ type CyberSelectionProps = Omit<ComponentProps<"input">, "type"> & {
 export const CyberSelection = forwardRef<HTMLInputElement, CyberSelectionProps>(
   ({ label, type, className, ...props }, ref) => {
     return (
-      <label className="cyberpunk">
+      <label className="">
         <input
           ref={ref}
           type={type}
-          className={cn("cyberpunk", className)}
+          className={cn(
+            type == "radio" && "cyber-radio",
+            type == "checkbox" && "cyber-checkbox",
+            className,
+          )}
           {...props}
         />{" "}
         {label}

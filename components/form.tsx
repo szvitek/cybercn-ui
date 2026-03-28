@@ -10,6 +10,7 @@ import {
 } from "./ui/cybercn/form";
 import { Button } from "./ui/cybercn/button";
 import { Heading } from "./ui/cybercn/heading";
+import { CyberFieldset } from "./ui/cybercn/form/fieldset";
 
 export function FormComponent() {
   // Controlled state for the entire rig
@@ -53,27 +54,29 @@ export function FormComponent() {
   return (
     <CyberForm className="w-1/3 p-4" onSubmit={handleSubmit}>
       {/* Identity & Chronos */}
-      <CyberInput
-        name="alias"
-        type="text"
-        value={formData.alias}
-        onChange={handleChange}
-        placeholder="USER_ALIAS"
-      />
-      <div className="grid grid-cols-2 gap-4">
+      <CyberFieldset>
         <CyberInput
-          name="scanDate"
-          type="date"
-          value={formData.scanDate}
+          name="alias"
+          type="text"
+          value={formData.alias}
           onChange={handleChange}
+          placeholder="USER_ALIAS"
         />
-        <CyberInput
-          name="syncTime"
-          type="time"
-          value={formData.syncTime}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="grid grid-cols-2 gap-4">
+          <CyberInput
+            name="scanDate"
+            type="date"
+            value={formData.scanDate}
+            onChange={handleChange}
+          />
+          <CyberInput
+            name="syncTime"
+            type="time"
+            value={formData.syncTime}
+            onChange={handleChange}
+          />
+        </div>
+      </CyberFieldset>
 
       {/* Hardware & Security */}
       <CyberInput name="biometrics" type="file" onChange={handleChange} />

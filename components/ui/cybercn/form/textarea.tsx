@@ -7,7 +7,7 @@ export const CyberTextarea = forwardRef<
 >(({ className, ...props }, ref) => (
   <textarea
     ref={ref}
-    className={cn("cyberpunk bg-white", className)}
+    className={cn("cyber-input min-h-30 clip-form-textarea", className)}
     {...props}
   />
 ));

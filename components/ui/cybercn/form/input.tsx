@@ -6,7 +6,7 @@ export const CyberInput = forwardRef<HTMLInputElement, ComponentProps<"input">>(
     <input
       ref={ref}
       type={type}
-      className={cn("cyberpunk bg-white", className)}
+      className={cn("cyber-input", className)}
       {...props}
     />
   ),

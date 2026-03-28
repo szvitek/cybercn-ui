@@ -9,7 +9,8 @@
   - negative: keeping the components library agnostic
 - [ ] migrate css to tailwind/shadcn?
 - [ ] size variants for buttons?
-- [ ] proper dark mode support, not just css modifiers
+- [x] proper dark mode support, not just css modifiers
+  - in globals.css :dark:xxx doesn't work, workaround: `.dark selector { css }`
 - [x] create components:
   - [x] header
   - [x] section
@@ -46,6 +47,7 @@
     - [x] select
     - [x] radio button
     - [x] checkbox
+    - [x] fieldset
     - [x] submit btn
     - [x] dark
   - [x] image

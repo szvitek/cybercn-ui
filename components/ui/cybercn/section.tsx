@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import React from "react";
-import { useCyberTheme } from "./hooks/useCyberTheme";
 
 type SectionProps = {
   className?: string;
@@ -15,16 +14,9 @@ export function Section({
   className,
   ...props
 }: React.PropsWithChildren<SectionProps>) {
-  const { isDark } = useCyberTheme();
-
   return (
     <section
-      className={cn(
-        "cyberpunk",
-        both && "both",
-        isDark ? "black" : "", // Manually injecting the actual 'black' class
-        className,
-      )}
+      className={cn("cyber-section", both && "both", className)}
       {...props}
     >
       {children}
