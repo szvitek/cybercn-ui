@@ -168,9 +168,33 @@
   body {
     @apply font-advent-pro bg-cyber-background text-cyber-foreground p-0 m-0 text-xl;
   }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply bg-cyber-yellow;
+  }
+  ::-webkit-scrollbar-button {
+    @apply hidden;
+  }
+  ::-webkit-scrollbar-track {
+    @apply hidden;
+  }
+  ::-webkit-scrollbar-track-piece {
+    @apply hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-red border-cyber-red border-b-cyber-border border-r-cyber-border transition-colors duration-200 border-r-2 border-b-2  border-l-0 border-t-0 border-solid hover:bg-cyber-orange;
+  }
+  ::-webkit-scrollbar-corner {
+    @apply hidden;
+  }
+  ::-webkit-resizer {
+    @apply hidden;
+  }
 }
 
 @layer components {
+  /* FORM AND INPUTS */
   .cyber-input {
     @apply w-full border-cyber-foreground border-l-cyber-foreground border-r-cyber-foreground border-b-cyber-foreground text-[1.7rem] font-bold mb-2.5 p-3 border-b-15 border-x-[5px] border-30 border-solid;
     @apply clip-form-input;
