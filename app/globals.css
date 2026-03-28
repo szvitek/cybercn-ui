@@ -407,6 +407,25 @@
     @apply h-3.5 bg-cyber-foreground w-full border-none;
     @apply clip-hr;
   }
+
+  .cyber-image {
+    @apply clip-image p-7.5 px-1.25 pb-3.75 bg-cyber-foreground max-w-[calc(100%-10px)];
+  }
+
+  .cyber-dotted,
+  .cyber-dotted::after,
+  .cyber-dotted::before {
+    @apply bg-cyber-foreground bg-size-[5px_5px] bg-position-[-13px_-3px];
+
+    background-image: radial-gradient(
+      var(--cyber-yellow-opacity) 1px,
+      transparent 0
+    );
+
+    .dark & {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.13) 1px, transparent 0);
+    }
+  }
 }
 
 @utility clip-form-input {
@@ -514,24 +533,24 @@
   );
 }
 
+@utility clip-image {
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
 @layer utilities {
   /* Clip-path utilities for cyberpunk theme */
-
-  .clip-image {
-    clip-path: polygon(
-      0px 25px,
-      26px 0px,
-      calc(60% - 25px) 0px,
-      60% 25px,
-      100% 25px,
-      100% calc(100% - 10px),
-      calc(100% - 15px) calc(100% - 10px),
-      calc(80% - 10px) calc(100% - 10px),
-      calc(80% - 15px) calc(100% - 0px),
-      10px calc(100% - 0px),
-      0% calc(100% - 10px)
-    );
-  }
 
   .clip-paragraph {
     clip-path: polygon(

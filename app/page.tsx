@@ -52,7 +52,7 @@ export default function Home() {
           H4 title glitched
         </Heading>
         <Hr />
-        <Hr variant="glitched" />
+        <Hr glitched />
       </Section>
 
       <Section both>

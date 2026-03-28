@@ -3,13 +3,13 @@ import { cva, VariantProps } from "class-variance-authority";
 
 const HrVariants = cva("cyber-hr", {
   variants: {
-    variant: {
-      default: "",
-      glitched: "animate-glitch-hr",
+    glitched: {
+      true: "animate-glitch-hr",
+      false: null,
     },
   },
   defaultVariants: {
-    variant: "default",
+    glitched: false,
   },
 });
 
@@ -19,6 +19,6 @@ type HrProps = HrVariantProps & {
   className?: string;
 };
 
-export function Hr({ variant, className, ...props }: HrProps) {
-  return <hr className={cn(HrVariants({ variant }), className)} {...props} />;
+export function Hr({ glitched, className, ...props }: HrProps) {
+  return <hr className={cn(HrVariants({ glitched }), className)} {...props} />;
 }
