@@ -76,6 +76,138 @@
 
   --color-cyber-background: var(--cyber-background);
   --color-cyber-foreground: var(--cyber-foreground);
+
+  --animate-glitch-hr: var(--glitched-duration-long) glitch-hr linear infinite;
+
+  @keyframes glitch-hr {
+    0% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    15% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    16% {
+      transform: skew(20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: -20px;
+    }
+
+    20% {
+      transform: skew(-20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: 20px;
+    }
+
+    21% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    65% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+      transform: scaleX(1);
+    }
+
+    66% {
+      transform: skew(20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: -5px;
+      transform: scaleX(-1);
+    }
+
+    70% {
+      transform: skew(40deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: 20px;
+      transform: scaleX(-1);
+    }
+
+    71% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+      transform: scaleX(0);
+    }
+
+    100% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+  }
 }
 
 :root {
@@ -125,6 +257,9 @@
 
   --cyber-background: var(--cyber-yellow);
   --cyber-foreground: var(--cyber-black);
+
+  --glitched-duration: 0.9s;
+  --glitched-duration-long: 3s;
 }
 
 .dark {
@@ -267,6 +402,11 @@
   .cyber-fieldset {
     @apply border-3 border-dotted border-cyber-purple mx-0 my-2.5 p-2.5;
   }
+
+  .cyber-hr {
+    @apply h-3.5 bg-cyber-foreground w-full border-none;
+    @apply clip-hr;
+  }
 }
 
 @utility clip-form-input {
@@ -350,32 +490,32 @@
   );
 }
 
+@utility clip-hr {
+  clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+}
+
+@utility clip-hr-glitched {
+  clip-path: polygon(
+    1px 0px,
+    0px 0px,
+    0px 0px,
+    8px 14px,
+    13px 14px,
+    22px 7px,
+    42px 6px,
+    49px 2px,
+    100% 2px,
+    100% 0px,
+    42px 0px,
+    35px 5px,
+    22px 6px,
+    13px 13px,
+    9px 13px
+  );
+}
+
 @layer utilities {
   /* Clip-path utilities for cyberpunk theme */
-
-  .clip-hr {
-    clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
-  }
-
-  .clip-hr-glitched {
-    clip-path: polygon(
-      1px 0px,
-      0px 0px,
-      0px 0px,
-      8px 14px,
-      13px 14px,
-      22px 7px,
-      42px 6px,
-      49px 2px,
-      100% 2px,
-      100% 0px,
-      42px 0px,
-      35px 5px,
-      22px 6px,
-      13px 13px,
-      9px 13px
-    );
-  }
 
   .clip-image {
     clip-path: polygon(
