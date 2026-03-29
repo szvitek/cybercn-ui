@@ -84,6 +84,8 @@
     alternate;
   --animate-scanned-v: calc(var(--glitched-duration-long) * 3) scanned-v linear
     infinite alternate;
+  --animate-li-glitched: var(--glitched-duration-short) li-glitched linear
+    infinite;
 
   @keyframes glitch-hr {
     0% {
@@ -310,6 +312,47 @@
 
     100% {
       left: 100%;
+    }
+  }
+
+  @keyframes li-glitched {
+    0% {
+      transform: skew(-3deg);
+      margin-left: -2px;
+    }
+
+    10% {
+      transform: skew(3deg);
+      margin-left: inherit;
+    }
+
+    11% {
+      transform: skew(0deg);
+      margin-left: 2px;
+    }
+
+    50% {
+      transform: skew(0deg);
+      margin-left: inherit;
+    }
+
+    51% {
+      transform: skew(3deg);
+      margin-left: 5px;
+    }
+
+    59% {
+      transform: skew(-3deg);
+      margin-left: 5px;
+    }
+
+    60% {
+      transform: skew(0deg);
+      margin-left: inherit;
+    }
+
+    100% {
+      transform: skew(0deg);
     }
   }
 }
@@ -553,6 +596,31 @@
       }
     }
   }
+
+  .cyber-ul > li {
+    @apply list-none relative text-[1.25rem];
+
+    &::before {
+      @apply content-[""] block w-5 h-5 bg-cyber-foreground absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply clip-ul-bullet;
+    }
+  }
+
+  .cyber-ol {
+    list-style-type: hiragana-iroha;
+    counter-reset: cyber-counter; /* Give it a unique name */
+
+    & > li {
+      counter-increment: cyber-counter;
+      @apply list-none relative text-[1.25rem];
+    }
+
+    & > li::before {
+      content: counter(cyber-counter) ".";
+      @apply block w-5 h-5 bg-cyber-foreground text-cyber-background text-center font-bold leading-5 absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply clip-ol-bullet;
+    }
+  }
 }
 
 @utility clip-form-input {
@@ -693,9 +761,15 @@
   );
 }
 
-@layer utilities {
-  /* Clip-path utilities for cyberpunk theme */
+@utility clip-ul-bullet {
+  clip-path: polygon(0% 10%, 100% 70%, 40% 100%, 50% 70%);
+}
 
+@utility clip-ol-bullet {
+  clip-path: polygon(0% 0%, 60% 0%, 100% 40%, 100% 100%, 0% 100%);
+}
+
+@layer utilities {
   .scanned-h,
   .scanned-v {
     @apply relative;
@@ -713,12 +787,53 @@
     @apply animate-scanned-v;
   }
 
-  .clip-ul-bullet {
-    clip-path: polygon(0% 10%, 100% 70%, 40% 100%, 50% 70%);
-  }
+  .animate-li-glitched {
+    /* We don't need to redeclare the animation here, 
+       Tailwind's theme already handled it. 
+       We only add the 'Chaos' overrides: 
+    */
 
-  .clip-ol-bullet {
-    clip-path: polygon(0% 0%, 60% 0%, 100% 40%, 100% 100%, 0% 100%);
+    /* 3n + 3 (Every 3rd item & 1st item) */
+    &:nth-child(3n + 3),
+    &:nth-child(1) {
+      animation-duration: calc(var(--glitched-duration-short) * 0.5);
+    }
+
+    /* 5n + 5 (Every 5th item) */
+    &:nth-child(5n + 5) {
+      animation-duration: calc(var(--glitched-duration-short) * 0.7);
+      animation-timing-function: ease-out;
+    }
+
+    /* 2n + 2 (Every 2nd item) */
+    &:nth-child(2n + 2) {
+      animation-duration: calc(var(--glitched-duration-short) * 1.5);
+      animation-timing-function: ease-in-out;
+    }
+
+    /* 4n + 4 (Every 4th item) */
+    &:nth-child(4n + 4) {
+      animation-duration: calc(var(--glitched-duration-short) * 1.2);
+      animation-timing-function: ease-in;
+    }
+
+    will-change: transform, text-shadow, clip-path;
+
+    /* The "Stabilize" Logic */
+    &:hover {
+      /* This freeze-frames the animation exactly where it is */
+      animation-play-state: paused;
+
+      /* Reset the transformation so the text is readable */
+      transform: skew(0deg) !important;
+      margin-left: 0px !important;
+
+      /* Visual feedback: turn the text a "clean" color */
+      /* @apply text-cyber-blue; */
+
+      /* Optional: Add a subtle glow to show it's 'selected' */
+      /* text-shadow: 0 0 8px var(--cyber-blue); */
+    }
   }
 
   .clip-title-underline {
