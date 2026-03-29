@@ -1,31 +1,46 @@
 import { cn } from "@/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 
-type ParagrahProps = React.PropsWithChildren<{
-  inverse?: boolean;
-  dotted?: boolean;
-  className?: string;
-  scannedv?: boolean;
-  scannedh?: boolean;
-}>;
+const ParagraphVariants = cva("cyber-p", {
+  variants: {
+    inverse: {
+      true: "inverse",
+      false: null,
+    },
+    dotted: {
+      true: "cyber-dotted",
+      false: null,
+    },
+    scanned: {
+      false: null,
+      horizontal: "scanned-h",
+      vertical: "scanned-v",
+    },
+  },
+  defaultVariants: {
+    inverse: false,
+    dotted: false,
+    scanned: false,
+  },
+});
+
+type ParagraphVariantProps = VariantProps<typeof ParagraphVariants>;
+
+type ParagrahProps = React.PropsWithChildren &
+  ParagraphVariantProps & {
+    className?: string;
+  };
 
 export function Paragraph({
   inverse,
   dotted,
   children,
-  scannedv,
-  scannedh,
+  scanned,
   className,
 }: ParagrahProps) {
   return (
     <p
-      className={cn(
-        "cyberpunk",
-        inverse && "inverse",
-        dotted && "dotted",
-        scannedv && "scannedv",
-        scannedh && "scannedh",
-        className,
-      )}
+      className={cn(ParagraphVariants({ inverse, dotted, scanned }), className)}
     >
       {children}
     </p>

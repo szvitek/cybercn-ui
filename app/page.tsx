@@ -131,7 +131,7 @@ export default function Home() {
             earlier science fiction.
           </LI>
         </List>
-        <Paragraph inverse scannedv>
+        <Paragraph inverse scanned="vertical">
           Cyberpunk is a subgenre of science fiction in a dystopian{" "}
           <a href="#">futuristic setting that</a> tends to focus on a
           &ldquo;combination of low-life and high tech&rdquo;[1] featuring
@@ -144,7 +144,7 @@ export default function Home() {
           drug culture, technology, and the sexual revolution while avoiding the
           utopian tendencies of earlier science fiction.
         </Paragraph>
-        <Paragraph inverse dotted scannedh>
+        <Paragraph inverse dotted scanned="horizontal">
           Cyberpunk is a subgenre of science fiction in a dystopian{" "}
           <a href="#">futuristic setting that</a> tends to focus on a
           &ldquo;combination of low-life and high tech&rdquo;[1] featuring

@@ -78,6 +78,12 @@
   --color-cyber-foreground: var(--cyber-foreground);
 
   --animate-glitch-hr: var(--glitched-duration-long) glitch-hr linear infinite;
+  --animate-button-hover-after: var(--glitched-duration-short)
+    button-hover-after linear infinite;
+  --animate-scanned-h: var(--glitched-duration-long) scanned-h linear infinite
+    alternate;
+  --animate-scanned-v: calc(var(--glitched-duration-long) * 3) scanned-v linear
+    infinite alternate;
 
   @keyframes glitch-hr {
     0% {
@@ -208,6 +214,104 @@
       margin-left: 0px;
     }
   }
+
+  @keyframes button-hover-after {
+    0% {
+      right: 45px;
+    }
+
+    10% {
+      right: 45px;
+    }
+
+    11% {
+      right: 35px;
+    }
+
+    20% {
+      transform: skew(0deg);
+    }
+
+    21% {
+      transform: skew(-10deg);
+    }
+
+    40% {
+      transform: skew(-10deg);
+    }
+
+    41% {
+      transform: skew(0deg);
+    }
+
+    49% {
+      right: 35px;
+    }
+
+    50% {
+      right: 55px;
+    }
+
+    60% {
+      right: 55px;
+    }
+
+    61% {
+      right: 35px;
+    }
+
+    70% {
+      transform: skew(0deg);
+    }
+
+    71% {
+      transform: skew(10deg);
+    }
+
+    80% {
+      transform: skew(10deg);
+    }
+
+    81% {
+      transform: skew(0deg);
+    }
+
+    100% {
+      right: 35px;
+    }
+  }
+
+  @keyframes scanned-h {
+    0% {
+      top: -27px;
+    }
+
+    50% {
+    }
+
+    51% {
+    }
+
+    100% {
+      top: calc(100% + 12px);
+    }
+  }
+
+  @keyframes scanned-v {
+    0% {
+      left: 0px;
+    }
+
+    50% {
+    }
+
+    51% {
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
 }
 
 :root {
@@ -258,7 +362,7 @@
   --cyber-background: var(--cyber-yellow);
   --cyber-foreground: var(--cyber-black);
 
-  --glitched-duration: 0.9s;
+  --glitched-duration-short: 0.9s;
   --glitched-duration-long: 3s;
 }
 
@@ -426,6 +530,29 @@
       background-image: radial-gradient(rgba(0, 0, 0, 0.13) 1px, transparent 0);
     }
   }
+
+  .cyber-p {
+    @apply border-30 border-solid border-cyber-foreground border-x-[5px] border-b-24 p-5;
+    @apply clip-paragraph;
+    @apply bg-cyber-background text-cyber-foreground text-[1.2rem] relative;
+
+    &::before {
+      @apply content-["P-14"] block absolute bottom-[-12px] right-[25px] px-0.5 pt-0.5 text-[0.6rem] leading-[0.6rem] text-cyber-foreground bg-cyber-background border-l-2 border-cyber-border;
+    }
+
+    &:hover::before {
+      @apply animate-button-hover-after;
+    }
+
+    &.inverse {
+      @apply border-none pt-10 px-3.75 pb-7.5;
+      @apply bg-cyber-foreground text-cyber-background border-r-3 border-cyber-border;
+
+      &::before {
+        @apply content-["T-71"]  bottom-2.25 right-22.5;
+      }
+    }
+  }
 }
 
 @utility clip-form-input {
@@ -549,24 +676,41 @@
   );
 }
 
+@utility clip-paragraph {
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) 100%,
+    80px calc(100% - 0px),
+    65px calc(100% - 15px),
+    0% calc(100% - 15px)
+  );
+}
+
 @layer utilities {
   /* Clip-path utilities for cyberpunk theme */
 
-  .clip-paragraph {
-    clip-path: polygon(
-      0px 25px,
-      26px 0px,
-      calc(60% - 25px) 0px,
-      60% 25px,
-      100% 25px,
-      100% calc(100% - 10px),
-      calc(100% - 15px) calc(100% - 10px),
-      calc(80% - 10px) calc(100% - 10px),
-      calc(80% - 15px) 100%,
-      80px calc(100% - 0px),
-      65px calc(100% - 15px),
-      0% calc(100% - 15px)
-    );
+  .scanned-h,
+  .scanned-v {
+    @apply relative;
+  }
+
+  .scanned-h::after {
+    @apply content-[""] block absolute -top-7.5 left-0 w-full h-0.75 bg-cyber-border!;
+    @apply shadow-[0_0_10px_4px_var(--cyber-border)];
+    @apply animate-scanned-h;
+  }
+
+  .scanned-v::after {
+    @apply content-[""] block absolute -top-7.5 left-0 h-[calc(100%+55px)] w-0.75 bg-cyber-border!;
+    @apply shadow-[0_0_10px_4px_var(--cyber-border)];
+    @apply animate-scanned-v;
   }
 
   .clip-ul-bullet {
