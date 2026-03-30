@@ -78,7 +78,8 @@ export default function Home() {
       <Section className="flex flex-col gap-4">
         <Paragraph>
           Cyberpunk is a subgenre of science fiction in a dystopian{" "}
-          <a href="#">futuristic setting that</a> tends to focus on a
+          <a href="#">futuristic setting that</a>{" "}
+          {` tends to focus on a
           &ldquo;combination of low-life and high tech&rdquo;[1] featuring
           advanced technological and scientific achievements, such as artificial
           intelligence and cybernetics, juxtaposed with a degree of breakdown or
@@ -87,13 +88,14 @@ export default function Home() {
           writers like Philip K. Dick, Roger Zelazny, John Brunner, J. G.
           Ballard, Philip José Farmer and Harlan Ellison examined the impact of
           drug culture, technology, and the sexual revolution while avoiding the
-          utopian tendencies of earlier science fiction.
+          utopian tendencies of earlier science fiction.`}
         </Paragraph>
         <List variant="ul">
           <List.Item>
             Cyberpunk is a subgenre of science fiction in a dystopian{" "}
-            <a href="#">futuristic setting that</a> tends to focus on a
-            &ldquo;combination of low-life and high tech&rdquo;
+            <a href="#">futuristic setting that</a>
+            {` tends to focus on a
+            &ldquo;combination of low-life and high tech&rdquo;`}
           </List.Item>
           <List.Item glitched>
             featuring advanced technological and scientific achievements, such
@@ -133,7 +135,8 @@ export default function Home() {
         </List>
         <Paragraph inverse scanned="vertical">
           Cyberpunk is a subgenre of science fiction in a dystopian{" "}
-          <a href="#">futuristic setting that</a> tends to focus on a
+          <a href="#">futuristic setting that</a>{" "}
+          {` tends to focus on a
           &ldquo;combination of low-life and high tech&rdquo;[1] featuring
           advanced technological and scientific achievements, such as artificial
           intelligence and cybernetics, juxtaposed with a degree of breakdown or
@@ -142,11 +145,12 @@ export default function Home() {
           writers like Philip K. Dick, Roger Zelazny, John Brunner, J. G.
           Ballard, Philip José Farmer and Harlan Ellison examined the impact of
           drug culture, technology, and the sexual revolution while avoiding the
-          utopian tendencies of earlier science fiction.
+          utopian tendencies of earlier science fiction.`}
         </Paragraph>
         <Paragraph inverse dotted scanned="horizontal">
           Cyberpunk is a subgenre of science fiction in a dystopian{" "}
-          <a href="#">futuristic setting that</a> tends to focus on a
+          <a href="#">futuristic setting that</a>{" "}
+          {` tends to focus on a
           &ldquo;combination of low-life and high tech&rdquo;[1] featuring
           advanced technological and scientific achievements, such as artificial
           intelligence and cybernetics, juxtaposed with a degree of breakdown or
@@ -155,13 +159,14 @@ export default function Home() {
           writers like Philip K. Dick, Roger Zelazny, John Brunner, J. G.
           Ballard, Philip José Farmer and Harlan Ellison examined the impact of
           drug culture, technology, and the sexual revolution while avoiding the
-          utopian tendencies of earlier science fiction.
+          utopian tendencies of earlier science fiction.`}
         </Paragraph>
         <List variant="ol">
           <List.Item>
             Cyberpunk is a subgenre of science fiction in a dystopian{" "}
-            <a href="#">futuristic setting that</a> tends to focus on a
-            &ldquo;combination of low-life and high tech&rdquo;
+            <a href="#">futuristic setting that</a>{" "}
+            {` tends to focus on a
+            &ldquo;combination of low-life and high tech&rdquo;`}
           </List.Item>
           <List.Item>
             featuring advanced technological and scientific achievements, such
