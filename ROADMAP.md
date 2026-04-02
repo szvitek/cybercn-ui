@@ -8,7 +8,7 @@
 - [x] add react-hook form?
   - negative: keeping the components library agnostic
 - [ ] migrate css to tailwind/shadcn?
-- [ ] size variants for buttons?
+- [x] size variants for buttons?
 - [x] proper dark mode support, not just css modifiers
   - in globals.css :dark:xxx doesn't work, workaround: `.dark selector { css }`
 - [x] create components:
@@ -78,3 +78,5 @@
 ## Bugs:
 
 - [ ] before/after even/odd shifts
+- [ ] sm(/icon?) size buttons after?
+- [ ] add option to hide glitch labels for buttons?

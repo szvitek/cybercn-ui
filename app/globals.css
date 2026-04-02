@@ -78,6 +78,10 @@
   --color-cyber-foreground: var(--cyber-foreground);
 
   --animate-glitch-hr: var(--glitched-duration-long) glitch-hr linear infinite;
+  --animate-button-hover: button-hover var(--glitched-duration-short) linear
+    infinite;
+  --animate-button-hover-before: button-hover-before
+    var(--glitched-duration-short) linear infinite;
   --animate-button-hover-after: var(--glitched-duration-short)
     button-hover-after linear infinite;
   --animate-scanned-h: var(--glitched-duration-long) scanned-h linear infinite
@@ -222,6 +226,104 @@
       transform: skew(0deg);
       clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
       margin-left: 0px;
+    }
+  }
+
+  @keyframes button-hover {
+    0% {
+      transform: skew(0deg);
+    }
+
+    60% {
+      transform: skew(0deg);
+    }
+
+    61% {
+      transform: skew(10deg);
+    }
+
+    70% {
+      transform: skew(10deg);
+    }
+
+    71% {
+      transform: skew(0deg);
+    }
+
+    100% {
+      transform: skew(0deg);
+    }
+    /* 0%,
+    100% {
+      transform: skewX(0deg) scale(1);
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      transform: skewX(2.5deg) scale(1.02);
+      filter: hue-rotate(90deg) brightness(1.2);
+    }
+    20% {
+      transform: skewX(-2.5deg) scale(0.98);
+    }
+    30% {
+      transform: skewX(1deg);
+    } */
+  }
+
+  @keyframes button-hover-before {
+    0% {
+      display: none;
+      top: 0px;
+    }
+
+    10% {
+      display: none;
+      top: 0px;
+    }
+
+    11% {
+      display: block;
+      top: 10px;
+      left: calc(0px - 0px - var(--outside));
+    }
+
+    29% {
+      top: 10px;
+    }
+
+    30% {
+      display: none;
+      top: 0px;
+    }
+
+    50% {
+      display: none;
+      top: 0px;
+    }
+
+    51% {
+      display: block;
+      top: 55px;
+      filter: blur(1px);
+      height: 22px;
+    }
+
+    90% {
+      display: block;
+      top: 55px;
+      height: 22px;
+    }
+
+    91% {
+      filter: blur(0px);
+      display: none;
+      top: 0px;
+      height: 12px;
+    }
+
+    100% {
+      display: none;
+      top: 0px;
     }
   }
 
@@ -898,6 +1000,46 @@
     animation-duration: calc(var(--glitched-duration-short) / 2);
     animation-direction: reverse;
   }
+
+  .cyber-button {
+    @apply relative inline-block border-none uppercase font-semibold cursor-pointer outline-none transition-colors text-white;
+
+    /* Explicitly define the right border - Width, Style, then Color */
+    border-right: 3px solid var(--color-cyber-border);
+    @apply clip-button;
+
+    &::after {
+      content: attr(data-text);
+      @apply absolute bottom-0 right-6.25 px-0.5 pt-0.5 pb-0 text-[0.6rem] leading-[0.6rem] text-black bg-cyber-yellow border-l-2 border-cyber-border;
+      @apply transition-colors duration-100 ease-in-out;
+    }
+
+    &::before {
+      --outside: 4px;
+      content: "";
+      @apply absolute hidden top-0 h-3 border-x-2 border-cyber-border;
+      width: calc(100% + (var(--outside) * 2));
+      left: calc(-1px - var(--outside));
+      background-color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      @apply text-black;
+      @apply animate-button-hover;
+      &::before {
+        @apply block animate-button-hover-before;
+      }
+      &::after {
+        @apply animate-button-hover-after;
+      }
+    }
+
+    &[data-is-button="true"]:hover::after,
+    &[data-is-button="true"]:focus::after {
+      @apply bg-black text-cyber-yellow;
+    }
+  }
 }
 
 @utility clip-form-input {
@@ -1110,6 +1252,24 @@
   );
 }
 
+@utility clip-button {
+  /* clip-path: polygon(
+    -15px 0%,
+    calc(100% + 15px) 0%,
+    calc(100% + 15px) 100%,
+    20px 100%,
+    -15px calc(100% - 35px)
+  ); */
+
+  clip-path: polygon(
+    calc(var(--cut-x, 15px) * -1) 0%,
+    calc(100% + var(--cut-x, 15px)) 0%,
+    calc(100% + var(--cut-x, 15px)) 100%,
+    var(--cut-indent, 20px) 100%,
+    calc(var(--cut-x, 15px) * -1) calc(100% - var(--cut-y, 35px))
+  );
+}
+
 @layer utilities {
   .scanned-h,
   .scanned-v {
@@ -1175,5 +1335,9 @@
       /* Optional: Add a subtle glow to show it's 'selected' */
       /* text-shadow: 0 0 8px var(--cyber-blue); */
     }
+  }
+
+  .button-hover-after-colors {
+    @apply bg-cyber-black text-cyber-yellow;
   }
 }

@@ -11,7 +11,6 @@ import { Hr } from "@/components/ui/cybercn/hr";
 import { Image } from "@/components/ui/cybercn/image";
 import { Link } from "@/components/ui/cybercn/link";
 import { List } from "@/components/ui/cybercn/list";
-import { LI } from "@/components/ui/cybercn/list-item";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";
 import { Step, Steps } from "@/components/ui/cybercn/steps";
@@ -24,14 +23,65 @@ export default function Home() {
         <ModeToggle />
       </Header>
       <Section>
-        <Link className="cyberpunk red" href="#">
-          Link red_
-        </Link>
-        <Button className="cyberpunk green">Button green_</Button>
-        <Link className="cyberpunk purple" href="#">
-          Link purple_
-        </Link>
-        <Button variant="blue">Button blue_</Button>
+        <div className="grid grid-cols-4 place-items-center gap-2 w-[80%] mx-auto">
+          {/* BUTTONS LG */}
+          <Button asChild variant="red" glitchLabel="R-25" size="lg">
+            <Link href="#">Link red_</Link>
+          </Button>
+          <Button variant="green" size="lg">
+            Button green_
+          </Button>
+          <Button asChild variant="purple" glitchLabel="R-25" size="lg">
+            <Link href="#">Link purple_</Link>
+          </Button>
+          <Button variant="blue" glitchLabel="X-99" size="lg">
+            Button blue_
+          </Button>
+
+          {/* BUTTONS MD */}
+          <Button asChild variant="red" glitchLabel="R-25">
+            <Link href="#">Link red_</Link>
+          </Button>
+          <Button variant="green">Button green_</Button>
+          <Button asChild variant="purple" glitchLabel="R-25">
+            <Link href="#">Link purple_</Link>
+          </Button>
+          <Button variant="blue" glitchLabel="X-99">
+            Button blue_
+          </Button>
+          <Button asChild variant="red" glitchLabel="R-25" size="sm">
+            <Link href="#">Link red_</Link>
+          </Button>
+
+          {/* BUTTONS SM */}
+          <Button variant="green" size="sm">
+            Button green_
+          </Button>
+          <Button asChild variant="purple" glitchLabel="R-25" size="sm">
+            <Link href="#">Link purple_</Link>
+          </Button>
+          <Button variant="blue" glitchLabel="X-99" size="sm">
+            Button blue_
+          </Button>
+          <Button asChild variant="red" glitchLabel="R-25" size="icon">
+            <Link href="#">
+              <Skull className="size-4" />
+            </Link>
+          </Button>
+
+          {/* BUTTONS ICON */}
+          <Button variant="green" size="icon">
+            <Skull className="size-4" />
+          </Button>
+          <Button asChild variant="purple" glitchLabel="R-25" size="icon">
+            <Link href="#">
+              <Skull className="size-4" />
+            </Link>
+          </Button>
+          <Button variant="blue" glitchLabel="X-99" size="icon">
+            <Skull className="size-4" />
+          </Button>
+        </div>
       </Section>
 
       <Section both>
