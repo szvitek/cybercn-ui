@@ -84,7 +84,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section both>
+      <Section withSide>
         <Heading Tag="h1">H1 title</Heading>
         <Heading Tag="h1" glitched>
           H1 title glitched
@@ -105,11 +105,11 @@ export default function Home() {
         <Hr glitched />
       </Section>
 
-      <Section both>
+      <Section withSide>
         <FormComponent />
       </Section>
 
-      <Section className="flex gap-4">
+      <Section className="flex gap-4 max-w-full flex-col md:flex-row">
         <Image
           src="https://dummyimage.com/600x400/ff00ff/fff"
           alt=""
@@ -256,7 +256,7 @@ export default function Home() {
         </List>
       </Section>
 
-      <Section both>
+      <Section withSide>
         <BoxTree>
           <Box
             title="Lorem ipsum sid amet."

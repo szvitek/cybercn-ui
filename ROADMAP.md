@@ -77,6 +77,8 @@
 
 ## Bugs:
 
-- [ ] before/after even/odd shifts
+- [x] fixed: before/after even/odd shifts
 - [ ] sm(/icon?) size buttons after?
 - [ ] add option to hide glitch labels for buttons?
+- [ ] h3 h4 .glitched animation
+- [ ] in the original theme ever 2nd section is black and has a bit different border, then all light/all dark sections
