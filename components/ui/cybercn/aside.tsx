@@ -2,8 +2,8 @@ import { LucideIcon } from "lucide-react";
 
 export function Aside({ children }: React.PropsWithChildren) {
   return (
-    <aside className="cyberpunk">
-      <ul>{children}</ul>
+    <aside className="cyber-aside">
+      <ul className="m-0 p-0">{children}</ul>
     </aside>
   );
 }
@@ -31,3 +31,5 @@ export function AsideItem({
     </li>
   );
 }
+
+Aside.Item = AsideItem;

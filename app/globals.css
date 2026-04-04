@@ -1040,6 +1040,70 @@
       @apply bg-black text-cyber-yellow;
     }
   }
+
+  .cyber-section {
+    @apply relative bg-cyber-background text-cyber-foreground p-15 -my-px;
+
+    &::before {
+      @apply content-[""] block absolute top-0 left-0 w-full h-7.5 bg-cyber-foreground;
+      @apply clip-section-top;
+    }
+
+    &::after {
+      @apply content-[""] block absolute bottom-0 left-0 w-full h-7.5 bg-cyber-foreground;
+      @apply clip-section-bottom;
+    }
+
+    &.frame-both {
+      &::before {
+        @apply h-full;
+        @apply clip-section-both-top;
+      }
+      &::after {
+        @apply h-full;
+        @apply clip-section-both-bottom;
+      }
+    }
+  }
+
+  .cyber-section:nth-child(even of .cyber-section)::before,
+  .cyber-section:nth-child(odd of .cyber-section)::after {
+    transform: scaleX(-1);
+  }
+
+  .cyber-aside {
+    --aside-width: 230px;
+    @apply fixed top-1/2 -translate-y-1/2 w-(--aside-width) transition-[left] duration-300 z-50;
+    left: calc(100% - 43px);
+
+    &:hover {
+      left: calc(100% - var(--aside-width) + 5px);
+    }
+
+    & li {
+      @apply block bg-cyber-yellow text-black mb-1 w-full transition-colors duration-300;
+      @apply border-y border-r border-black border-l-10 border-b-10;
+      @apply skew-x-[-15deg] origin-right;
+      @apply clip-aside-li;
+
+      &:hover {
+        @apply bg-black;
+
+        & a {
+          @apply text-cyber-yellow;
+        }
+      }
+    }
+
+    & a {
+      @apply block py-1 px-3 no-underline text-black font-bold text-[1.3rem] transition-colors duration-300;
+      @apply skew-x-15;
+
+      &::after {
+        @apply hidden;
+      }
+    }
+  }
 }
 
 @utility clip-form-input {
@@ -1120,6 +1184,40 @@
     34% 15px,
     calc(34% + 15px) -1px,
     70% 0px
+  );
+}
+
+@utility clip-section-both-bottom {
+  clip-path: polygon(
+    0px 30%,
+    30px calc(30% + 30px),
+    30px calc(100% - 30px),
+    22% calc(100% - 30px),
+    calc(22% + 30px) 100%,
+    52% 100%,
+    calc(52% + 15px) calc(100% - 15px),
+    70% calc(100% - 15px),
+    calc(70% + 15px) 100%,
+    90% 100%,
+    calc(90% + 30px) calc(100% - 30px),
+    100% calc(100% - 30px),
+    100% 100%,
+    0px 100%
+  );
+}
+
+@utility clip-section-both-top {
+  clip-path: polygon(
+    calc(22% + 28px) -1px,
+    calc(22% + 45px) 15px,
+    34% 15px,
+    calc(34% + 15px) -1px,
+    0% 0%,
+    0% 10%,
+    30px calc(10% + 30px),
+    30px 100%,
+    0% 100%,
+    0% 0%
   );
 }
 
@@ -1267,6 +1365,17 @@
     calc(100% + var(--cut-x, 15px)) 100%,
     var(--cut-indent, 20px) 100%,
     calc(var(--cut-x, 15px) * -1) calc(100% - var(--cut-y, 35px))
+  );
+}
+
+@utility clip-aside-li {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    40% calc(100% - 9px),
+    0% 100%,
+    1% 62%
   );
 }
 

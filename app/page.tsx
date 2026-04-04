@@ -1,6 +1,6 @@
 import { FormComponent } from "@/components/form";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Aside, AsideItem } from "@/components/ui/cybercn/aside";
+import { Aside } from "@/components/ui/cybercn/aside";
 import { BoxTree } from "@/components/ui/cybercn/boxtree";
 import { Box } from "@/components/ui/cybercn/boxtree/box";
 import { Button } from "@/components/ui/cybercn/button";
@@ -531,15 +531,15 @@ export default function Home() {
       </Section>
 
       <Aside>
-        <AsideItem href="#" icon={Skull}>
+        <Aside.Item href="#" icon={Skull}>
           555 555 555
-        </AsideItem>
-        <AsideItem href="#" icon={Biohazard}>
+        </Aside.Item>
+        <Aside.Item href="#" icon={Biohazard}>
           Contact us
-        </AsideItem>
-        <AsideItem href="#" icon={Recycle}>
+        </Aside.Item>
+        <Aside.Item href="#" icon={Recycle}>
           Location in the map
-        </AsideItem>
+        </Aside.Item>
       </Aside>
 
       <Footer className="flex items-center justify-center p-4">
