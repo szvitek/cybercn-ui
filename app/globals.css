@@ -71,6 +71,9 @@
   --color-cyber-neon: var(--cyber-neon);
   --color-cyber-black: var(--cyber-black);
 
+  --breakpoint-sm-boxtree: 600px;
+  --breakpoint-md-boxtree: 900px;
+
   --font-advent-pro: var(--font-advent-pro);
   --font-hacked: "Hacked", sans-serif;
 
@@ -987,7 +990,7 @@
     @apply relative pb-3.75;
 
     &::before {
-      @apply content-[""] block absolute bottom-0 left-0.5 w-full h-2.5 bg-cyber-foreground;
+      @apply content-[""] block absolute bottom-0 left-0.5 w-full h-2.5 bg-current;
     }
 
     &::after {
@@ -1102,6 +1105,56 @@
       &::after {
         @apply hidden;
       }
+    }
+  }
+
+  .cyberpunk-boxtree {
+    --gap: 15px;
+    --border-height: 1px;
+    --padding: 5px;
+    --resolved-text: "RESOLVED";
+    --pending-text: "NO ACCESS";
+
+    @media (min-width: 600px) {
+      --gap: 20px;
+      --border-height: 3px;
+      --padding: 10px;
+    }
+
+    @media (min-width: 900px) {
+      --gap: 30px;
+      --border-height: 5px;
+      --padding: 20px;
+    }
+
+    @apply flex flex-row flex-wrap content-center justify-center items-stretch gap-(--gap) -mr-12.5 -ml-12.5 my-15;
+
+    @media (min-width: 900px) {
+      margin: 0px; /* Reset on Desktop */
+    }
+  }
+
+  .cyber-box {
+    @apply box-border relative border-dashed transition-all duration-300;
+
+    border-width: var(--border-height);
+    padding: var(--padding);
+
+    &::after {
+      @apply content-[""] block absolute w-full left-0;
+
+      height: var(--gap);
+      bottom: calc(0px - var(--gap) - var(--border-height));
+    }
+
+    &.width-100 {
+      width: calc(100% - var(--gap));
+    }
+    &.width-50 {
+      width: calc(50% - var(--gap));
+    }
+    &.width-25 {
+      width: calc(25% - var(--gap));
     }
   }
 }
@@ -1379,6 +1432,28 @@
   );
 }
 
+@utility boxtree-box-after {
+  clip-path: polygon(
+    calc(50% - 2px) 0%,
+    calc(50% - 2px) 100%,
+    calc(50% + 2px) 100%,
+    calc(50% + 2px) 0%
+  );
+}
+
+@utility boxtree-box-after-2 {
+  clip-path: polygon(
+    calc(25% - 2px) 0%,
+    calc(25% - 2px) 100%,
+    calc(25% + 2px) 100%,
+    calc(25% + 2px) 0%,
+    calc(75% - 2px) 0%,
+    calc(75% - 2px) 100%,
+    calc(75% + 2px) 100%,
+    calc(75% + 2px) 0%
+  );
+}
+
 @layer utilities {
   .scanned-h,
   .scanned-v {
@@ -1448,5 +1523,84 @@
 
   .button-hover-after-colors {
     @apply bg-cyber-black text-cyber-yellow;
+  }
+
+  .box-resolved::before,
+  .box-pending::before {
+    display: none;
+    @apply absolute w-full left-0 z-10 pointer-events-none text-center uppercase;
+    font-size: 3em;
+    font-family: "VT323";
+    opacity: 0.7;
+    transform: rotate(-15deg);
+  }
+
+  @media (min-width: 900px) {
+    .cyber-box.box-resolved::before,
+    .cyber-box.box-pending::before {
+      display: block;
+      font-size: 4.7em;
+      top: calc(50% - 0.7em);
+    }
+
+    .box-resolved::before {
+      content: var(--resolved-text);
+    }
+    .box-pending::before {
+      content: var(--pending-text);
+    }
+
+    .cyber-box.width-25::before {
+      font-size: 2.5em;
+    }
+  }
+
+  .box-default {
+    @apply text-cyber-blue border-cyber-blue dark:text-cyber-yellow dark:border-cyber-yellow;
+
+    &,
+    & * {
+      @apply text-cyber-blue dark:text-cyber-yellow;
+    }
+
+    &::before,
+    &::after {
+      @apply bg-cyber-blue;
+    }
+
+    .dark &::after,
+    .dark &::before {
+      @apply bg-cyber-yellow;
+    }
+  }
+
+  .box-resolved {
+    @apply text-cyber-green border-cyber-green dark:text-cyber-neon dark:border-cyber-neon;
+
+    &,
+    & * {
+      @apply text-cyber-green dark:text-cyber-neon;
+    }
+
+    &::after {
+      @apply bg-cyber-green;
+    }
+
+    .dark &::after {
+      @apply bg-cyber-neon;
+    }
+  }
+
+  .box-pending {
+    @apply text-cyber-purple border-cyber-purple;
+
+    &,
+    & * {
+      @apply text-cyber-purple;
+    }
+
+    &::after {
+      @apply bg-cyber-purple;
+    }
   }
 }

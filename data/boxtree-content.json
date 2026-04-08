@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "title": "NEURAL_LINK_STABILIZED",
+    "content": "Biometric handshake complete. Cortical stack synchronized with local grid. All synaptic pathways reporting 99.9% throughput efficiency.",
+    "status": "resolved",
+    "childrenCount": 2,
+    "width": "full"
+  },
+  {
+    "id": 2,
+    "title": "ICE_BREAKER_PROTOCOL",
+    "content": "Encryption layers bypassed. Corporate firewall dismantled via backdoor 'Ouroboros'. Data extraction in progress.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 3,
+    "title": "GRID_SIGNAL_SEARCH",
+    "content": "Scanning for encrypted frequencies in the neon-mist... Signal strength intermittent. Packet loss detected in Sector 7.",
+    "status": "default",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 4,
+    "title": "BLACK_MARKET_SCAN",
+    "content": "Inventory found: Refurbished Kiroshi optics, pre-owned sandevistan shards, and unlicensed chrome-ware.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 5,
+    "title": "UNAUTHORIZED_ACCESS",
+    "content": "Security breach detected on Floor 42. Arasaka drones dispatched. Immediate exfiltration required.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 6,
+    "title": "SYS_REBOOT_INITIATED",
+    "content": "Memory flush successful. Ghost-in-the-shell vulnerabilities patched. System uptime: 420:12:09.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 7,
+    "title": "CYBERDECK_OVERHEAT",
+    "content": "Temperature critical. Cooling vents obstructed by organic residue. Hardware failure imminent in 30 seconds.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 8,
+    "title": "BIOS_VERSION_4.0",
+    "content": "Updated kernel to handle higher psychological stress loads. Cyberpsychosis threshold increased by 15%.",
+    "status": "resolved",
+    "childrenCount": 2,
+    "width": "half"
+  },
+  {
+    "id": 9,
+    "title": "NET_RUNNER_UNKNOWN",
+    "content": "Incoming trace detected. Origin: Unknown Deep Net node. Counter-intrusion software currently offline.",
+    "status": "pending",
+    "childrenCount": 2,
+    "width": "half"
+  },
+  {
+    "id": 10,
+    "title": "NEON_DISTR_01",
+    "content": "Power rerouted to the lower city. Streetlights flickering in binary code. The signal is the message.",
+    "status": "default",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 11,
+    "title": "DATA_SHARD_CRACKED",
+    "content": "Encrypted shard decrypted. Contents: Log entries from the 2023 Night City data crash.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 12,
+    "title": "UPLINK_TIMEOUT",
+    "content": "Satellite connection lost. Clouds of acid rain blocking orbital transmission. Reconnecting...",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 13,
+    "title": "VOID_ROUTER_DOWN",
+    "content": "Subterranean fiber-optics severed. District 4 is now a dark zone. Manual repair required.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 14,
+    "title": "ENCRYPTED_COMMS",
+    "content": "Inbound message: 'Meet at the Afterlife. Bring the chrome. Trust no one with a shiny badge.'",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 15,
+    "title": "OPTIMIZED_NEURAL_BUS",
+    "content": "Lag reduced in motor-function relay. Reaction speed boosted. Parrying incoming fire now 20% easier.",
+    "status": "resolved",
+    "childrenCount": 2,
+    "width": "half"
+  },
+  {
+    "id": 16,
+    "title": "CHROME_FATIGUE",
+    "content": "Organic rejection of titanium chassis detected. Immunosuppressant doses required immediately.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "quarter"
+  },
+  {
+    "id": 17,
+    "title": "DASHBOARD_STABILITY",
+    "content": "UI elements locked. Parallax effects disabled to save processing power during high-speed chases.",
+    "status": "default",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 18,
+    "title": "TRACE_REMOVED",
+    "content": "Digital fingerprints wiped from the NCPD database. You are officially a ghost in the system again.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 19,
+    "title": "RESTRICTED_PROTOCOL",
+    "content": "Attempting to open encrypted file: 'Project_Carbon'. Credentials mismatch. Warning: Admin notified.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 20,
+    "title": "GRID_MAPPING",
+    "content": "City-wide surveillance mapped. Blind spots identified in the industrial sector. Safe passage confirmed.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 21,
+    "title": "KERNEL_STABLE",
+    "content": "The foundation of the grid is solid. No anomalies detected in the core logic. Everything is under control.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "full"
+  },
+  {
+    "id": 22,
+    "title": "SYNC_COMPLETE",
+    "content": "All nodes communicating across the hierarchy. The boxtree is fully operational and reporting for duty.",
+    "status": "resolved",
+    "childrenCount": 2,
+    "width": "full"
+  },
+  {
+    "id": 23,
+    "title": "TRANSMISSION_CLEAN",
+    "content": "Audio-visual data streams optimized. No static in the line. The cyberpunk aesthetic is fully realized.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 24,
+    "title": "AWAITING_INPUT",
+    "content": "Terminal cursor blinking... The future is unwritten. Waiting for the next command from the console.",
+    "status": "default",
+    "childrenCount": 1,
+    "width": "half"
+  },
+  {
+    "id": 25,
+    "title": "PROCESS_FINISHED",
+    "content": "Execution of the styling overhaul completed. The CSS and React components are now in perfect harmony.",
+    "status": "resolved",
+    "childrenCount": 1,
+    "width": "full"
+  },
+  {
+    "id": 26,
+    "title": "OFFLINE_STORAGE",
+    "content": "Archiving current progress to a cold-storage drive. Safe from net-runners and corporate vultures alike.",
+    "status": "pending",
+    "childrenCount": 1,
+    "width": "full"
+  },
+  {
+    "id": 27,
+    "title": "END_OF_LINE",
+    "content": "The boxtree ends here. Disconnecting from the matrix. See you on the other side of the neon.",
+    "status": "pending",
+    "childrenCount": 0,
+    "width": "full"
+  }
+]
