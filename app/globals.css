@@ -1157,6 +1157,64 @@
       width: calc(25% - var(--gap));
     }
   }
+
+  .cyber-steps {
+    /* Added items-stretch and justify-start to match original */
+    @apply flex flex-col sm-boxtree:flex-row list-none p-0 m-0 flex-wrap items-stretch justify-start content-center;
+    counter-reset: cyber-step-counter;
+  }
+
+  .cyber-step {
+    @apply relative flex items-end min-w-20 text-[12px] leading-3 mb-10 sm-boxtree:mb-15 pr-5 pb-1.25;
+    @apply pl-12.5 sm-boxtree:pl-0;
+
+    counter-increment: cyber-step-counter;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-step:last-child {
+    @apply min-w-0 pr-0;
+    @apply pl-12.5 sm-boxtree:pl-0;
+  }
+
+  /* The Number Circle */
+  .cyber-step::before {
+    content: counter(cyber-step-counter);
+    @apply absolute flex items-center justify-center w-10 h-10 rounded-full font-bold text-[20px] left-0;
+    @apply -bottom-2 sm-boxtree:-bottom-10;
+    @apply bg-cyber-purple text-cyber-yellow;
+  }
+
+  .cyber-step::after {
+    @apply hidden sm-boxtree:block absolute h-0.5 bg-cyber-purple;
+    @apply -bottom-5 left-10;
+    width: calc(100% - 40px);
+    content: "";
+  }
+
+  /* Remove line from last item */
+  .cyber-step:last-of-type::after {
+    @apply hidden;
+  }
+
+  /* Mobile line-break fix */
+  @media (max-width: 599px) {
+    .cyber-step br {
+      display: none;
+    }
+  }
+
+  .cyber-step.current {
+    @apply text-cyber-foreground;
+
+    &::before {
+      @apply bg-cyber-foreground text-cyber-background;
+    }
+
+    &::after {
+      @apply bg-cyber-foreground;
+    }
+  }
 }
 
 @utility clip-form-input {

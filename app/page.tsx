@@ -267,12 +267,12 @@ export default function Home() {
           <Step>Text extra extra large 4 </Step>
           <Step>
             Text 5<br />
-            new Stepne
+            new line
             <br />
-            new Stepne
+            new line
           </Step>
           <Step>Text large 6</Step>
-          <Step current>Text 7</Step>
+          <Step status="current">Text 7</Step>
           <Step>Text 8</Step>
           <Step>Text 9</Step>
           <Step>Text 10</Step>

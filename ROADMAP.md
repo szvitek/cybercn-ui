@@ -7,10 +7,12 @@
 - [x] import original cyberpunk-2077.css theme
 - [x] add react-hook form?
   - negative: keeping the components library agnostic
-- [ ] migrate css to tailwind/shadcn?
+- [x] migrate css to tailwind/shadcn?
 - [x] size variants for buttons?
 - [x] proper dark mode support, not just css modifiers
   - in globals.css :dark:xxx doesn't work, workaround: `.dark selector { css }`
+- [ ] bugfixes
+- [ ] storybook?
 - [x] create components:
   - [x] header
   - [x] section
