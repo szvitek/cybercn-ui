@@ -42,7 +42,7 @@ The goal is to provide a "shadcn-like" experience for high-aesthetic interfaces:
 
 This project is a modern evolution of the iconic **Cyberpunk 2077 Theme** CSS.
 
-- **Original Inspiration:** [Cyberpunk-2077-theme-css](https://github.com/gwannon/Cyberpunk-2077-theme-css) by **gwannon**.
+- **Original Inspiration:** [Cyberpunk-2077-theme-css](https://github.com/gwannon/Cyberpunk-2077-theme-css) by [@gwannon](https://github.com/gwannon).
 - **Modernization:** Refactored into a modular React ecosystem with a focus on performance and developer experience.
 
 ---
