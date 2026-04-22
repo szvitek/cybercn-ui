@@ -75,7 +75,7 @@ npm run dev
 
 - [ ] CSS Variable Refactor: Fully unify the dark/light mode palette.
 
-- [ ] Unit Tests: Ensure stability across the component tree.
+- [x] Unit Tests: Ensure stability across the component tree.
 
 - [ ] Documentation: Comprehensive guides for every component.
 
