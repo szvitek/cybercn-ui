@@ -11,7 +11,7 @@ const HeadingVariants = cva("cyber-heading", {
       h4: "text-base leading-[1.2rem] font-bold before:clip-h4-before cursor-fast-reverse",
     },
     glitched: {
-      true: "animate-h1-glitched", // Your global glitch CSS class
+      true: "",
       false: "",
     },
   },
@@ -20,25 +20,25 @@ const HeadingVariants = cva("cyber-heading", {
       tag: "h1",
       glitched: true,
       class:
-        "before:animate-h1-before-glitched infinite linear [animation-duration:calc(var(--glitched-duration-short)*1.4)]",
+        "animate-h1-glitched before:animate-h1-before-glitched",
     },
     {
       tag: "h2",
       glitched: true,
       class:
-        "before:animate-h2-before-glitched infinite linear direction-reverse [animation-duration:calc(var(--glitched-duration-short)*1.7)]",
+        "animate-h1-glitched before:animate-h2-before-glitched",
     },
     {
       tag: "h3",
       glitched: true,
       class:
-        "infinite ease-out direction-reverse [animation-duration:calc(var(--glitched-duration-short)*1.1)]",
+        "animate-h1-glitched cyber-heading-h3-h4-glitched",
     },
     {
       tag: "h4",
       glitched: true,
       class:
-        "infinite ease-in-out [animation-duration:calc(var(--glitched-duration-short)*2.1)]",
+        "animate-h1-glitched cyber-heading-h3-h4-glitched",
     },
   ],
   defaultVariants: {

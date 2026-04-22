@@ -97,7 +97,10 @@
     infinite;
   --animate-scanned-a: var(--glitched-duration-short) scanned-a linear infinite
     alternate;
-  --animate-h1-glitched: h1-glitched;
+  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4) linear infinite;
+  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7) linear infinite reverse;
+  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1) ease-out infinite reverse;
+  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1) ease-in-out infinite;
   --animate-h1-before-glitched: calc(var(--glitched-duration-short) * 2)
     h1-before-glitched linear infinite;
   --animate-h2-before-glitched: calc(var(--glitched-duration-short) * 2)
@@ -754,7 +757,7 @@
   --cyber-background: var(--cyber-yellow);
   --cyber-foreground: var(--cyber-black);
 
-  --glitched-duration-short: 0.9s;
+  --glitched-duration-short: 1s;
   --glitched-duration-long: 3s;
 }
 
@@ -1016,6 +1019,11 @@
       content: "_";
       animation: hx-after var(--glitched-duration-short) linear infinite;
     }
+  }
+
+  .cyber-heading-h3-h4-glitched::after {
+    animation-direction: reverse;
+    animation-duration: calc(var(--glitched-duration-short) / 2);
   }
 
   .cursor-fast-reverse::after {
