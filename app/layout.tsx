@@ -3,6 +3,7 @@ import { Inter, Advent_Pro, VT323 } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const vt323 = VT323({
@@ -47,7 +48,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <RootProvider>{children}</RootProvider>
         </ThemeProvider>
       </body>
     </html>

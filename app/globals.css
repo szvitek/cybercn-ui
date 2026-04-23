@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "./clip-paths.css";
 @import "./cyberpunk-utilities.css";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
 
 @font-face {
   font-family: "Hacked";
@@ -97,10 +99,14 @@
     infinite;
   --animate-scanned-a: var(--glitched-duration-short) scanned-a linear infinite
     alternate;
-  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4) linear infinite;
-  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7) linear infinite reverse;
-  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1) ease-out infinite reverse;
-  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1) ease-in-out infinite;
+  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4)
+    linear infinite;
+  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7)
+    linear infinite reverse;
+  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1)
+    ease-out infinite reverse;
+  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1)
+    ease-in-out infinite;
   --animate-h1-before-glitched: calc(var(--glitched-duration-short) * 2)
     h1-before-glitched linear infinite;
   --animate-h2-before-glitched: calc(var(--glitched-duration-short) * 2)
