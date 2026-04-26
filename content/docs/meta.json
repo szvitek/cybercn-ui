@@ -1,0 +1,6 @@
+{
+  "title": "CyberCN UI",
+  "root": true,
+  "defaultOpen": true,
+  "pages": ["index", "getting-started", "components"]
+}

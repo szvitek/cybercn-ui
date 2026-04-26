@@ -1,0 +1,87 @@
+---
+title: Theming
+description: Dark-mode setup and theme switching patterns used by CyberCN UI.
+---
+
+# Theming
+
+CyberCN UI uses `next-themes` for theme orchestration. The library does not expose a dedicated CyberCN theme hook anymore; the public pattern is the shared `ThemeProvider` at the app root plus UI controls like `ModeToggle`.
+
+## Theme provider
+
+```tsx
+import { ThemeProvider } from "@/components/theme-provider";
+```
+
+```tsx
+import { ThemeProvider } from "@/components/theme-provider";
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+## Theme toggle
+
+```tsx
+"use client";
+
+import { ModeToggle } from "@/components/mode-toggle";
+
+export function HeaderThemeControl() {
+  return <ModeToggle />;
+}
+```
+
+<Preview className="flex justify-end">
+  <ModeToggle />
+</Preview>
+
+`ModeToggle` uses `useTheme` from `next-themes` internally and lets the user switch between `light`, `dark`, and `system`.
+
+## Current behavior
+
+- The root layout already mounts `ThemeProvider`, so docs pages and examples inherit theme support automatically.
+- Theme changes are applied through the `class` attribute strategy, which keeps styling aligned with Tailwind's dark-mode conventions.
+- The footer and several color tokens already adapt across light and dark themes without extra component-level logic.
+
+## When to use `useTheme`
+
+If you need to build a custom theme-aware control, import `useTheme` directly from `next-themes` inside a client component rather than relying on a CyberCN-specific wrapper.
+
+```tsx
+"use client";
+
+import { useTheme } from "next-themes";
+
+export function ThemeStatus() {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  return (
+    <button onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
+      Active theme: {resolvedTheme}
+    </button>
+  );
+}
+```
+
+## Related files
+
+- `components/theme-provider.tsx`
+- `components/mode-toggle.tsx`
+- `app/layout.tsx`

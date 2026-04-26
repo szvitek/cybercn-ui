@@ -1,0 +1,177 @@
+---
+title: Typography and Media
+description: Headings, paragraphs, lists, dividers, links, and images for the core CyberCN reading experience.
+---
+
+# Typography and Media
+
+These primitives carry most of the CyberCN visual language. They are best used together inside `Section` blocks to create dense editorial layouts, terminal-like panels, and themed content pages.
+
+## Heading
+
+```tsx
+import { Heading } from "@/components/ui/cybercn/heading";
+```
+
+```tsx
+<Heading Tag="h1" glitched>
+  Threat Assessment
+</Heading>
+```
+
+<Preview className="space-y-4">
+  <Heading Tag="h1" glitched>{"Threat Assessment"}</Heading>
+  <Heading Tag="h2">Sector Report</Heading>
+  <Heading Tag="h3" glitched>{"Active Signal"}</Heading>
+  <Heading Tag="h4">Terminal Note</Heading>
+</Preview>
+
+| Prop        | Type                           | Default  | Notes                                                            |
+| ----------- | ------------------------------ | -------- | ---------------------------------------------------------------- |
+| `Tag`       | `"h1" \| "h2" \| "h3" \| "h4"` | required | Determines the semantic heading level and matched style variant. |
+| `glitched`  | `boolean`                      | `false`  | Enables the animated glitch treatment.                           |
+| `className` | `string`                       | -        | Extends the generated heading classes.                           |
+
+Use `Tag` instead of a separate `as` prop because the style system keys off the heading level directly.
+
+## Paragraph
+
+```tsx
+import { Paragraph } from "@/components/ui/cybercn/paragraph";
+```
+
+```tsx
+<Paragraph inverse dotted scanned="horizontal">
+  Archive fragments remain readable despite signal corruption.
+</Paragraph>
+```
+
+<Preview className="space-y-4">
+  <Paragraph>{"Standard body copy for longer descriptive passages and inline links."}</Paragraph>
+  <Paragraph inverse dotted scanned="horizontal">
+    {"Archive fragments remain readable despite signal corruption."}
+  </Paragraph>
+</Preview>
+
+| Prop        | Type                                  | Default | Notes                                      |
+| ----------- | ------------------------------------- | ------- | ------------------------------------------ |
+| `inverse`   | `boolean`                             | `false` | Inverts the panel treatment.               |
+| `dotted`    | `boolean`                             | `false` | Adds the dotted texture overlay.           |
+| `scanned`   | `false \| "horizontal" \| "vertical"` | `false` | Applies animated scanline effects.         |
+| `className` | `string`                              | -       | Adds extra layout or typography utilities. |
+
+## List and List.Item
+
+```tsx
+import { List } from "@/components/ui/cybercn/list";
+```
+
+```tsx
+<List variant="ol">
+  <List.Item>Authenticate user shard</List.Item>
+  <List.Item glitched>Route encrypted payload</List.Item>
+  <List.Item>Write audit trail</List.Item>
+</List>
+```
+
+<Preview>
+  <List variant="ol">
+    <List.Item>Authenticate user shard</List.Item>
+    <List.Item glitched>Route encrypted payload</List.Item>
+    <List.Item>Write audit trail</List.Item>
+  </List>
+</Preview>
+
+### `List` props
+
+| Prop              | Type                                                         | Default                 | Notes                                                   |
+| ----------------- | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------- |
+| `variant`         | `"ul" \| "ol"`                                               | `"ul"`                  | Applies unordered or ordered list styling.              |
+| `tag`             | `"ul" \| "ol"`                                               | inferred from `variant` | Override the rendered tag if needed.                    |
+| native list props | `React.HTMLAttributes<HTMLOListElement \| HTMLUListElement>` | -                       | Supports `id`, `role`, `className`, and event handlers. |
+
+### `List.Item` props
+
+| Prop              | Type                                    | Default | Notes                             |
+| ----------------- | --------------------------------------- | ------- | --------------------------------- |
+| `glitched`        | `boolean`                               | `false` | Adds the animated item treatment. |
+| native `li` props | `React.LiHTMLAttributes<HTMLLIElement>` | -       | Standard list item attributes.    |
+
+## Hr
+
+```tsx
+import { Hr } from "@/components/ui/cybercn/hr";
+```
+
+```tsx
+<Hr glitched />
+```
+
+<Preview className="space-y-6">
+  <Hr />
+  <Hr glitched />
+</Preview>
+
+| Prop        | Type      | Default | Notes                            |
+| ----------- | --------- | ------- | -------------------------------- |
+| `glitched`  | `boolean` | `false` | Enables the animated divider.    |
+| `className` | `string`  | -       | Adds spacing or color overrides. |
+
+## Link
+
+```tsx
+import { Link } from "@/components/ui/cybercn/link";
+```
+
+```tsx
+<Link href="/docs/components/forms" variant="green">
+  Inspect form controls
+</Link>
+```
+
+<Preview>
+  <Link href="/docs/components/forms" variant="green">
+    Inspect form controls
+  </Link>
+</Preview>
+
+| Prop               | Type                                        | Default | Notes                                                                |
+| ------------------ | ------------------------------------------- | ------- | -------------------------------------------------------------------- |
+| `variant`          | `"red" \| "green" \| "purple" \| "blue"`    | `"red"` | Sets the CyberCN link accent.                                        |
+| `asChild`          | `boolean`                                   | `false` | Uses `Slot.Root` for composition.                                    |
+| Next.js link props | `ComponentPropsWithoutRef<typeof NextLink>` | -       | Accepts `href`, `prefetch`, `replace`, and related navigation props. |
+
+This is a wrapper around `next/link`, so it keeps normal App Router navigation behavior.
+
+## Image
+
+```tsx
+import { Image } from "@/components/ui/cybercn/image";
+```
+
+```tsx
+<Image
+  src="/preview_light.png"
+  alt="CyberCN light mode preview"
+  width={1200}
+  height={675}
+  dotted
+/>
+```
+
+<Preview className="max-w-3xl">
+  <Image
+    src="/preview_light.png"
+    alt="CyberCN light mode preview"
+    width={1200}
+    height={675}
+    dotted
+  />
+</Preview>
+
+| Prop             | Type                                         | Default | Notes                                              |
+| ---------------- | -------------------------------------------- | ------- | -------------------------------------------------- |
+| `dotted`         | `boolean`                                    | `false` | Adds the dotted surface treatment.                 |
+| Next image props | `ComponentPropsWithoutRef<typeof NextImage>` | -       | Requires the usual `src`, `alt`, and sizing props. |
+
+Because this wraps `next/image`, remote images still need to follow your Next.js image configuration rules.

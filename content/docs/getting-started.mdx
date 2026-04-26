@@ -1,0 +1,87 @@
+---
+title: Getting Started
+description: Install, import, and structure CyberCN UI inside a Next.js app.
+---
+
+# Getting Started
+
+CyberCN UI is a Next.js-first component library for retro-futurist interfaces. The library layers cyberpunk presentation on top of typed React components, Tailwind utilities, and CVA-driven variants.
+
+## What is already wired in this project
+
+This repository already includes the core runtime pieces:
+
+- Global styles are loaded from `app/globals.css`.
+- Fumadocs is mounted under `/docs`.
+- Theme switching is powered by `next-themes`.
+- Component styling tokens are exposed through the CyberCN utility classes and CSS variables.
+
+## Install dependencies
+
+If you are using this library outside this repository, install the peer stack that the components expect:
+
+```bash
+npm install next react react-dom class-variance-authority clsx tailwind-merge next-themes radix-ui lucide-react
+```
+
+## Base import pattern
+
+Most primitives live under `components/ui/cybercn`.
+
+```tsx
+import { Button } from "@/components/ui/cybercn/button";
+import { Heading } from "@/components/ui/cybercn/heading";
+import { Paragraph } from "@/components/ui/cybercn/paragraph";
+import { Section } from "@/components/ui/cybercn/section";
+```
+
+Form elements can be imported from the barrel:
+
+```tsx
+import {
+  CyberForm,
+  CyberFieldset,
+  CyberInput,
+  CyberSelect,
+  CyberSelection,
+  CyberTextarea,
+} from "@/components/ui/cybercn/form";
+```
+
+## Minimal page example
+
+```tsx
+import { Button } from "@/components/ui/cybercn/button";
+import { Heading } from "@/components/ui/cybercn/heading";
+import { Paragraph } from "@/components/ui/cybercn/paragraph";
+import { Section } from "@/components/ui/cybercn/section";
+
+export default function ExamplePage() {
+  return (
+    <Section withSide className="space-y-6">
+      <Heading Tag="h1" glitched>
+        Night City Control Panel
+      </Heading>
+      <Paragraph inverse dotted>
+        Industrial-grade UI primitives with neon edges and strong composition.
+      </Paragraph>
+      <Button glitchLabel="SYS-01">Initialize Sequence</Button>
+    </Section>
+  );
+}
+```
+
+## Styling notes
+
+- `Button`, `Heading`, `Paragraph`, `List`, `Hr`, `Image`, and several layout components rely on CyberCN-specific class names such as `cyber-button`, `cyber-heading`, and `cyber-section`.
+- Those classes are already available in this repo through the global stylesheet imports in `app/globals.css`.
+- Theme switching is handled through `next-themes` and the shared app-level provider.
+
+## Documentation map
+
+- [Button](./components/button.mdx)
+- [Typography and Media](./components/typography-and-media.mdx)
+- [Layout and Navigation](./components/layout-and-navigation.mdx)
+- [Forms](./components/forms.mdx)
+- [BoxTree](./components/boxtree.mdx)
+- [Theming](./components/theming.mdx)

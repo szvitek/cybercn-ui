@@ -1,0 +1,151 @@
+---
+title: Layout and Navigation
+description: Structural primitives for sections, shells, timelines, side rails, and chrome around CyberCN content.
+---
+
+# Layout and Navigation
+
+These components shape the page before the content primitives take over. They are lightweight wrappers, but they encode the recurring shell patterns used across the project.
+
+## Section
+
+```tsx
+import { Section } from "@/components/ui/cybercn/section";
+```
+
+```tsx
+<Section withSide className="space-y-6">
+  <Heading Tag="h2">Zone Overview</Heading>
+  <Paragraph>Every docs section can carry the framed side treatment.</Paragraph>
+</Section>
+```
+
+<Preview>
+  <Section withSide className="space-y-4">
+    <Heading Tag="h2">{"Zone Overview"}</Heading>
+    <Paragraph>{"Every docs section can carry the framed side treatment."}</Paragraph>
+  </Section>
+</Preview>
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `withSide` | `boolean` | `false` | Adds the bilateral frame style. |
+| `className` | `string` | - | Extends layout utilities. |
+| native section props | `React.HTMLAttributes<HTMLElement>` | - | Standard DOM section attributes. |
+
+## Header
+
+```tsx
+import { Header } from "@/components/ui/cybercn/header";
+```
+
+`Header` is a sticky top-level shell with backdrop blur and border styling.
+
+<Preview>
+  <Header className="static top-auto flex items-center justify-between px-4 py-3">
+    <Heading Tag="h4">{"CYBERCN"}</Heading>
+    <Link href="/docs" variant="blue">
+      Docs
+    </Link>
+  </Header>
+</Preview>
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Use for flex layout, height, padding, and responsive alignment. |
+| `children` | `React.ReactNode` | required | Render your brand, nav, toggles, and external links. |
+
+## Footer
+
+```tsx
+import { Footer } from "@/components/ui/cybercn/footer";
+```
+
+`Footer` provides a simple high-contrast closing band that flips foreground and background values across light and dark themes.
+
+<Preview>
+  <Footer className="px-4 py-3 text-sm">{"Transmission archived."}</Footer>
+</Preview>
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Commonly used for padding and centering. |
+| `children` | `React.ReactNode` | required | Usually copyright text, utility links, or status notes. |
+
+## Aside and Aside.Item
+
+```tsx
+import { Aside } from "@/components/ui/cybercn/aside";
+import { Skull } from "lucide-react";
+```
+
+```tsx
+<Aside>
+  <Aside.Item href="#danger-zone" icon={Skull}>
+    Danger Zone
+  </Aside.Item>
+</Aside>
+```
+
+<Preview>
+  <Aside>
+    <Aside.Item href="#danger-zone">{"Danger Zone"}</Aside.Item>
+    <Aside.Item href="#contact">{"Contact Relay"}</Aside.Item>
+  </Aside>
+</Preview>
+
+### `Aside` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `children` | `React.ReactNode` | required | Should usually be `Aside.Item` nodes. |
+
+### `Aside.Item` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `href` | `string` | required | Rendered on a native anchor element. |
+| `icon` | `LucideIcon` | - | Optional icon shown before the label. |
+| `className` | `string` | - | Applied to the list item wrapper. |
+| `children` | `React.ReactNode` | required | The visible label. |
+
+`Aside.Item` currently uses a plain `<a>` rather than `next/link`, which makes it a good fit for in-page anchors, contact rails, and external URLs.
+
+## Steps and Step
+
+```tsx
+import { Step, Steps } from "@/components/ui/cybercn/steps";
+```
+
+```tsx
+<Steps>
+  <Step>Intake</Step>
+  <Step>Validation</Step>
+  <Step status="current">Deployment</Step>
+  <Step>Archive</Step>
+</Steps>
+```
+
+<Preview>
+  <Steps>
+    <Step>{"Intake"}</Step>
+    <Step>{"Validation"}</Step>
+    <Step status="current">{"Deployment"}</Step>
+    <Step>{"Archive"}</Step>
+  </Steps>
+</Preview>
+
+### `Steps` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Useful when the timeline needs width or spacing overrides. |
+| native `ul` props | `React.HTMLAttributes<HTMLUListElement>` | - | Supports IDs, roles, and event handlers. |
+
+### `Step` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `status` | `"default" \| "current"` | `"default"` | Highlights the active step. |
+| `className` | `string` | - | Extend individual markers or labels. |
+| `children` | `React.ReactNode` | required | The step label content. |

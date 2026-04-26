@@ -1,0 +1,93 @@
+---
+title: Button
+description: Interactive action primitive with CyberCN variants, cut-corner sizing, and optional slot composition.
+---
+
+# Button
+
+`Button` is the main action primitive for CyberCN UI. It supports color variants, size presets, a glitch label overlay, and `asChild` composition for links or custom interactive wrappers.
+
+## Import
+
+```tsx
+import { Button } from "@/components/ui/cybercn/button";
+```
+
+## Example
+
+```tsx
+import { Skull } from "lucide-react";
+import { Button } from "@/components/ui/cybercn/button";
+import { Link } from "@/components/ui/cybercn/link";
+
+export function Actions() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="red">Deploy Payload</Button>
+      <Button variant="green" size="sm">
+        Confirm Route
+      </Button>
+      <Button variant="blue" size="icon" aria-label="danger zone">
+        <Skull className="size-4" />
+      </Button>
+      <Button asChild variant="purple" glitchLabel="NAV-9">
+        <Link href="/docs">Open Docs</Link>
+      </Button>
+    </div>
+  );
+}
+```
+
+<Preview className="flex flex-wrap items-center gap-4">
+  <Button variant="red">Deploy Payload</Button>
+  <Button variant="green" size="sm">{"Confirm Route"}</Button>
+  <Button variant="blue" size="icon" aria-label="danger zone">{"X"}</Button>
+  <Button asChild variant="purple" glitchLabel="NAV-9">
+    <Link href="/docs">Open Docs</Link>
+  </Button>
+</Preview>
+
+## Props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `variant` | `"red" \| "green" \| "blue" \| "purple"` | `"red"` | Controls the button color class. |
+| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"default"` | Applies spacing and cut-corner geometry. |
+| `glitchLabel` | `string` | `"R-25"` | Written to `data-text` for the glitch overlay treatment. |
+| `asChild` | `boolean` | `false` | Renders `Slot.Root` instead of a native `button`. |
+| native button props | `React.ButtonHTMLAttributes<HTMLButtonElement>` | - | Includes `type`, `disabled`, `onClick`, `aria-*`, and more. |
+
+## Usage guidance
+
+- Use `asChild` when a semantic link should look like a CyberCN button.
+- Use `size="icon"` for compact affordances and pass an accessible label.
+- The component forwards arbitrary HTML button attributes and custom classes.
+- Disabled state is styled through `disabled:pointer-events-none` and `disabled:opacity-50`.
+
+## Patterns
+
+### Submit button
+
+```tsx
+<Button type="submit" className="w-full">
+  Initialize Handshake
+</Button>
+```
+
+<Preview>
+  <Button type="submit" className="w-full">{"Initialize Handshake"}</Button>
+</Preview>
+
+### Link button
+
+```tsx
+<Button asChild variant="purple">
+  <Link href="/example">Launch Showcase</Link>
+</Button>
+```
+
+<Preview>
+  <Button asChild variant="purple">
+    <Link href="/example">Launch Showcase</Link>
+  </Button>
+</Preview>

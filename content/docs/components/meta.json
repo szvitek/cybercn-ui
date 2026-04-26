@@ -1,0 +1,12 @@
+{
+  "title": "Components",
+  "defaultOpen": true,
+  "pages": [
+    "button",
+    "typography-and-media",
+    "layout-and-navigation",
+    "forms",
+    "boxtree",
+    "theming"
+  ]
+}
