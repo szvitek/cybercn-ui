@@ -5,5 +5,8 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: "CyberCN UI",
     },
+    themeSwitch: {
+      enabled: false,
+    },
   };
 }
