@@ -906,8 +906,21 @@
   }
 
   @media (min-width: 768px) {
-    #nd-docs-layout [data-sidebar-placeholder] {
+    /* 1. Target the layout wrapper to force the CSS variable */
+    #nd-docs-layout {
       --fd-sidebar-width: 236px !important;
+    }
+
+    /* 2. Target the actual sidebar element to ensure it respects the variable */
+    #nd-docs-layout [data-sidebar] {
+      width: var(--fd-sidebar-width) !important;
+      max-width: var(--fd-sidebar-width) !important;
+    }
+
+    /* 3. Ensure the placeholder (the empty space in the grid) matches */
+    #nd-docs-layout [data-sidebar-placeholder] {
+      min-width: var(--fd-sidebar-width) !important;
+      width: var(--fd-sidebar-width) !important;
     }
   }
 
