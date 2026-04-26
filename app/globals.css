@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "./clip-paths.css";
 @import "./cyberpunk-utilities.css";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
 
 @font-face {
   font-family: "Hacked";
@@ -61,6 +63,10 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  --color-fd-primary: var(--primary);
+  --color-fd-background: var(--background);
+  --color-fd-foreground: var(--foreground);
+
   /* Cyber theme */
   --color-cyber-yellow: var(--cyber-yellow);
   --color-cyber-yellow-opacity: var(--cyber-yellow-opacity);
@@ -79,9 +85,6 @@
   --font-advent-pro: var(--font-advent-pro);
   --font-hacked: "Hacked", sans-serif;
 
-  --color-cyber-background: var(--cyber-background);
-  --color-cyber-foreground: var(--cyber-foreground);
-
   --animate-glitch-hr: var(--glitched-duration-long) glitch-hr linear infinite;
   --animate-button-hover: button-hover var(--glitched-duration-short) linear
     infinite;
@@ -97,10 +100,14 @@
     infinite;
   --animate-scanned-a: var(--glitched-duration-short) scanned-a linear infinite
     alternate;
-  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4) linear infinite;
-  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7) linear infinite reverse;
-  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1) ease-out infinite reverse;
-  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1) ease-in-out infinite;
+  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4)
+    linear infinite;
+  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7)
+    linear infinite reverse;
+  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1)
+    ease-out infinite reverse;
+  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1)
+    ease-in-out infinite;
   --animate-h1-before-glitched: calc(var(--glitched-duration-short) * 2)
     h1-before-glitched linear infinite;
   --animate-h2-before-glitched: calc(var(--glitched-duration-short) * 2)
@@ -710,97 +717,131 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* --- SHADCN CORE OVERRIDES --- */
+  --radius: 0rem; /* Sharp corners for everything */
 
+  /* Light Mode: Industrial "High Contrast" */
+  --background: oklch(0.932 0.1995 106.93); /* Bright Cyber Yellow background */
+  --foreground: oklch(10% 0 0); /* Deep Black text */
+
+  --primary: oklch(10% 0 0); /* Black buttons/accents */
+  --primary-foreground: oklch(0.932 0.1995 106.93);
+
+  --secondary: oklch(90% 0 0);
+  --secondary-foreground: oklch(10% 0 0);
+
+  --muted: oklch(90% 0 0 / 0.5);
+  --muted-foreground: oklch(30% 0 0);
+
+  --accent: oklch(55% 0.25 20); /* Cyber Red for highlights */
+  --accent-foreground: oklch(98% 0 0);
+
+  --border: oklch(10% 0 0 / 0.15);
+  --input: oklch(10% 0 0 / 0.1);
+  --ring: var(--primary);
+
+  /* --- CYBER VARIABLE SYNC --- */
   --cyber-yellow: #f9f002;
-  --cyber-yellow-opacity: #f9f00242; /* yellow + 25% opacity */
+  --cyber-yellow-opacity: #f9f00242;
   --cyber-orange: #ff9800;
   --cyber-border: #8ae66e;
   --cyber-red: #ff003c;
   --cyber-blue: #0c5f74;
   --cyber-green: #298d29;
-  --cyber-purple: purple;
+  --cyber-purple: #800080;
   --cyber-neon: #39ff14;
   --cyber-black: #000;
-
-  --cyber-background: var(--cyber-yellow);
-  --cyber-foreground: var(--cyber-black);
-
   --glitched-duration-short: 1s;
   --glitched-duration-long: 3s;
+
+  /* --- FUMADOCS SPECIFIC OVERRIDES --- */
+  /* Use your actual background variable instead of white for mixing */
+  --fd-background: var(--background);
+  --fd-foreground: var(--foreground);
+
+  /* Border: High contrast black/dark, no white mix */
+  --color-fd-border: var(--cyber-border);
+
+  /* Accent: Instead of white, use a slightly darker yellow-tint for hover states */
+  /* This creates a "depth" effect on the yellow without becoming pastel */
+  --color-fd-accent: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    var(--background)
+  );
+  --color-fd-accent-foreground: var(--foreground);
+
+  /* Muted: Use a very subtle dark-on-yellow blend */
+  --color-fd-muted: color-mix(
+    in oklab,
+    var(--foreground) 5%,
+    var(--background)
+  );
+  --color-fd-muted-foreground: color-mix(
+    in oklab,
+    var(--foreground) 60%,
+    var(--background)
+  );
+
+  /* Code Blocks & Cards: Make them pop with a slight "shadow" yellow */
+  --color-fd-card: color-mix(in oklab, var(--foreground) 3%, var(--background));
+  --color-fd-popover: var(--background);
+
+  /* Syntax/Primary Highlights */
+  --color-fd-primary: var(--cyber-red);
+  --color-fd-primary-foreground: var(
+    --background
+  ); /* Red button with yellow text */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dark Mode: The "Neon Protocol" */
+  --background: oklch(8% 0 0); /* Deep Void Black */
+  --foreground: oklch(0.932 0.1995 106.93); /* Cyber Yellow Text */
 
-  --cyber-background: var(--cyber-black);
-  --cyber-foreground: var(--cyber-yellow);
+  --card: oklch(12% 0 0);
+  --card-foreground: oklch(0.932 0.1995 106.93);
+
+  --primary: oklch(0.932 0.1995 106.93); /* Yellow is the primary action */
+  --primary-foreground: oklch(8% 0 0);
+
+  --secondary: oklch(20% 0 0);
+  --secondary-foreground: oklch(0.932 0.1995 106.93);
+
+  --muted: oklch(20% 0 0);
+  --muted-foreground: oklch(70% 0 0);
+
+  --accent: oklch(60% 0.25 250); /* Cyber Blue for Dark Mode accents */
+  --accent-foreground: oklch(98% 0 0);
+
+  --border: oklch(98% 0.18 95 / 0.2); /* Low opacity yellow borders */
+  --ring: var(--primary);
+
+  --color-fd-background: var(--background);
+  --color-fd-foreground: var(--foreground);
+  --color-fd-primary: var(--cyber-yellow);
+  --color-fd-primary-foreground: var(--cyber-black);
+  --color-fd-border: color-mix(in oklab, var(--cyber-yellow) 24%, transparent);
+  --color-fd-ring: var(--cyber-red);
+  --color-fd-accent: color-mix(in oklab, var(--cyber-blue) 28%, black 72%);
+  --color-fd-accent-foreground: var(--cyber-yellow);
+  --color-fd-muted: color-mix(in oklab, var(--cyber-blue) 18%, black 82%);
+  --color-fd-muted-foreground: color-mix(
+    in oklab,
+    var(--cyber-yellow) 72%,
+    white 28%
+  );
+  --color-fd-secondary: color-mix(in oklab, var(--cyber-red) 18%, black 82%);
+  --color-fd-secondary-foreground: var(--cyber-yellow);
+  --color-fd-card: color-mix(in oklab, var(--cyber-blue) 14%, black 86%);
+  --color-fd-card-foreground: var(--cyber-yellow);
+  --color-fd-popover: color-mix(in oklab, var(--cyber-blue) 10%, black 90%);
+  --color-fd-popover-foreground: var(--cyber-yellow);
 }
 
 @layer base {
   body {
-    @apply font-advent-pro bg-cyber-background text-cyber-foreground p-0 m-0 text-xl;
+    @apply font-advent-pro bg-background text-foreground p-0 m-0 text-xl;
   }
 
   a {
@@ -854,18 +895,178 @@
       scroll-behavior: auto !important;
     }
   }
+
+  .fd-sidebar,
+  .fd-nav,
+  header,
+  aside {
+    background-color: var(--background) !important;
+    backdrop-filter: none !important;
+    border-color: var(--border) !important;
+  }
+
+  @media (min-width: 768px) {
+    /* 1. Target the layout wrapper to force the CSS variable */
+    #nd-docs-layout {
+      --fd-sidebar-width: 236px !important;
+    }
+
+    /* 2. Target the actual sidebar element to ensure it respects the variable */
+    #nd-docs-layout [data-sidebar] {
+      width: var(--fd-sidebar-width) !important;
+      max-width: var(--fd-sidebar-width) !important;
+    }
+
+    /* 3. Ensure the placeholder (the empty space in the grid) matches */
+    #nd-docs-layout [data-sidebar-placeholder] {
+      min-width: var(--fd-sidebar-width) !important;
+      width: var(--fd-sidebar-width) !important;
+    }
+  }
+
+  /* Ensures the active page in the sidebar doesn't stay gray */
+  .fd-sidebar-item-active {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  kbd {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border-radius: 0px !important; /* Keep it 8-bit/Cyber */
+    border: none !important;
+  }
+
+  #nd-page
+    .prose
+    :where(code):not(
+      :where(pre code, [class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    background: color-mix(in oklab, var(--color-fd-primary) 12%, transparent);
+    color: var(--color-fd-primary);
+    border: 1px solid var(--color-fd-border);
+    border-radius: 0;
+    padding-inline: 0.45rem;
+    padding-block: 0.1rem;
+    box-shadow: inset 0 -1px 0
+      color-mix(in oklab, var(--color-fd-primary) 30%, transparent);
+  }
+
+  #nd-page
+    .prose
+    :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-fd-primary);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-fd-card) 92%, var(--color-fd-primary) 8%),
+      var(--color-fd-card)
+    ) !important;
+    border-color: var(--color-fd-border) !important;
+    border-radius: 0 !important;
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-fd-border) 70%, transparent),
+      0 0 18px color-mix(in oklab, var(--color-fd-primary) 10%, transparent);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) [aria-label="Copy Text"] {
+    background: color-mix(in oklab, var(--color-fd-accent) 72%, transparent);
+    border: 1px solid var(--color-fd-border);
+    border-radius: 0;
+    color: var(--color-fd-primary);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) [aria-label="Copy Text"]:hover {
+    background: var(--color-fd-primary);
+    color: var(--color-fd-primary-foreground);
+  }
+
+  .fd-sidebar button[data-search-full],
+  .fd-sidebar [data-theme-toggle],
+  #nd-sidebar button[data-search-full],
+  #nd-sidebar [data-theme-toggle],
+  #nd-page kbd,
+  [data-sidebar-panel] {
+    border-color: var(--color-fd-border) !important;
+    border-radius: 0 !important;
+  }
+
+  #nd-sidebar button[data-search-full],
+  #nd-sidebar [data-theme-toggle],
+  [data-sidebar-panel] {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-fd-card) 92%, var(--color-fd-primary) 8%),
+      var(--color-fd-card)
+    ) !important;
+    box-shadow: none !important;
+  }
+
+  #nd-sidebar button[data-search-full]:hover,
+  #nd-sidebar [data-theme-toggle]:hover {
+    background: var(--color-fd-accent) !important;
+  }
+
+  #nd-sidebar button[data-search-full] kbd {
+    background: var(--color-fd-background) !important;
+    color: var(--color-fd-primary) !important;
+    border: 1px solid var(--color-fd-border) !important;
+    box-shadow: none !important;
+  }
+
+  #nd-sidebar [data-theme-toggle] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 2.5rem !important;
+    min-width: 2.5rem !important;
+    padding: 0.25rem !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #nd-sidebar [data-theme-toggle] button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 2rem !important;
+    min-width: 2rem !important;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-fd-card) 92%, var(--color-fd-primary) 8%),
+      var(--color-fd-card)
+    ) !important;
+    border-color: var(--color-fd-border) !important;
+    color: var(--color-fd-primary) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #nd-sidebar [data-theme-toggle] button:hover,
+  #nd-sidebar [data-theme-toggle] button[data-state="on"] {
+    background: var(--color-fd-accent) !important;
+  }
+
+  #nd-sidebar [data-theme-toggle] svg {
+    background: transparent !important;
+    color: var(--color-fd-primary) !important;
+    opacity: 1 !important;
+  }
 }
 
 @layer components {
   /* FORM AND INPUTS */
   .cyber-input {
-    @apply w-full border-cyber-foreground border-l-cyber-foreground border-r-cyber-foreground border-b-cyber-foreground text-[1.7rem] font-bold mb-2.5 p-3 border-b-15 border-x-[5px] border-30 border-solid;
+    @apply w-full border-foreground border-l-foreground border-r-foreground border-b-foreground text-[1.7rem] font-bold mb-2.5 p-3 border-b-15 border-x-[5px] border-30 border-solid;
     @apply clip-form-input;
     @apply bg-white dark:bg-cyber-black;
-    @apply text-cyber-foreground;
+    @apply text-foreground;
 
     option {
-      @apply bg-cyber-foreground text-cyber-background;
+      @apply bg-foreground text-background;
     }
 
     &:focus {
@@ -884,10 +1085,10 @@
   }
 
   .cyber-radio {
-    @apply rounded-[15%] z-100 h-3.5 w-5 appearance-none outline-none bg-cyber-foreground cursor-pointer relative m-0 inline-block;
+    @apply rounded-[15%] z-100 h-3.5 w-5 appearance-none outline-none bg-foreground cursor-pointer relative m-0 inline-block;
 
     &::after {
-      @apply content-[""] block w-2 h-1.5 bg-cyber-background absolute top-0.5 left-0.5 transition-all duration-300;
+      @apply content-[""] block w-2 h-1.5 bg-background absolute top-0.5 left-0.5 transition-all duration-300;
     }
 
     &:checked::after {
@@ -900,18 +1101,18 @@
   }
 
   .cyber-checkbox {
-    @apply rounded-[15%] z-100 h-5 w-5 appearance-none outline-none bg-cyber-foreground cursor-pointer relative m-0 inline-block -mb-0.75;
+    @apply rounded-[15%] z-100 h-5 w-5 appearance-none outline-none bg-foreground cursor-pointer relative m-0 inline-block -mb-0.75;
 
     &::before {
-      @apply content-[""] block w-3 h-3 border-2 border-cyber-background border-t-transparent rounded-full absolute top-1.25 left-1 transition-all duration-300;
+      @apply content-[""] block w-3 h-3 border-2 border-background border-t-transparent rounded-full absolute top-1.25 left-1 transition-all duration-300;
     }
 
     &::after {
-      @apply content-[""] block w-0.5 h-1.75 bg-cyber-background absolute top-0.75 left-2.25 transition-all duration-300;
+      @apply content-[""] block w-0.5 h-1.75 bg-background absolute top-0.75 left-2.25 transition-all duration-300;
     }
 
     &:checked::before {
-      @apply border-cyber-border border-t-transparent;
+      @apply border-foreground border-t-transparent;
     }
 
     .dark &:checked::before {
@@ -932,18 +1133,18 @@
   }
 
   .cyber-hr {
-    @apply h-3.5 bg-cyber-foreground w-full border-none;
+    @apply h-3.5 bg-foreground w-full border-none;
     @apply clip-hr;
   }
 
   .cyber-image {
-    @apply clip-image p-7.5 px-1.25 pb-3.75 bg-cyber-foreground max-w-[calc(100%-10px)];
+    @apply clip-image p-7.5 px-1.25 pb-3.75 bg-foreground max-w-[calc(100%-10px)];
   }
 
   .cyber-dotted,
   .cyber-dotted::after,
   .cyber-dotted::before {
-    @apply bg-cyber-foreground bg-size-[5px_5px] bg-position-[-13px_-3px];
+    @apply bg-foreground bg-size-[5px_5px] bg-position-[-13px_-3px];
 
     background-image: radial-gradient(
       var(--cyber-yellow-opacity) 1px,
@@ -956,12 +1157,12 @@
   }
 
   .cyber-p {
-    @apply border-30 border-solid border-cyber-foreground border-x-[5px] border-b-24 p-5;
+    @apply border-30 border-solid border-foreground border-x-[5px] border-b-24 p-5;
     @apply clip-paragraph;
-    @apply bg-cyber-background text-cyber-foreground text-[1.2rem] relative;
+    @apply bg-background text-foreground text-[1.2rem] relative;
 
     &::before {
-      @apply content-["P-14"] block absolute bottom-[-12px] right-[25px] px-0.5 pt-0.5 text-[0.6rem] leading-[0.6rem] text-cyber-foreground bg-cyber-background border-l-2 border-cyber-border;
+      @apply content-["P-14"] block absolute bottom-[-12px] right-[25px] px-0.5 pt-0.5 text-[0.6rem] leading-[0.6rem] text-foreground bg-background border-l-2 border-foreground;
     }
 
     &:hover::before {
@@ -970,7 +1171,7 @@
 
     &.inverse {
       @apply border-none pt-10 px-3.75 pb-7.5;
-      @apply bg-cyber-foreground text-cyber-background border-r-3 border-cyber-border;
+      @apply bg-foreground text-background border-r-3 border-cyber-border;
 
       &::before {
         @apply content-["T-71"]  bottom-2.25 right-22.5;
@@ -987,7 +1188,7 @@
     @apply list-none relative text-[1.25rem];
 
     &::before {
-      @apply content-[""] block w-5 h-5 bg-cyber-foreground absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply content-[""] block w-5 h-5 bg-foreground absolute top-1 left-[calc(-1.2rem-10px)];
       @apply clip-ul-bullet;
     }
   }
@@ -1003,7 +1204,7 @@
 
     & > li::before {
       content: counter(cyber-counter) ".";
-      @apply block w-5 h-5 bg-cyber-foreground text-cyber-background text-center font-bold leading-5 absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply block w-5 h-5 bg-foreground text-background text-center font-bold leading-5 absolute top-1 left-[calc(-1.2rem-10px)];
       @apply clip-ol-bullet;
     }
   }
@@ -1072,15 +1273,15 @@
   }
 
   .cyber-section {
-    @apply relative bg-cyber-background text-cyber-foreground p-15 -my-px;
+    @apply relative bg-background text-foreground p-15 -my-px;
 
     &::before {
-      @apply content-[""] block absolute top-0 left-0 w-full h-7.5 bg-cyber-foreground;
+      @apply content-[""] block absolute top-0 left-0 w-full h-7.5 bg-foreground;
       @apply clip-section-top;
     }
 
     &::after {
-      @apply content-[""] block absolute bottom-0 left-0 w-full h-7.5 bg-cyber-foreground;
+      @apply content-[""] block absolute bottom-0 left-0 w-full h-7.5 bg-foreground;
       @apply clip-section-bottom;
     }
 
@@ -1232,14 +1433,14 @@
   }
 
   .cyber-step.current {
-    @apply text-cyber-foreground;
+    @apply text-foreground;
 
     &::before {
-      @apply bg-cyber-foreground text-cyber-background;
+      @apply bg-foreground text-background;
     }
 
     &::after {
-      @apply bg-cyber-foreground;
+      @apply bg-foreground;
     }
   }
 }

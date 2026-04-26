@@ -1,0 +1,85 @@
+---
+title: BoxTree
+description: Branching node layout for roadmaps, quest trees, decision diagrams, and status boards.
+---
+
+# BoxTree
+
+`BoxTree` is one of the most distinctive CyberCN components. It renders a connected visual tree of boxes that can communicate progress, dependency structure, or mission state.
+
+## Import
+
+```tsx
+import { BoxTree } from "@/components/ui/cybercn/boxtree";
+```
+
+## Example
+
+```tsx
+<BoxTree>
+  <BoxTree.Box
+    title="Ingress"
+    status="resolved"
+    width="half"
+    childrenCount={1}
+  >
+    Authentication tunnel established.
+  </BoxTree.Box>
+
+  <BoxTree.Box
+    title="Payload"
+    status="pending"
+    width="half"
+    childrenCount={2}
+  >
+    Awaiting shard approval from the remote node.
+  </BoxTree.Box>
+</BoxTree>
+```
+
+<Preview>
+  <BoxTree>
+    <BoxTree.Box
+      title="Ingress"
+      status="resolved"
+      width="half"
+      childrenCount={1}
+    >
+      Authentication tunnel established.
+    </BoxTree.Box>
+
+    <BoxTree.Box
+      title="Payload"
+      status="pending"
+      width="half"
+      childrenCount={2}
+    >
+      Awaiting shard approval from the remote node.
+    </BoxTree.Box>
+  </BoxTree>
+</Preview>
+
+## `BoxTree` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Add wrapper sizing, margins, or grid positioning. |
+| `children` | `React.ReactNode` | required | Usually one or more `BoxTree.Box` children. |
+
+## `BoxTree.Box` props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | `string` | required | Rendered as an internal `Heading` with `Tag="h2"`. |
+| `status` | `"default" \| "resolved" \| "pending"` | `"default"` | Controls state coloring and framing. |
+| `width` | `"full" \| "half" \| "quarter"` | `"full"` | Sets the width class for the node. |
+| `childrenCount` | `0 \| 1 \| 2` | `0` | Applies connector styling for tree branches. |
+| `className` | `string` | - | Extend spacing, alignment, or per-node overrides. |
+| `children` | `React.ReactNode` | optional | Freeform node content. |
+
+## Usage guidance
+
+- Use `status="resolved"` for completed branches and `status="pending"` for open work.
+- Match `childrenCount` to the visual branch count you want to show.
+- `quarter` width adds extra small-screen behavior, so it works best for dense trees or auxiliary branches.
+- For data-driven trees, map over a typed array and render `BoxTree.Box` items from configuration objects.
