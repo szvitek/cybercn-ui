@@ -71,15 +71,19 @@ npm run dev
 
 ## 🗺️ Roadmap
 
-- [ ] Storybook Integration: Isolate components for testing.
+- [ ] ~~Storybook Integration~~ — De-scoped: Superseded by Fumadocs examples.
 
-- [ ] CSS Variable Refactor: Fully unify the dark/light mode palette.
+- [x] CSS Variable Refactor: Fully unify the dark/light mode palette.
+  - Status: Core variables locked; aesthetic verified across themes.
 
 - [x] Unit Tests: Ensure stability across the component tree.
 
-- [ ] Documentation: Comprehensive guides for every component.
+- [x] Documentation: Comprehensive guides for every component.
+  - Status: Integrated with Fumadocs for seamless MDX management.
 
-- [ ] New Components
+- [ ] Shadcn Registry: Prepare project for npx distribution.
+
+- [ ] New Components: Expanding the library
 
 ## 📄 License
 
