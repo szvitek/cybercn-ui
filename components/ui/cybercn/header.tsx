@@ -7,7 +7,7 @@ export function Header({
   return (
     <header
       className={cn(
-        "bg-cyber-black dark:bg-cyber-yellow min-h-12.5 text-cyber-yellow dark:text-cyber-black",
+        "sticky top-0 z-50 w-full border-b-2 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
         className,
       )}
     >

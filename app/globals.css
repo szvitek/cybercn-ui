@@ -855,6 +855,13 @@
     background-color: var(--primary) !important;
     color: var(--primary-foreground) !important;
   }
+
+  kbd {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border-radius: 0px !important; /* Keep it 8-bit/Cyber */
+    border: none !important;
+  }
 }
 
 @layer components {

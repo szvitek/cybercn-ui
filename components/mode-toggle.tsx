@@ -17,21 +17,40 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon">
+        {/* Changed variant to outline and added cyber-specific classes */}
+        <Button
+          variant="outline"
+          size="icon"
+          className="relative rounded-none border-2 border-primary bg-transparent transition-all duration-200 group overflow-hidden hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-background"
+        >
           <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+
+      {/* Styled the dropdown to match the sharp industrial look */}
+      <DropdownMenuContent
+        align="end"
+        className="w-40 rounded-none border-2 border-primary bg-background font-hacked uppercase tracking-tighter"
+      >
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap focus:bg-primary focus:text-primary-foreground dark:focus:text-background"
+          onClick={() => setTheme("light")}
+        >
+          [ Light_Mode ]
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap focus:bg-primary focus:text-primary-foreground dark:focus:text-background"
+          onClick={() => setTheme("dark")}
+        >
+          [ Dark_Mode ]
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap focus:bg-primary focus:text-primary-foreground dark:focus:text-background"
+          onClick={() => setTheme("system")}
+        >
+          [ System_Default ]
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
