@@ -34,8 +34,10 @@ export default function LandingPage() {
         className="font-advent-pro max-w-175 text-lg md:text-xl uppercase tracking-[0.2em] opacity-90 border-l-4 border-cyber-red pl-4 italic"
       >
         Industrial grade components for the{" "}
-        <span className="text-cyber-yellow">next generation</span> of web
-        interfaces.
+        <span className="text-cyber-neon dark:text-cyber-red">
+          next generation
+        </span>{" "}
+        of web interfaces.
       </Paragraph>
 
       {/* The CTA with that existing Hacked font */}

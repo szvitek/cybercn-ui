@@ -33,49 +33,6 @@ export default function Home() {
           <Button variant="blue" glitchLabel="X-99" size="lg">
             Button blue_
           </Button>
-
-          {/*
-          <Button asChild variant="red" glitchLabel="R-25">
-            <Link href="#">Link red_</Link>
-          </Button>
-          <Button variant="green">Button green_</Button>
-          <Button asChild variant="purple" glitchLabel="R-25">
-            <Link href="#">Link purple_</Link>
-          </Button>
-          <Button variant="blue" glitchLabel="X-99">
-            Button blue_
-          </Button>
-          <Button asChild variant="red" glitchLabel="R-25" size="sm">
-            <Link href="#">Link red_</Link>
-          </Button>
-
-          <Button variant="green" size="sm">
-            Button green_
-          </Button>
-          <Button asChild variant="purple" glitchLabel="R-25" size="sm">
-            <Link href="#">Link purple_</Link>
-          </Button>
-          <Button variant="blue" glitchLabel="X-99" size="sm">
-            Button blue_
-          </Button>
-          <Button asChild variant="red" glitchLabel="R-25" size="icon">
-            <Link href="#">
-              <Skull className="size-4" />
-            </Link>
-          </Button>
-
-          <Button variant="green" size="icon">
-            <Skull className="size-4" />
-          </Button>
-          <Button asChild variant="purple" glitchLabel="R-25" size="icon">
-            <Link href="#">
-              <Skull className="size-4" />
-            </Link>
-          </Button>
-          <Button variant="blue" glitchLabel="X-99" size="icon">
-            <Skull className="size-4" />
-          </Button>
-          */}
         </div>
       </Section>
 
