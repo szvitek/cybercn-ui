@@ -81,11 +81,11 @@ npm run dev
 - [x] Documentation: Comprehensive guides for every component.
   - Status: Integrated with Fumadocs for seamless MDX management.
 
-- [ ] NPM Packaging: Set up tsup and package structure.
+- [ ] ~~NPM Packaging: Set up tsup and package structure.~~ — De-scoped: in favor of shadcn reigistry release.
 
 - [ ] Alpha Release: Publish @cybercn/ui.
 
-- [ ] Shadcn Registry: Prepare project for npx distribution.
+- [x] Shadcn Registry: Prepare project for npx distribution.
 
 - [ ] New Components: Expanding the library
 

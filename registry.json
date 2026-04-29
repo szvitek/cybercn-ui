@@ -1,0 +1,183 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cybercn",
+  "homepage": "https://cybercn-ui.vercel.app",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "items": [
+    {
+      "name": "cyber-button",
+      "type": "registry:ui",
+      "title": "Cyber Button",
+      "description": "Cyberpunk-styled button with color and size variants.",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-header",
+      "type": "registry:ui",
+      "title": "Cyber Header",
+      "description": "Sticky application header container.",
+      "files": [
+        {
+          "path": "components/ui/cybercn/header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-heading",
+      "type": "registry:ui",
+      "title": "Cyber Heading",
+      "description": "Typography heading component with glitch variants.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/heading.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-link",
+      "type": "registry:ui",
+      "title": "Cyber Link",
+      "description": "Styled link component for Next.js projects.",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/link.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-steps",
+      "type": "registry:ui",
+      "title": "Cyber Steps",
+      "description": "Step list and step item components.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/steps.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-boxtree",
+      "type": "registry:ui",
+      "title": "Cyber BoxTree",
+      "description": "Hierarchical box layout with status and width variants.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cyber-heading"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/boxtree.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-aside",
+      "type": "registry:ui",
+      "title": "Cyber Aside",
+      "description": "Sidebar list container and item with optional icons.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/aside.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-section",
+      "type": "registry:ui",
+      "title": "Cyber Section",
+      "description": "Section container with optional side frame variant.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/section.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-list",
+      "type": "registry:ui",
+      "title": "Cyber List",
+      "description": "Ordered and unordered list components with glitch list items.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-paragraph",
+      "type": "registry:ui",
+      "title": "Cyber Paragraph",
+      "description": "Paragraph component with inverse, dotted, and scanline styles.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/paragraph.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-hr",
+      "type": "registry:ui",
+      "title": "Cyber Hr",
+      "description": "Horizontal rule component with optional glitch animation.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/hr.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-image",
+      "type": "registry:ui",
+      "title": "Cyber Image",
+      "description": "Styled Next.js image wrapper with dotted variant.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "components/ui/cybercn/image.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cyber-footer",
+      "type": "registry:ui",
+      "title": "Cyber Footer",
+      "description": "Footer container with theme-aware cyber colors.",
+      "files": [
+        {
+          "path": "components/ui/cybercn/footer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
