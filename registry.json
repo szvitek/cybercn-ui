@@ -25,6 +25,48 @@
       ]
     },
     {
+      "name": "cyber-form",
+      "type": "registry:ui",
+      "title": "Cyber Form System",
+      "description": "Industrial-grade form primitives with high-contrast variants, glitched states, and forwardRef support.",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "components/ui/cybercn/form/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/form.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/fieldset.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/textarea.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/selection.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/cybercn/form/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "cyber-header",
       "type": "registry:ui",
       "title": "Cyber Header",

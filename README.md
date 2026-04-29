@@ -67,6 +67,51 @@ npm install
 npm run dev
 ```
 
+## 📦 Install via shadcn Registry
+
+Install a component directly from the hosted registry:
+
+```bash
+npx shadcn@latest add "https://cybercn-ui.vercel.app/r/cyber-button.json"
+```
+
+Or register a reusable alias in your consumer app's `components.json`:
+
+```json
+{
+  "registries": {
+    "@cybercn": "https://cybercn-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Then install by alias:
+
+```bash
+npx shadcn@latest add "@cybercn/cyber-button"
+```
+
+Registry index:
+
+- https://cybercn-ui.vercel.app/r/registry.json
+
+Currently available component names:
+
+- `cyber-button`
+- `cyber-form`
+- `cyber-header`
+- `cyber-heading`
+- `cyber-link`
+- `cyber-steps`
+- `cyber-boxtree`
+- `cyber-aside`
+- `cyber-section`
+- `cyber-list`
+- `cyber-paragraph`
+- `cyber-hr`
+- `cyber-image`
+- `cyber-footer`
+
 ---
 
 ## 🗺️ Roadmap

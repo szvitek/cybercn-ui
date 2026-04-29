@@ -24,28 +24,63 @@ If you are using this library outside this repository, install the peer stack th
 npm install next react react-dom class-variance-authority clsx tailwind-merge next-themes radix-ui lucide-react
 ```
 
+## Install from the CyberCN registry
+
+Use the shadcn CLI with the hosted registry endpoints:
+
+```bash
+npx shadcn@latest add "https://cybercn-ui.vercel.app/r/cyber-button.json"
+```
+
+You can replace `cyber-button` with any component name from the registry.
+
+If you want a named registry alias in your app `components.json`, add:
+
+```json
+{
+  "registries": {
+    "@cybercn": "https://cybercn-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Then install using the alias:
+
+```bash
+npx shadcn@latest add "@cybercn/cyber-button"
+```
+
+Registry index:
+
+- https://cybercn-ui.vercel.app/r/registry.json
+
+Currently available component names:
+
+- `cyber-button`
+- `cyber-header`
+- `cyber-heading`
+- `cyber-link`
+- `cyber-steps`
+- `cyber-boxtree`
+- `cyber-aside`
+- `cyber-section`
+- `cyber-list`
+- `cyber-paragraph`
+- `cyber-hr`
+- `cyber-image`
+- `cyber-footer`
+
 ## Base import pattern
 
-Most primitives live under `components/ui/cybercn`.
+Installed components are added to your local project and can be composed directly in pages and sections.
+
+Import installed components into your page or feature file:
 
 ```tsx
 import { Button } from "@/components/ui/cybercn/button";
 import { Heading } from "@/components/ui/cybercn/heading";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";
-```
-
-Form elements can be imported from the barrel:
-
-```tsx
-import {
-  CyberForm,
-  CyberFieldset,
-  CyberInput,
-  CyberSelect,
-  CyberSelection,
-  CyberTextarea,
-} from "@/components/ui/cybercn/form";
 ```
 
 ## Minimal page example

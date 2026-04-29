@@ -7,10 +7,17 @@ description: Interactive action primitive with CyberCN variants, cut-corner sizi
 
 `Button` is the main action primitive for CyberCN UI. It supports color variants, size presets, a glitch label overlay, and `asChild` composition for links or custom interactive wrappers.
 
+## Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-button
+```
+
 ## Import
 
 ```tsx
 import { Button } from "@/components/ui/cybercn/button";
+import { Link } from "@/components/ui/cybercn/link";
 ```
 
 ## Example
@@ -40,8 +47,12 @@ export function Actions() {
 
 <Preview className="flex flex-wrap items-center gap-4">
   <Button variant="red">Deploy Payload</Button>
-  <Button variant="green" size="sm">{"Confirm Route"}</Button>
-  <Button variant="blue" size="icon" aria-label="danger zone">{"X"}</Button>
+  <Button variant="green" size="sm">
+    {"Confirm Route"}
+  </Button>
+  <Button variant="blue" size="icon" aria-label="danger zone">
+    {"X"}
+  </Button>
   <Button asChild variant="purple" glitchLabel="NAV-9">
     <Link href="/docs">Open Docs</Link>
   </Button>
@@ -49,13 +60,13 @@ export function Actions() {
 
 ## Props
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| `variant` | `"red" \| "green" \| "blue" \| "purple"` | `"red"` | Controls the button color class. |
-| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"default"` | Applies spacing and cut-corner geometry. |
-| `glitchLabel` | `string` | `"R-25"` | Written to `data-text` for the glitch overlay treatment. |
-| `asChild` | `boolean` | `false` | Renders `Slot.Root` instead of a native `button`. |
-| native button props | `React.ButtonHTMLAttributes<HTMLButtonElement>` | - | Includes `type`, `disabled`, `onClick`, `aria-*`, and more. |
+| Prop                | Type                                            | Default     | Notes                                                       |
+| ------------------- | ----------------------------------------------- | ----------- | ----------------------------------------------------------- |
+| `variant`           | `"red" \| "green" \| "blue" \| "purple"`        | `"red"`     | Controls the button color class.                            |
+| `size`              | `"default" \| "sm" \| "lg" \| "icon"`           | `"default"` | Applies spacing and cut-corner geometry.                    |
+| `glitchLabel`       | `string`                                        | `"R-25"`    | Written to `data-text` for the glitch overlay treatment.    |
+| `asChild`           | `boolean`                                       | `false`     | Renders `Slot.Root` instead of a native `button`.           |
+| native button props | `React.ButtonHTMLAttributes<HTMLButtonElement>` | -           | Includes `type`, `disabled`, `onClick`, `aria-*`, and more. |
 
 ## Usage guidance
 
@@ -75,7 +86,9 @@ export function Actions() {
 ```
 
 <Preview>
-  <Button type="submit" className="w-full">{"Initialize Handshake"}</Button>
+  <Button type="submit" className="w-full">
+    {"Initialize Handshake"}
+  </Button>
 </Preview>
 
 ### Link button
