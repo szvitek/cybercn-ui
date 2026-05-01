@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     default: "CyberCN UI",
     template: "%s | CyberCN UI",
   },
-  description: "Cyberpunk-styled UI primitives and documentation built with Next.js and Fumadocs.",
+  description:
+    "Cyberpunk-styled UI primitives and documentation built with Next.js and Fumadocs.",
 };
 
 export default function RootLayout({
@@ -45,6 +46,7 @@ export default function RootLayout({
         "font-sans",
         inter.variable,
         vt323.variable,
+        "cyber-scrollbar",
       )}
       suppressHydrationWarning
     >

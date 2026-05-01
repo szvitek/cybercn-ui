@@ -11,12 +11,26 @@
   },
   "items": [
     {
+      "name": "cybercn-styles",
+      "type": "registry:style",
+      "files": [
+        {
+          "path": "components/ui/cybercn/styles/cybercn.css",
+          "type": "registry:ui",
+          "target": "components/ui/cybercn/styles/cybercn.css"
+        }
+      ]
+    },
+    {
       "name": "cyber-button",
       "type": "registry:ui",
       "title": "Cyber Button",
       "description": "Cyberpunk-styled button with color and size variants.",
       "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "button",
+        "http://localhost:3000/r/cybercn-styles.json"
+      ],
       "files": [
         {
           "path": "components/ui/cybercn/button.tsx",
@@ -35,6 +49,7 @@
         "tailwind-merge",
         "framer-motion"
       ],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/form/index.ts",
@@ -71,6 +86,7 @@
       "type": "registry:ui",
       "title": "Cyber Header",
       "description": "Sticky application header container.",
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/header.tsx",
@@ -84,6 +100,7 @@
       "title": "Cyber Heading",
       "description": "Typography heading component with glitch variants.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/heading.tsx",
@@ -97,6 +114,7 @@
       "title": "Cyber Link",
       "description": "Styled link component for Next.js projects.",
       "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/link.tsx",
@@ -110,6 +128,7 @@
       "title": "Cyber Steps",
       "description": "Step list and step item components.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/steps.tsx",
@@ -123,7 +142,7 @@
       "title": "Cyber BoxTree",
       "description": "Hierarchical box layout with status and width variants.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["cyber-heading"],
+      "registryDependencies": ["cyber-heading", "cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/boxtree.tsx",
@@ -137,6 +156,7 @@
       "title": "Cyber Aside",
       "description": "Sidebar list container and item with optional icons.",
       "dependencies": ["lucide-react"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/aside.tsx",
@@ -150,6 +170,7 @@
       "title": "Cyber Section",
       "description": "Section container with optional side frame variant.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/section.tsx",
@@ -163,6 +184,7 @@
       "title": "Cyber List",
       "description": "Ordered and unordered list components with glitch list items.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/list.tsx",
@@ -176,6 +198,7 @@
       "title": "Cyber Paragraph",
       "description": "Paragraph component with inverse, dotted, and scanline styles.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/paragraph.tsx",
@@ -189,6 +212,7 @@
       "title": "Cyber Hr",
       "description": "Horizontal rule component with optional glitch animation.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/hr.tsx",
@@ -202,6 +226,7 @@
       "title": "Cyber Image",
       "description": "Styled Next.js image wrapper with dotted variant.",
       "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/image.tsx",
@@ -214,6 +239,7 @@
       "type": "registry:ui",
       "title": "Cyber Footer",
       "description": "Footer container with theme-aware cyber colors.",
+      "registryDependencies": ["cybercn-styles"],
       "files": [
         {
           "path": "components/ui/cybercn/footer.tsx",

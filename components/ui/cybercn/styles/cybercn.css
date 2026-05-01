@@ -1,0 +1,1656 @@
+@reference "tailwindcss";
+
+@font-face {
+  font-family: "Hacked";
+  src: url(data:font/ttf;charset=utf-8;base64,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AEMrLbBaLLMBAQBDKy2wWyyzAAABQystsFwsswABAUMrLbBdLLMBAAFDKy2wXiyzAQEBQystsF8ssgAARSstsGAssgABRSstsGEssgEARSstsGIssgEBRSstsGMssgAASCstsGQssgABSCstsGUssgEASCstsGYssgEBSCstsGcsswAAAEQrLbBoLLMAAQBEKy2waSyzAQAARCstsGosswEBAEQrLbBrLLMAAAFEKy2wbCyzAAEBRCstsG0sswEAAUQrLbBuLLMBAQFEKy2wbyyxADwrLrEwARQrLbBwLLEAPCuwQCstsHEssQA8K7BBKy2wciywABaxADwrsEIrLbBzLLEBPCuwQCstsHQssQE8K7BBKy2wdSywABaxATwrsEIrLbB2LLEAPSsusTABFCstsHcssQA9K7BAKy2weCyxAD0rsEErLbB5LLEAPSuwQistsHossQE9K7BAKy2weyyxAT0rsEErLbB8LLEBPSuwQistsH0ssQA+Ky6xMAEUKy2wfiyxAD4rsEArLbB/LLEAPiuwQSstsIAssQA+K7BCKy2wgSyxAT4rsEArLbCCLLEBPiuwQSstsIMssQE+K7BCKy2whCyxAD8rLrEwARQrLbCFLLEAPyuwQCstsIYssQA/K7BBKy2whyyxAD8rsEIrLbCILLEBPyuwQCstsIkssQE/K7BBKy2wiiyxAT8rsEIrLbCLLLILAANFUFiwBhuyBAIDRVgjIRshWVlCK7AIZbADJFB4sQUBFUVYMFktAEu4AMhSWLEBAY5ZsAG5CAAIAGNwsQAHQrEAACqxAAdCsQAKKrEAB0KxAAoqsQAHQrkAAAALKrEAB0K5AAAACyq5AAMAAESxJAGIUViwQIhYuQADAGREsSgBiFFYuAgAiFi5AAMAAERZG7EnAYhRWLoIgAABBECIY1RYuQADAABEWVlZWVmxAA4quAH/hbAEjbECAESzBWQGAERE)
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Crucial for Next.js performance */
+}
+
+/* 1. Define the layer order (this ensures Tailwind utilities always win) */
+@layer cyberpunk, base, components, utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Cyber theme */
+  --color-cyber-yellow: var(--cyber-yellow);
+  --color-cyber-yellow-opacity: var(--cyber-yellow-opacity);
+  --color-cyber-orange: var(--cyber-orange);
+  --color-cyber-border: var(--cyber-border);
+  --color-cyber-red: var(--cyber-red);
+  --color-cyber-blue: var(--cyber-blue);
+  --color-cyber-green: var(--cyber-green);
+  --color-cyber-purple: var(--cyber-purple);
+  --color-cyber-neon: var(--cyber-neon);
+  --color-cyber-black: var(--cyber-black);
+
+  --breakpoint-sm-boxtree: 600px;
+  --breakpoint-md-boxtree: 900px;
+
+  --font-advent-pro: var(--font-advent-pro);
+  --font-hacked: "Hacked", sans-serif;
+
+  --animate-glitch-hr: var(--glitched-duration-long) glitch-hr linear infinite;
+  --animate-button-hover: button-hover var(--glitched-duration-short) linear
+    infinite;
+  --animate-button-hover-before: button-hover-before
+    var(--glitched-duration-short) linear infinite;
+  --animate-button-hover-after: var(--glitched-duration-short)
+    button-hover-after linear infinite;
+  --animate-scanned-h: var(--glitched-duration-long) scanned-h linear infinite
+    alternate;
+  --animate-scanned-v: calc(var(--glitched-duration-long) * 3) scanned-v linear
+    infinite alternate;
+  --animate-li-glitched: var(--glitched-duration-short) li-glitched linear
+    infinite;
+  --animate-scanned-a: var(--glitched-duration-short) scanned-a linear infinite
+    alternate;
+  --animate-h1-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.4)
+    linear infinite;
+  --animate-h2-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.7)
+    linear infinite reverse;
+  --animate-h3-glitched: h1-glitched calc(var(--glitched-duration-short) * 1.1)
+    ease-out infinite reverse;
+  --animate-h4-glitched: h1-glitched calc(var(--glitched-duration-short) * 2.1)
+    ease-in-out infinite;
+  --animate-h1-before-glitched: calc(var(--glitched-duration-short) * 2)
+    h1-before-glitched linear infinite;
+  --animate-h2-before-glitched: calc(var(--glitched-duration-short) * 2)
+    h2-before-glitched linear infinite;
+  --animation-hx-after: hx-after var(--glitched-duration-short) linear infinite;
+
+  @keyframes glitch-hr {
+    0% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    15% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    16% {
+      transform: skew(20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: -20px;
+    }
+
+    20% {
+      transform: skew(-20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: 20px;
+    }
+
+    21% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+
+    65% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+      transform: scaleX(1);
+    }
+
+    66% {
+      transform: skew(20deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: -5px;
+      transform: scaleX(-1);
+    }
+
+    70% {
+      transform: skew(40deg);
+      clip-path: polygon(
+        1px 0px,
+        0px 0px,
+        0px 0px,
+        8px 14px,
+        13px 14px,
+        22px 7px,
+        42px 6px,
+        49px 2px,
+        100% 2px,
+        100% 0px,
+        42px 0px,
+        35px 5px,
+        22px 6px,
+        13px 13px,
+        9px 13px
+      );
+      margin-left: 20px;
+      transform: scaleX(-1);
+    }
+
+    71% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+      transform: scaleX(0);
+    }
+
+    100% {
+      transform: skew(0deg);
+      clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+      margin-left: 0px;
+    }
+  }
+
+  @keyframes button-hover {
+    0% {
+      transform: skew(0deg);
+    }
+
+    60% {
+      transform: skew(0deg);
+    }
+
+    61% {
+      transform: skew(10deg);
+    }
+
+    70% {
+      transform: skew(10deg);
+    }
+
+    71% {
+      transform: skew(0deg);
+    }
+
+    100% {
+      transform: skew(0deg);
+    }
+    /* 0%,
+    100% {
+      transform: skewX(0deg) scale(1);
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      transform: skewX(2.5deg) scale(1.02);
+      filter: hue-rotate(90deg) brightness(1.2);
+    }
+    20% {
+      transform: skewX(-2.5deg) scale(0.98);
+    }
+    30% {
+      transform: skewX(1deg);
+    } */
+  }
+
+  @keyframes button-hover-before {
+    0% {
+      display: none;
+      top: 0px;
+    }
+
+    10% {
+      display: none;
+      top: 0px;
+    }
+
+    11% {
+      display: block;
+      top: 10px;
+      left: calc(0px - 0px - var(--outside));
+    }
+
+    29% {
+      top: 10px;
+    }
+
+    30% {
+      display: none;
+      top: 0px;
+    }
+
+    50% {
+      display: none;
+      top: 0px;
+    }
+
+    51% {
+      display: block;
+      top: 55px;
+      filter: blur(1px);
+      height: 22px;
+    }
+
+    90% {
+      display: block;
+      top: 55px;
+      height: 22px;
+    }
+
+    91% {
+      filter: blur(0px);
+      display: none;
+      top: 0px;
+      height: 12px;
+    }
+
+    100% {
+      display: none;
+      top: 0px;
+    }
+  }
+
+  @keyframes button-hover-after {
+    0% {
+      right: 45px;
+    }
+
+    10% {
+      right: 45px;
+    }
+
+    11% {
+      right: 35px;
+    }
+
+    20% {
+      transform: skew(0deg);
+    }
+
+    21% {
+      transform: skew(-10deg);
+    }
+
+    40% {
+      transform: skew(-10deg);
+    }
+
+    41% {
+      transform: skew(0deg);
+    }
+
+    49% {
+      right: 35px;
+    }
+
+    50% {
+      right: 55px;
+    }
+
+    60% {
+      right: 55px;
+    }
+
+    61% {
+      right: 35px;
+    }
+
+    70% {
+      transform: skew(0deg);
+    }
+
+    71% {
+      transform: skew(10deg);
+    }
+
+    80% {
+      transform: skew(10deg);
+    }
+
+    81% {
+      transform: skew(0deg);
+    }
+
+    100% {
+      right: 35px;
+    }
+  }
+
+  @keyframes scanned-h {
+    0% {
+      top: -27px;
+    }
+
+    50% {
+    }
+
+    51% {
+    }
+
+    100% {
+      top: calc(100% + 12px);
+    }
+  }
+
+  @keyframes scanned-v {
+    0% {
+      left: 0px;
+    }
+
+    50% {
+    }
+
+    51% {
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes li-glitched {
+    0% {
+      transform: skew(-3deg);
+      margin-left: -2px;
+    }
+
+    10% {
+      transform: skew(3deg);
+      margin-left: inherit;
+    }
+
+    11% {
+      transform: skew(0deg);
+      margin-left: 2px;
+    }
+
+    50% {
+      transform: skew(0deg);
+      margin-left: inherit;
+    }
+
+    51% {
+      transform: skew(3deg);
+      margin-left: 5px;
+    }
+
+    59% {
+      transform: skew(-3deg);
+      margin-left: 5px;
+    }
+
+    60% {
+      transform: skew(0deg);
+      margin-left: inherit;
+    }
+
+    100% {
+      transform: skew(0deg);
+    }
+  }
+
+  @keyframes scanned-a {
+    0% {
+      bottom: -1px;
+    }
+
+    100% {
+      bottom: calc(100% + 1px);
+    }
+  }
+
+  @keyframes h1-glitched {
+    0% {
+      transform: skew(-20deg);
+      left: -4px;
+    }
+
+    10% {
+      transform: skew(-20deg);
+      left: -4px;
+    }
+
+    11% {
+      transform: skew(0deg);
+      left: 2px;
+    }
+
+    50% {
+      transform: skew(0deg);
+    }
+
+    51% {
+      transform: skew(10deg);
+    }
+
+    59% {
+      transform: skew(10deg);
+    }
+
+    60% {
+      transform: skew(0deg);
+    }
+
+    100% {
+      transform: skew(0deg);
+    }
+  }
+
+  @keyframes h1-before-glitched {
+    0% {
+      transform: skew(-20deg);
+      left: -4px;
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    10% {
+      transform: skew(-20deg);
+      left: -4px;
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    11% {
+      transform: skew(0deg);
+      left: 2px;
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    50% {
+      transform: skew(0deg);
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    51% {
+      transform: skew(0deg);
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        40% 5px,
+        calc(40% - 30px) 0px,
+        calc(40% + 30px) 0px,
+        calc(45% - 15px) 5px,
+        100% 5px,
+        100% 6px,
+        calc(45% - 14px) 6px,
+        calc(40% + 29px) 1px,
+        calc(40% - 29px) 1px,
+        calc(40% + 1px) 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    59% {
+      transform: skew(0deg);
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        40% 5px,
+        calc(40% - 30px) 0px,
+        calc(40% + 30px) 0px,
+        calc(45% - 15px) 5px,
+        100% 5px,
+        100% 6px,
+        calc(45% - 14px) 6px,
+        calc(40% + 29px) 1px,
+        calc(40% - 29px) 1px,
+        calc(40% + 1px) 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    60% {
+      transform: skew(0deg);
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+
+    100% {
+      transform: skew(0deg);
+      clip-path: polygon(
+        0px 0px,
+        85px 0px,
+        90px 5px,
+        100% 5px,
+        100% 6px,
+        85px 6px,
+        80px 10px,
+        0px 10px
+      );
+    }
+  }
+
+  @keyframes h2-before-glitched {
+    0% {
+      transform: scaleY(1);
+    }
+
+    10% {
+      transform: scaleY(1);
+    }
+
+    11% {
+      transform: scaleY(-1);
+    }
+
+    50% {
+      transform: scaleY(-1);
+    }
+
+    51% {
+      transform: scaleY(1);
+    }
+
+    59% {
+      transform: scaleY(1);
+    }
+
+    60% {
+      transform: scaleY(1);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes hx-after {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    51% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  /* Sharp corners */
+  --radius: 0rem;
+
+  /* Basic tokens the components depend on */
+  --background: oklch(0.932 0.1995 106.93);
+  --foreground: oklch(10% 0 0);
+  --primary: oklch(10% 0 0);
+  --primary-foreground: oklch(0.932 0.1995 106.93);
+  --secondary: oklch(90% 0 0);
+  --secondary-foreground: oklch(10% 0 0);
+  --muted: oklch(90% 0 0 / 0.5);
+  --muted-foreground: oklch(30% 0 0);
+  --accent: oklch(55% 0.25 20);
+  --accent-foreground: oklch(98% 0 0);
+  --border: oklch(10% 0 0 / 0.15);
+  --input: oklch(10% 0 0 / 0.1);
+  --ring: var(--primary);
+
+  /* The exact hex definitions */
+  --cyber-yellow: #f9f002;
+  --cyber-yellow-opacity: #f9f00242;
+  --cyber-orange: #ff9800;
+  --cyber-border: #8ae66e;
+  --cyber-red: #ff003c;
+  --cyber-blue: #0c5f74;
+  --cyber-green: #298d29;
+  --cyber-purple: #800080;
+  --cyber-neon: #39ff14;
+  --cyber-black: #000;
+  --glitched-duration-short: 1s;
+  --glitched-duration-long: 3s;
+}
+
+.dark {
+  /* Dark Mode: The "Neon Protocol" */
+  --background: oklch(8% 0 0); /* Deep Void Black */
+  --foreground: oklch(0.932 0.1995 106.93); /* Cyber Yellow Text */
+
+  --card: oklch(12% 0 0);
+  --card-foreground: oklch(0.932 0.1995 106.93);
+
+  --primary: oklch(0.932 0.1995 106.93); /* Yellow is the primary action */
+  --primary-foreground: oklch(8% 0 0);
+
+  --secondary: oklch(20% 0 0);
+  --secondary-foreground: oklch(0.932 0.1995 106.93);
+
+  --muted: oklch(20% 0 0);
+  --muted-foreground: oklch(70% 0 0);
+
+  --accent: oklch(60% 0.25 250); /* Cyber Blue for Dark Mode accents */
+  --accent-foreground: oklch(98% 0 0);
+
+  --border: oklch(98% 0.18 95 / 0.2); /* Low opacity yellow borders */
+  --ring: var(--primary);
+}
+
+@layer base {
+  body {
+    @apply font-advent-pro bg-background text-foreground p-0 m-0 text-xl;
+  }
+
+  a {
+    @apply text-inherit no-underline inline-block relative;
+
+    &::after {
+      @apply content-[""] absolute -bottom-px left-0 w-full h-[1.5px] bg-cyber-border shadow-[0_0_8px_3px_var(--color-cyber-border)];
+    }
+
+    &:hover::after {
+      @apply animate-scanned-a;
+    }
+  }
+
+  ::-webkit-resizer {
+    @apply hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      animation-play-state: paused !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* FORM AND INPUTS */
+  .cyber-input {
+    @apply w-full border-foreground border-l-foreground border-r-foreground border-b-foreground text-[1.7rem] font-bold mb-2.5 p-3 border-b-15 border-x-[5px] border-30 border-solid;
+    @apply clip-form-input;
+    @apply bg-white dark:bg-cyber-black;
+    @apply text-foreground;
+
+    option {
+      @apply bg-foreground text-background;
+    }
+
+    &:focus {
+      @apply outline-0 border-cyber-green dark:border-cyber-purple;
+    }
+
+    &[type="password"] {
+      @apply font-hacked font-normal tracking-[2px] antialiased;
+    }
+
+    .dark &[type="time"]::-webkit-calendar-picker-indicator,
+    .dark &[type="date"]::-webkit-calendar-picker-indicator {
+      filter: brightness(0) saturate(100%) invert(73%) sepia(100%)
+        saturate(473%) hue-rotate(4deg) brightness(107%) contrast(104%);
+    }
+  }
+
+  .cyber-radio {
+    @apply rounded-[15%] z-100 h-3.5 w-5 appearance-none outline-none bg-foreground cursor-pointer relative m-0 inline-block;
+
+    &::after {
+      @apply content-[""] block w-2 h-1.5 bg-background absolute top-0.5 left-0.5 transition-all duration-300;
+    }
+
+    &:checked::after {
+      @apply bg-cyber-border left-2.5;
+    }
+
+    .dark &:checked::after {
+      @apply bg-cyber-red;
+    }
+  }
+
+  .cyber-checkbox {
+    @apply rounded-[15%] z-100 h-5 w-5 appearance-none outline-none bg-foreground cursor-pointer relative m-0 inline-block -mb-0.75;
+
+    &::before {
+      @apply content-[""] block w-3 h-3 border-2 border-background border-t-transparent rounded-full absolute top-1.25 left-1 transition-all duration-300;
+    }
+
+    &::after {
+      @apply content-[""] block w-0.5 h-1.75 bg-background absolute top-0.75 left-2.25 transition-all duration-300;
+    }
+
+    &:checked::before {
+      @apply border-foreground border-t-transparent;
+    }
+
+    .dark &:checked::before {
+      @apply border-cyber-red border-t-transparent;
+    }
+
+    &:checked::after {
+      @apply bg-cyber-border;
+    }
+
+    .dark &:checked::after {
+      @apply bg-cyber-red;
+    }
+  }
+
+  .cyber-fieldset {
+    @apply border-3 border-dotted border-cyber-purple mx-0 my-2.5 p-2.5;
+  }
+
+  .cyber-hr {
+    @apply h-3.5 bg-foreground w-full border-none;
+    @apply clip-hr;
+  }
+
+  .cyber-image {
+    @apply clip-image p-7.5 px-1.25 pb-3.75 bg-foreground max-w-[calc(100%-10px)];
+  }
+
+  .cyber-dotted,
+  .cyber-dotted::after,
+  .cyber-dotted::before {
+    @apply bg-foreground bg-size-[5px_5px] bg-position-[-13px_-3px];
+
+    background-image: radial-gradient(
+      var(--cyber-yellow-opacity) 1px,
+      transparent 0
+    );
+
+    .dark & {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.13) 1px, transparent 0);
+    }
+  }
+
+  .cyber-p {
+    @apply border-30 border-solid border-foreground border-x-[5px] border-b-24 p-5;
+    @apply clip-paragraph;
+    @apply bg-background text-foreground text-[1.2rem] relative;
+
+    &::before {
+      @apply content-["P-14"] block absolute bottom-[-12px] right-[25px] px-0.5 pt-0.5 text-[0.6rem] leading-[0.6rem] text-foreground bg-background border-l-2 border-foreground;
+    }
+
+    &:hover::before {
+      @apply animate-button-hover-after;
+    }
+
+    &.inverse {
+      @apply border-none pt-10 px-3.75 pb-7.5;
+      @apply bg-foreground text-background border-r-3 border-cyber-border;
+
+      &::before {
+        @apply content-["T-71"]  bottom-2.25 right-22.5;
+      }
+    }
+
+    &::after {
+      content: "_";
+      animation: hx-after var(--glitched-duration-short) linear infinite;
+    }
+  }
+
+  .cyber-ul > li {
+    @apply list-none relative text-[1.25rem];
+
+    &::before {
+      @apply content-[""] block w-5 h-5 bg-foreground absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply clip-ul-bullet;
+    }
+  }
+
+  .cyber-ol {
+    list-style-type: hiragana-iroha;
+    counter-reset: cyber-counter; /* Give it a unique name */
+
+    & > li {
+      counter-increment: cyber-counter;
+      @apply list-none relative text-[1.25rem];
+    }
+
+    & > li::before {
+      content: counter(cyber-counter) ".";
+      @apply block w-5 h-5 bg-foreground text-background text-center font-bold leading-5 absolute top-1 left-[calc(-1.2rem-10px)];
+      @apply clip-ol-bullet;
+    }
+  }
+
+  .cyber-heading {
+    @apply relative pb-3.75;
+
+    &::before {
+      @apply content-[""] block absolute bottom-0 left-0.5 w-full h-2.5 bg-current;
+    }
+
+    &::after {
+      content: "_";
+      animation: hx-after var(--glitched-duration-short) linear infinite;
+    }
+  }
+
+  .cyber-heading-h3-h4-glitched::after {
+    animation-direction: reverse;
+    animation-duration: calc(var(--glitched-duration-short) / 2);
+  }
+
+  .cursor-fast-reverse::after {
+    animation-duration: calc(var(--glitched-duration-short) / 2);
+    animation-direction: reverse;
+  }
+
+  .cyber-button {
+    @apply relative inline-block border-none uppercase font-semibold cursor-pointer outline-none transition-colors text-white;
+
+    /* Explicitly define the right border - Width, Style, then Color */
+    border-right: 3px solid var(--color-cyber-border);
+    @apply clip-button;
+
+    &::after {
+      content: attr(data-text);
+      @apply absolute bottom-0 right-6.25 px-0.5 pt-0.5 pb-0 text-[0.6rem] leading-[0.6rem] text-black bg-cyber-yellow border-l-2 border-cyber-border;
+      @apply transition-colors duration-100 ease-in-out;
+    }
+
+    &::before {
+      --outside: 4px;
+      content: "";
+      @apply absolute hidden top-0 h-3 border-x-2 border-cyber-border;
+      width: calc(100% + (var(--outside) * 2));
+      left: calc(-1px - var(--outside));
+      background-color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      @apply text-black;
+      @apply animate-button-hover;
+      &::before {
+        @apply block animate-button-hover-before;
+      }
+      &::after {
+        @apply animate-button-hover-after;
+      }
+    }
+
+    &[data-is-button="true"]:hover::after,
+    &[data-is-button="true"]:focus::after {
+      @apply bg-black text-cyber-yellow;
+    }
+  }
+
+  .cyber-section {
+    @apply relative bg-background text-foreground p-15 -my-px;
+
+    &::before {
+      @apply content-[""] block absolute top-0 left-0 w-full h-7.5 bg-foreground;
+      @apply clip-section-top;
+    }
+
+    &::after {
+      @apply content-[""] block absolute bottom-0 left-0 w-full h-7.5 bg-foreground;
+      @apply clip-section-bottom;
+    }
+
+    &.frame-both {
+      &::before {
+        @apply h-full;
+        @apply clip-section-both-top;
+      }
+      &::after {
+        @apply h-full;
+        @apply clip-section-both-bottom;
+      }
+    }
+  }
+
+  .cyber-section:nth-child(even of .cyber-section)::before,
+  .cyber-section:nth-child(odd of .cyber-section)::after {
+    transform: scaleX(-1);
+  }
+
+  .cyber-aside {
+    --aside-width: 230px;
+    @apply fixed top-1/2 -translate-y-1/2 w-(--aside-width) transition-[left] duration-300 z-50;
+    left: calc(100% - 43px);
+
+    &:hover {
+      left: calc(100% - var(--aside-width) + 5px);
+    }
+
+    & li {
+      @apply block bg-cyber-yellow text-black mb-1 w-full transition-colors duration-300;
+      @apply border-y border-r border-black border-l-10 border-b-10;
+      @apply skew-x-[-15deg] origin-right;
+      @apply clip-aside-li;
+
+      &:hover {
+        @apply bg-black;
+
+        & a {
+          @apply text-cyber-yellow;
+        }
+      }
+    }
+
+    & a {
+      @apply block py-1 px-3 no-underline text-black font-bold text-[1.3rem] transition-colors duration-300;
+      @apply skew-x-15;
+
+      &::after {
+        @apply hidden;
+      }
+    }
+  }
+
+  .cyberpunk-boxtree {
+    --gap: 15px;
+    --border-height: 1px;
+    --padding: 5px;
+    --resolved-text: "RESOLVED";
+    --pending-text: "NO ACCESS";
+
+    @media (min-width: 600px) {
+      --gap: 20px;
+      --border-height: 3px;
+      --padding: 10px;
+    }
+
+    @media (min-width: 900px) {
+      --gap: 30px;
+      --border-height: 5px;
+      --padding: 20px;
+    }
+
+    @apply flex flex-row flex-wrap content-center justify-center items-stretch gap-(--gap) -mr-12.5 -ml-12.5 my-15;
+
+    @media (min-width: 900px) {
+      margin: 0px; /* Reset on Desktop */
+    }
+  }
+
+  .cyber-box {
+    @apply box-border relative border-dashed transition-all duration-300;
+
+    border-width: var(--border-height);
+    padding: var(--padding);
+
+    &::after {
+      @apply content-[""] block absolute w-full left-0;
+
+      height: var(--gap);
+      bottom: calc(0px - var(--gap) - var(--border-height));
+    }
+
+    &.width-100 {
+      width: calc(100% - var(--gap));
+    }
+    &.width-50 {
+      width: calc(50% - var(--gap));
+    }
+    &.width-25 {
+      width: calc(25% - var(--gap));
+    }
+  }
+
+  .cyber-steps {
+    /* Added items-stretch and justify-start to match original */
+    @apply flex flex-col sm-boxtree:flex-row list-none p-0 m-0 flex-wrap items-stretch justify-start content-center;
+    counter-reset: cyber-step-counter;
+  }
+
+  .cyber-step {
+    @apply relative flex items-end min-w-20 text-[12px] leading-3 mb-10 sm-boxtree:mb-15 pr-5 pb-1.25;
+    @apply pl-12.5 sm-boxtree:pl-0;
+
+    counter-increment: cyber-step-counter;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-step:last-child {
+    @apply min-w-0 pr-0;
+    @apply pl-12.5 sm-boxtree:pl-0;
+  }
+
+  /* The Number Circle */
+  .cyber-step::before {
+    content: counter(cyber-step-counter);
+    @apply absolute flex items-center justify-center w-10 h-10 rounded-full font-bold text-[20px] left-0;
+    @apply -bottom-2 sm-boxtree:-bottom-10;
+    @apply bg-cyber-purple text-cyber-yellow;
+  }
+
+  .cyber-step::after {
+    @apply hidden sm-boxtree:block absolute h-0.5 bg-cyber-purple;
+    @apply -bottom-5 left-10;
+    width: calc(100% - 40px);
+    content: "";
+  }
+
+  /* Remove line from last item */
+  .cyber-step:last-of-type::after {
+    @apply hidden;
+  }
+
+  /* Mobile line-break fix */
+  @media (max-width: 599px) {
+    .cyber-step br {
+      display: none;
+    }
+  }
+
+  .cyber-step.current {
+    @apply text-foreground;
+
+    &::before {
+      @apply bg-foreground text-background;
+    }
+
+    &::after {
+      @apply bg-foreground;
+    }
+  }
+}
+
+@layer utilities {
+  /* Scrollbar */
+  .cyber-scrollbar {
+    &::-webkit-scrollbar {
+      @apply bg-cyber-yellow;
+    }
+
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track-piece,
+    &::-webkit-scrollbar-corner {
+      display: none; /* More reliable than @apply hidden for pseudo-elements */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-cyber-red border-cyber-red border-b-cyber-border border-r-cyber-border transition-colors duration-200 border-r-2 border-b-2  border-l-0 border-t-0 border-solid hover:bg-cyber-orange;
+    }
+  }
+
+  .scanned-h,
+  .scanned-v {
+    @apply relative;
+  }
+
+  .scanned-h::after {
+    @apply content-[""] block absolute -top-7.5 left-0 w-full h-0.75 bg-cyber-border!;
+    @apply shadow-[0_0_10px_4px_var(--cyber-border)];
+    @apply animate-scanned-h;
+  }
+
+  .scanned-v::after {
+    @apply content-[""] block absolute -top-7.5 left-0 h-[calc(100%+55px)] w-0.75 bg-cyber-border!;
+    @apply shadow-[0_0_10px_4px_var(--cyber-border)];
+    @apply animate-scanned-v;
+  }
+
+  .animate-li-glitched {
+    /* We don't need to redeclare the animation here, 
+       Tailwind's theme already handled it. 
+       We only add the 'Chaos' overrides: 
+    */
+
+    /* 3n + 3 (Every 3rd item & 1st item) */
+    &:nth-child(3n + 3),
+    &:nth-child(1) {
+      animation-duration: calc(var(--glitched-duration-short) * 0.5);
+    }
+
+    /* 5n + 5 (Every 5th item) */
+    &:nth-child(5n + 5) {
+      animation-duration: calc(var(--glitched-duration-short) * 0.7);
+      animation-timing-function: ease-out;
+    }
+
+    /* 2n + 2 (Every 2nd item) */
+    &:nth-child(2n + 2) {
+      animation-duration: calc(var(--glitched-duration-short) * 1.5);
+      animation-timing-function: ease-in-out;
+    }
+
+    /* 4n + 4 (Every 4th item) */
+    &:nth-child(4n + 4) {
+      animation-duration: calc(var(--glitched-duration-short) * 1.2);
+      animation-timing-function: ease-in;
+    }
+
+    will-change: transform, text-shadow, clip-path;
+
+    /* The "Stabilize" Logic */
+    &:hover {
+      /* This freeze-frames the animation exactly where it is */
+      animation-play-state: paused;
+
+      /* Reset the transformation so the text is readable */
+      transform: skew(0deg) !important;
+      margin-left: 0px !important;
+
+      /* Visual feedback: turn the text a "clean" color */
+      /* @apply text-cyber-blue; */
+
+      /* Optional: Add a subtle glow to show it's 'selected' */
+      /* text-shadow: 0 0 8px var(--cyber-blue); */
+    }
+  }
+
+  .button-hover-after-colors {
+    @apply bg-cyber-black text-cyber-yellow;
+  }
+
+  .box-resolved::before,
+  .box-pending::before {
+    display: none;
+    @apply absolute w-full left-0 z-10 pointer-events-none text-center uppercase;
+    font-size: 3em;
+    font-family: "VT323";
+    opacity: 0.7;
+    transform: rotate(-15deg);
+  }
+
+  @media (min-width: 900px) {
+    .cyber-box.box-resolved::before,
+    .cyber-box.box-pending::before {
+      display: block;
+      font-size: 4.7em;
+      top: calc(50% - 0.7em);
+    }
+
+    .box-resolved::before {
+      content: var(--resolved-text);
+    }
+    .box-pending::before {
+      content: var(--pending-text);
+    }
+
+    .cyber-box.width-25::before {
+      font-size: 2.5em;
+    }
+  }
+
+  .box-default {
+    @apply text-cyber-blue border-cyber-blue dark:text-cyber-yellow dark:border-cyber-yellow;
+
+    &,
+    & * {
+      @apply text-cyber-blue dark:text-cyber-yellow;
+    }
+
+    &::before,
+    &::after {
+      @apply bg-cyber-blue;
+    }
+
+    .dark &::after,
+    .dark &::before {
+      @apply bg-cyber-yellow;
+    }
+  }
+
+  .box-resolved {
+    @apply text-cyber-green border-cyber-green dark:text-cyber-neon dark:border-cyber-neon;
+
+    &,
+    & * {
+      @apply text-cyber-green dark:text-cyber-neon;
+    }
+
+    &::after {
+      @apply bg-cyber-green;
+    }
+
+    .dark &::after {
+      @apply bg-cyber-neon;
+    }
+  }
+
+  .box-pending {
+    @apply text-cyber-purple border-cyber-purple;
+
+    &,
+    & * {
+      @apply text-cyber-purple;
+    }
+
+    &::after {
+      @apply bg-cyber-purple;
+    }
+  }
+}
+
+@utility clip-form-input {
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
+@utility clip-form-textarea {
+  clip-path: polygon(
+    0px 0px,
+    50px 0px,
+    75px 26px,
+    105px 26px,
+    130px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
+@utility clip-form-select {
+  clip-path: polygon(
+    0px 25px,
+    60px 25px,
+    85px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    calc(100% - 80px) 25px,
+    calc(100% - 55px) 0px,
+    100% 0px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
+@utility clip-section-bottom {
+  clip-path: polygon(
+    0% 0%,
+    22% 0%,
+    calc(22% + 30px) 30px,
+    52% 30px,
+    calc(52% + 15px) 15px,
+    70% 15px,
+    calc(70% + 15px) 30px,
+    90% 30px,
+    calc(90% + 30px) 0px,
+    100% 0px,
+    100% 30px,
+    0px 30px
+  );
+}
+
+@utility clip-section-top {
+  clip-path: polygon(
+    calc(22% + 28px) -1px,
+    calc(22% + 45px) 15px,
+    34% 15px,
+    calc(34% + 15px) -1px,
+    70% 0px
+  );
+}
+
+@utility clip-section-both-bottom {
+  clip-path: polygon(
+    0px 30%,
+    30px calc(30% + 30px),
+    30px calc(100% - 30px),
+    22% calc(100% - 30px),
+    calc(22% + 30px) 100%,
+    52% 100%,
+    calc(52% + 15px) calc(100% - 15px),
+    70% calc(100% - 15px),
+    calc(70% + 15px) 100%,
+    90% 100%,
+    calc(90% + 30px) calc(100% - 30px),
+    100% calc(100% - 30px),
+    100% 100%,
+    0px 100%
+  );
+}
+
+@utility clip-section-both-top {
+  clip-path: polygon(
+    calc(22% + 28px) -1px,
+    calc(22% + 45px) 15px,
+    34% 15px,
+    calc(34% + 15px) -1px,
+    0% 0%,
+    0% 10%,
+    30px calc(10% + 30px),
+    30px 100%,
+    0% 100%,
+    0% 0%
+  );
+}
+
+@utility clip-hr {
+  clip-path: polygon(0px 7px, 100% 7px, 100% 8px, 0px 8px);
+}
+
+@utility clip-hr-glitched {
+  clip-path: polygon(
+    1px 0px,
+    0px 0px,
+    0px 0px,
+    8px 14px,
+    13px 14px,
+    22px 7px,
+    42px 6px,
+    49px 2px,
+    100% 2px,
+    100% 0px,
+    42px 0px,
+    35px 5px,
+    22px 6px,
+    13px 13px,
+    9px 13px
+  );
+}
+
+@utility clip-image {
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+}
+
+@utility clip-paragraph {
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) 100%,
+    80px calc(100% - 0px),
+    65px calc(100% - 15px),
+    0% calc(100% - 15px)
+  );
+}
+
+@utility clip-ul-bullet {
+  clip-path: polygon(0% 10%, 100% 70%, 40% 100%, 50% 70%);
+}
+
+@utility clip-ol-bullet {
+  clip-path: polygon(0% 0%, 60% 0%, 100% 40%, 100% 100%, 0% 100%);
+}
+
+@utility clip-h1-before {
+  clip-path: polygon(
+    0px 0px,
+    85px 0px,
+    90px 5px,
+    100% 5px,
+    100% 6px,
+    85px 6px,
+    80px 10px,
+    0px 10px
+  );
+}
+
+@utility clip-h2-before {
+  clip-path: polygon(
+    0px 5px,
+    35px 5px,
+    40px 0px,
+    85px 0px,
+    90px 5px,
+    100% 5px,
+    100% 6px,
+    85px 6px,
+    80px 10px,
+    20px 10px,
+    15px 6px,
+    0px 6px
+  );
+}
+
+@utility clip-h3-before {
+  clip-path: polygon(
+    0px 5px,
+    10px 5px,
+    15px 0px,
+    40px 0px,
+    45px 5px,
+    100% 5px,
+    100% 6px,
+    31px 6px,
+    27px 2px,
+    15px 2px,
+    8px 10px,
+    0px 10px
+  );
+}
+
+@utility clip-h4-before {
+  clip-path: polygon(
+    0px 3px,
+    15px 3px,
+    20px 0px,
+    80px 0px,
+    85px 3px,
+    100% 3px,
+    100% 4px,
+    85px 4px,
+    80px 7px,
+    20px 7px,
+    15px 4px,
+    0px 4px
+  );
+}
+
+@utility clip-button {
+  /* clip-path: polygon(
+    -15px 0%,
+    calc(100% + 15px) 0%,
+    calc(100% + 15px) 100%,
+    20px 100%,
+    -15px calc(100% - 35px)
+  ); */
+
+  clip-path: polygon(
+    calc(var(--cut-x, 15px) * -1) 0%,
+    calc(100% + var(--cut-x, 15px)) 0%,
+    calc(100% + var(--cut-x, 15px)) 100%,
+    var(--cut-indent, 20px) 100%,
+    calc(var(--cut-x, 15px) * -1) calc(100% - var(--cut-y, 35px))
+  );
+}
+
+@utility clip-aside-li {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    40% calc(100% - 9px),
+    0% 100%,
+    1% 62%
+  );
+}
+
+@utility boxtree-box-after {
+  clip-path: polygon(
+    calc(50% - 2px) 0%,
+    calc(50% - 2px) 100%,
+    calc(50% + 2px) 100%,
+    calc(50% + 2px) 0%
+  );
+}
+
+@utility boxtree-box-after-2 {
+  clip-path: polygon(
+    calc(25% - 2px) 0%,
+    calc(25% - 2px) 100%,
+    calc(25% + 2px) 100%,
+    calc(25% + 2px) 0%,
+    calc(75% - 2px) 0%,
+    calc(75% - 2px) 100%,
+    calc(75% + 2px) 100%,
+    calc(75% + 2px) 0%
+  );
+}
