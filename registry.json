@@ -109,20 +109,6 @@
       ]
     },
     {
-      "name": "cyber-link",
-      "type": "registry:ui",
-      "title": "Cyber Link",
-      "description": "Styled link component for Next.js projects.",
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["http://localhost:3000/r/cybercn-styles"],
-      "files": [
-        {
-          "path": "components/ui/cybercn/link.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "cyber-steps",
       "type": "registry:ui",
       "title": "Cyber Steps",

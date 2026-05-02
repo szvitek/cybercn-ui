@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/cybercn/button";
 import { Heading } from "@/components/ui/cybercn/heading";
-import { Link } from "@/components/ui/cybercn/link";
+import Link from "next/link";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";
 

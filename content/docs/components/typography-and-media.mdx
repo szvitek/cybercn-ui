@@ -163,42 +163,6 @@ import { Hr } from "@/components/ui/cybercn/hr";
 | `glitched`  | `boolean` | `false` | Enables the animated divider.    |
 | `className` | `string`  | -       | Adds spacing or color overrides. |
 
-## Link
-
-### Install
-
-```bash
-npx shadcn@latest add @cybercn/cyber-link
-```
-
-### Import
-
-```tsx
-import { Link } from "@/components/ui/cybercn/link";
-```
-
-### Usage
-
-```tsx
-<Link href="/docs/components/forms" variant="green">
-  Inspect form controls
-</Link>
-```
-
-<Preview>
-  <Link href="/docs/components/forms" variant="green">
-    Inspect form controls
-  </Link>
-</Preview>
-
-| Prop               | Type                                        | Default | Notes                                                                |
-| ------------------ | ------------------------------------------- | ------- | -------------------------------------------------------------------- |
-| `variant`          | `"red" \| "green" \| "purple" \| "blue"`    | `"red"` | Sets the CyberCN link accent.                                        |
-| `asChild`          | `boolean`                                   | `false` | Uses `Slot.Root` for composition.                                    |
-| Next.js link props | `ComponentPropsWithoutRef<typeof NextLink>` | -       | Accepts `href`, `prefetch`, `replace`, and related navigation props. |
-
-This is a wrapper around `next/link`, so it keeps normal App Router navigation behavior.
-
 ## Image
 
 ### Install

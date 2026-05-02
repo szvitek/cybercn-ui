@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { Header } from "@/components/ui/cybercn/header";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Link } from "@/components/ui/cybercn/link";
 import { BookOpen, GithubIcon, LayoutTemplate } from "lucide-react";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
