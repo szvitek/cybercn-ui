@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Advent_Pro, VT323 } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -10,17 +10,6 @@ import { Link } from "@/components/ui/cybercn/link";
 import { BookOpen, GithubIcon, LayoutTemplate } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const vt323 = VT323({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-vt323",
-});
-
-const adventPro = Advent_Pro({
-  variable: "--font-advent-pro",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -42,10 +31,8 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        adventPro.variable,
         "font-sans",
         inter.variable,
-        vt323.variable,
         "cyber-scrollbar",
       )}
       suppressHydrationWarning
