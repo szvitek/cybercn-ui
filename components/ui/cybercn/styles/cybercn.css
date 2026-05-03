@@ -1257,7 +1257,7 @@
   /* Scrollbar */
   .cyber-scrollbar {
     &::-webkit-scrollbar {
-      @apply bg-cyber-yellow;
+      @apply bg-cybercn-foreground;
     }
 
     &::-webkit-scrollbar-button,
