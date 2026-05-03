@@ -1,26 +1,60 @@
 ---
-title: Theming
-description: Dark-mode setup and theme switching patterns used by CyberCN UI.
+title: Dark Mode
+description: Add a theme switcher and dark mode support to your Next.js application.
 ---
 
-# Theming
+Adding dark mode support to your CyberCN project allows components to seamlessly switch between the default dark cyberpunk layout and their alternative high-contrast states.
 
-CyberCN UI uses `next-themes` for theme orchestration. The library does not expose a dedicated CyberCN theme hook anymore; the public pattern is the shared `ThemeProvider` at the app root plus UI controls like `ModeToggle`.
+## Install next-themes
 
-## Theme provider
+To manage client-side themes dynamically, begin by installing `next-themes`:
 
-```tsx
-import { ThemeProvider } from "@/components/theme-provider";
+```bash
+npm install next-themes
 ```
 
+## Install the Dropdown Menu
+
+The mode toggle component uses the dropdown menu primitive. Make sure you install it in your project:
+
+```bash
+npx shadcn@latest add dropdown-menu
+```
+
+## Create a Theme Provider
+
+To make the current theme available throughout your application, create a `ThemeProvider` client component:
+
+```tsx
+"use client";
+
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+export function ThemeProvider({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
+```
+
+## Wrap your Root Layout
+
+Add the `ThemeProvider` to your root layout. Make sure to also add the `suppressHydrationWarning` prop to your `<html>` element to prevent hydration errors from client-side theme transitions.
+
 ```tsx
 import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body>
         <ThemeProvider
           attribute="class"
@@ -36,15 +70,66 @@ export default function RootLayout({
 }
 ```
 
-## Theme toggle
+## Add a Mode Toggle
+
+Create a `mode-toggle.tsx` file inside your components folder. This snippet uses customized brackets, a hard industrial `rounded-none` border, and sharp hover states designed specifically to match the CyberCN design system:
 
 ```tsx
 "use client";
 
-import { ModeToggle } from "@/components/mode-toggle";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-export function HeaderThemeControl() {
-  return <ModeToggle />;
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+export function ModeToggle() {
+  const { setTheme } = useTheme();
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          className="relative rounded-none border-2 border-cybercn-primary bg-transparent transition-all duration-200 group overflow-hidden hover:bg-cybercn-primary hover:text-cybercn-primary-foreground dark:hover:bg-cybercn-primary dark:hover:text-cybercn-background focus-visible:ring-2 focus-visible:ring-cybercn-primary/40 focus-visible:ring-offset-0 focus-visible:outline-none"
+        >
+          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent
+        align="end"
+        className="w-44 rounded-none border-2 border-cybercn-primary bg-cybercn-background text-cybercn-foreground font-medium font-hacked uppercase tracking-tighter p-1"
+      >
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("light")}
+        >
+          [ Light_Mode ]
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("dark")}
+        >
+          [ Dark_Mode ]
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("system")}
+        >
+          [ System_Default ]
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
 ```
 
@@ -53,35 +138,3 @@ export function HeaderThemeControl() {
 </Preview>
 
 `ModeToggle` uses `useTheme` from `next-themes` internally and lets the user switch between `light`, `dark`, and `system`.
-
-## Current behavior
-
-- The root layout already mounts `ThemeProvider`, so docs pages and examples inherit theme support automatically.
-- Theme changes are applied through the `class` attribute strategy, which keeps styling aligned with Tailwind's dark-mode conventions.
-- The footer and several color tokens already adapt across light and dark themes without extra component-level logic.
-
-## When to use `useTheme`
-
-If you need to build a custom theme-aware control, import `useTheme` directly from `next-themes` inside a client component rather than relying on a CyberCN-specific wrapper.
-
-```tsx
-"use client";
-
-import { useTheme } from "next-themes";
-
-export function ThemeStatus() {
-  const { resolvedTheme, setTheme } = useTheme();
-
-  return (
-    <button onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
-      Active theme: {resolvedTheme}
-    </button>
-  );
-}
-```
-
-## Related files
-
-- `components/theme-provider.tsx`
-- `components/mode-toggle.tsx`
-- `app/layout.tsx`
