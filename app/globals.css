@@ -60,6 +60,9 @@
   --fd-background: var(--background);
   --fd-foreground: var(--foreground);
 
+  --fd-banner-height: 4rem;
+  --fd-sidebar-indent: 1.25rem;
+
   /* Border: High contrast black/dark, no white mix */
   --color-fd-border: var(--cyber-border);
 
@@ -125,6 +128,11 @@
     background-color: var(--background) !important;
     backdrop-filter: none !important;
     border-color: var(--border) !important;
+  }
+
+  #nd-sidebar {
+    /* Scope your custom spacing variable just for the sidebar */
+    --spacing: 0.25rem !important;
   }
 
   @media (min-width: 768px) {
