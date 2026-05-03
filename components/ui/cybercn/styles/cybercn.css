@@ -919,7 +919,7 @@
     }
 
     &:checked::before {
-      @apply border-cybercn-foreground border-t-transparent;
+      @apply border-cyber-border border-t-transparent;
     }
 
     .dark &:checked::before {
