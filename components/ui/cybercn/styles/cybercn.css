@@ -1202,6 +1202,7 @@
   .cyber-step {
     @apply relative flex items-end min-w-20 text-[12px] leading-3 mb-10 sm-boxtree:mb-15 pr-5 pb-1.25;
     @apply pl-12.5 sm-boxtree:pl-0;
+    @apply text-cybercn-foreground/60;
 
     counter-increment: cyber-step-counter;
     transition: all 0.3s ease;
@@ -1240,7 +1241,7 @@
   }
 
   .cyber-step.current {
-    @apply text-cybercn-foreground;
+    @apply text-cybercn-foreground font-bold;
 
     &::before {
       @apply bg-cybercn-foreground text-cybercn-background;
