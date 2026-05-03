@@ -121,7 +121,6 @@
 @layer base {
   .fd-sidebar,
   .fd-nav,
-  header,
   aside {
     background-color: var(--background) !important;
     backdrop-filter: none !important;
