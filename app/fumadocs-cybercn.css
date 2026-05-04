@@ -1,0 +1,317 @@
+/**
+ * Fumadocs × CyberCN theme
+ * ------------------------
+ * Import order in globals.css:
+ *   1. tailwind, shadcn, fumadocs-ui/css/neutral.css, fumadocs-ui/css/preset.css
+ *   2. cybercn.css (palette: --cyber-*, --cybercn-*)
+ *   3. this file
+ *
+ * Fumadocs UI styles components with utilities like `bg-fd-primary`. Those resolve from
+ * `--color-fd-*` registered in `@theme`. We map every relevant `--color-fd-*` to internal
+ * `--fd-*` aliases, then set those aliases from CyberCN in `:root` / `.dark`.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Register fd-* for Tailwind (overrides fumadocs-ui default-colors in @theme) */
+/* -------------------------------------------------------------------------- */
+@theme inline {
+  --color-fd-background: var(--fd-cyber-bg);
+  --color-fd-foreground: var(--fd-cyber-fg);
+  --color-fd-primary: var(--fd-doc-accent);
+  --color-fd-primary-foreground: var(--fd-doc-accent-fg);
+  --color-fd-secondary: var(--fd-surface-2);
+  --color-fd-secondary-foreground: var(--fd-surface-2-fg);
+  --color-fd-muted: var(--fd-muted);
+  --color-fd-muted-foreground: var(--fd-muted-fg);
+  --color-fd-accent: var(--fd-interactive);
+  --color-fd-accent-foreground: var(--fd-interactive-fg);
+  --color-fd-card: var(--fd-elevated);
+  --color-fd-card-foreground: var(--fd-elevated-fg);
+  --color-fd-popover: var(--fd-popover);
+  --color-fd-popover-foreground: var(--fd-popover-fg);
+  --color-fd-border: var(--fd-border);
+  --color-fd-ring: var(--fd-ring);
+  --color-fd-overlay: var(--fd-overlay);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Internal mapping: CyberCN → Fumadocs semantics                             */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Doc shell = CyberCN page colors */
+  --fd-cyber-bg: var(--cybercn-background);
+  --fd-cyber-fg: var(--cybercn-foreground);
+
+  /* Inline emphasis / links / code accents — red on yellow field */
+  --fd-doc-accent: var(--cyber-red);
+  --fd-doc-accent-fg: var(--cybercn-background);
+
+  /* Secondary surfaces (search tags, chips, footer strip) */
+  --fd-surface-2: color-mix(
+    in oklab,
+    var(--cyber-yellow) 16%,
+    var(--cybercn-background)
+  );
+  --fd-surface-2-fg: var(--cybercn-foreground);
+
+  --fd-muted: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 6%,
+    var(--cybercn-background)
+  );
+  --fd-muted-fg: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 52%,
+    var(--cybercn-background)
+  );
+
+  --fd-interactive: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 10%,
+    var(--cybercn-background)
+  );
+  --fd-interactive-fg: var(--cybercn-foreground);
+
+  --fd-elevated: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 4%,
+    var(--cybercn-background)
+  );
+  --fd-elevated-fg: var(--cybercn-foreground);
+
+  --fd-popover: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 6%,
+    var(--cybercn-background)
+  );
+  --fd-popover-fg: var(--cybercn-foreground);
+
+  --fd-border: var(--cyber-border);
+  --fd-ring: var(--cyber-red);
+  --fd-overlay: hsla(0, 0%, 0%, 0.5);
+
+  --fd-banner-height: 4rem;
+  --fd-sidebar-indent: 1.25rem;
+}
+
+.dark {
+  --fd-cyber-bg: var(--cybercn-background);
+  --fd-cyber-fg: var(--cybercn-foreground);
+
+  --fd-doc-accent: var(--cyber-yellow);
+  --fd-doc-accent-fg: var(--cyber-black);
+
+  --fd-surface-2: color-mix(in oklab, var(--cyber-yellow) 24%, black 76%);
+  --fd-surface-2-fg: var(--cyber-yellow);
+
+  --fd-muted: color-mix(in oklab, var(--cyber-blue) 18%, black 82%);
+  --fd-muted-fg: color-mix(in oklab, var(--cyber-yellow) 68%, white 32%);
+
+  --fd-interactive: color-mix(in oklab, var(--cyber-blue) 28%, black 72%);
+  --fd-interactive-fg: var(--cyber-yellow);
+
+  --fd-elevated: var(--cybercn-card);
+  --fd-elevated-fg: var(--cybercn-card-foreground);
+
+  --fd-popover: color-mix(in oklab, var(--cyber-blue) 16%, black 84%);
+  --fd-popover-fg: var(--cybercn-foreground);
+
+  --fd-border: var(--cybercn-border);
+  --fd-ring: var(--cyber-red);
+  --fd-overlay: hsla(0, 0%, 0%, 0.75);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout & polish (cannot be done with variables alone)                     */
+/* -------------------------------------------------------------------------- */
+@layer base {
+  /* Sidebar chrome — scoped to docs layout, not every <aside> in the app */
+  #nd-docs-layout .fd-sidebar,
+  #nd-docs-layout .fd-nav,
+  #nd-docs-layout [data-sidebar],
+  #nd-sidebar {
+    background-color: var(--fd-cyber-bg);
+    border-color: var(--fd-border);
+  }
+
+  #nd-docs-layout .fd-sidebar,
+  #nd-docs-layout .fd-nav,
+  #nd-sidebar {
+    backdrop-filter: none;
+  }
+
+  #nd-sidebar {
+    --spacing: 0.25rem;
+  }
+
+  @media (min-width: 768px) {
+    #nd-docs-layout {
+      --fd-sidebar-width: 236px;
+    }
+
+    #nd-docs-layout [data-sidebar] {
+      width: var(--fd-sidebar-width);
+      max-width: var(--fd-sidebar-width);
+    }
+
+    #nd-docs-layout [data-sidebar-placeholder] {
+      min-width: var(--fd-sidebar-width);
+      width: var(--fd-sidebar-width);
+    }
+  }
+
+  .fd-sidebar-item-active {
+    background-color: var(--fd-doc-accent);
+    color: var(--fd-doc-accent-fg);
+  }
+
+  /* Keyboard styling — fd tokens track CyberCN light/dark via :root / .dark */
+  kbd {
+    background-color: var(--fd-doc-accent);
+    color: var(--fd-doc-accent-fg);
+    border-radius: 0;
+    border: none;
+  }
+
+  #nd-page
+    .prose
+    :where(code):not(
+      :where(pre code, [class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    background: color-mix(in oklab, var(--fd-doc-accent) 12%, transparent);
+    color: var(--fd-doc-accent);
+    border: 1px solid var(--fd-border);
+    border-radius: 0;
+    padding-inline: 0.45rem;
+    padding-block: 0.1rem;
+    box-shadow: inset 0 -1px 0
+      color-mix(in oklab, var(--fd-doc-accent) 28%, transparent);
+  }
+
+  #nd-page
+    .prose
+    :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--fd-doc-accent);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--fd-elevated) 92%, var(--fd-doc-accent) 8%),
+      var(--fd-elevated)
+    );
+    border-color: var(--fd-border);
+    border-radius: 0;
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--fd-border) 70%, transparent),
+      0 0 18px color-mix(in oklab, var(--fd-doc-accent) 10%, transparent);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) [aria-label="Copy Text"] {
+    background: color-mix(in oklab, var(--fd-interactive) 72%, transparent);
+    border: 1px solid var(--fd-border);
+    border-radius: 0;
+    color: var(--fd-doc-accent);
+  }
+
+  .shiki:not(.not-fumadocs-codeblock *) [aria-label="Copy Text"]:hover {
+    background: var(--fd-doc-accent);
+    color: var(--fd-doc-accent-fg);
+  }
+
+  .fd-sidebar button[data-search-full],
+  .fd-sidebar [data-theme-toggle],
+  #nd-sidebar button[data-search-full],
+  #nd-sidebar [data-theme-toggle],
+  #nd-page kbd,
+  [data-sidebar-panel] {
+    border-color: var(--fd-border);
+    border-radius: 0;
+  }
+
+  #nd-sidebar button[data-search-full],
+  #nd-sidebar [data-theme-toggle],
+  [data-sidebar-panel] {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--fd-elevated) 92%, var(--fd-doc-accent) 8%),
+      var(--fd-elevated)
+    );
+    box-shadow: none;
+  }
+
+  #nd-sidebar button[data-search-full]:hover,
+  #nd-sidebar [data-theme-toggle]:hover {
+    background: var(--fd-interactive);
+  }
+
+  #nd-sidebar button[data-search-full] kbd {
+    background: var(--fd-cyber-bg);
+    color: var(--fd-doc-accent);
+    border: 1px solid var(--fd-border);
+    box-shadow: none;
+  }
+
+  #nd-sidebar [data-theme-toggle] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  #nd-sidebar [data-theme-toggle] button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    min-width: 2rem;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--fd-elevated) 92%, var(--fd-doc-accent) 8%),
+      var(--fd-elevated)
+    );
+    border-color: var(--fd-border);
+    color: var(--fd-doc-accent);
+    box-shadow: none;
+  }
+
+  #nd-sidebar [data-theme-toggle] button:hover,
+  #nd-sidebar [data-theme-toggle] button[data-state="on"] {
+    background: var(--fd-interactive);
+    color: var(--fd-interactive-fg);
+  }
+
+  #nd-sidebar [data-theme-toggle] svg {
+    color: var(--fd-doc-accent);
+  }
+
+  /*
+    Fumadocs search dialog:
+    - Library keyframes omit opacity: 1 in the end state.
+    - Footer uses bg-fd-secondary/50 — force solid secondary for consistent strip.
+  */
+  [role="dialog"].fixed.max-w-screen-sm[data-state="open"] {
+    opacity: 1;
+    background-color: var(--fd-popover);
+  }
+
+  [role="dialog"].max-w-screen-sm + div {
+    background-color: var(--fd-surface-2);
+    color: var(--fd-surface-2-fg);
+    opacity: 1;
+  }
+}
+
+@keyframes fd-dialog-in {
+  from {
+    transform: scale(1.06);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
