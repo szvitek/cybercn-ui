@@ -52,6 +52,12 @@
   --color-fd-primary: var(--primary);
   --color-fd-background: var(--background);
   --color-fd-foreground: var(--foreground);
+  /* Search modal: opaque tokens (see :root --fd-search-modal-bg); bg-fd-popover must be in @theme */
+  --color-fd-popover: var(--fd-search-modal-bg);
+  --color-fd-popover-foreground: var(--color-fd-foreground);
+  /* Pills, code chips, search footer — must be in @theme or Fumadocs gray wins */
+  --color-fd-secondary: var(--fd-secondary-pill-bg);
+  --color-fd-secondary-foreground: var(--fd-secondary-pill-fg);
 }
 
 :root {
@@ -62,6 +68,21 @@
 
   --fd-banner-height: 4rem;
   --fd-sidebar-indent: 1.25rem;
+
+  /* Search modal panel — fully opaque (matches cybercn page surface, not theme-transparent mixes) */
+  --fd-search-modal-bg: color-mix(
+    in oklab,
+    var(--cybercn-foreground) 5%,
+    var(--cybercn-background)
+  );
+
+  /* fd-secondary: tag chips, inline code in search results, search footer bar */
+  --fd-secondary-pill-bg: color-mix(
+    in oklab,
+    var(--cyber-yellow) 18%,
+    var(--cybercn-background)
+  );
+  --fd-secondary-pill-fg: var(--cybercn-foreground);
 
   /* Border: High contrast black/dark, no white mix */
   --color-fd-border: var(--cyber-border);
@@ -89,7 +110,6 @@
 
   /* Code Blocks & Cards: Make them pop with a slight "shadow" yellow */
   --color-fd-card: color-mix(in oklab, var(--foreground) 3%, var(--background));
-  --color-fd-popover: var(--background);
 
   /* Syntax/Primary Highlights */
   --color-fd-primary: var(--cyber-red);
@@ -113,12 +133,15 @@
     var(--cyber-yellow) 72%,
     white 28%
   );
-  --color-fd-secondary: color-mix(in oklab, var(--cyber-red) 18%, black 82%);
-  --color-fd-secondary-foreground: var(--cyber-yellow);
+  --fd-secondary-pill-bg: color-mix(
+    in oklab,
+    var(--cyber-yellow) 24%,
+    black 76%
+  );
+  --fd-secondary-pill-fg: var(--cyber-yellow);
   --color-fd-card: color-mix(in oklab, var(--cyber-blue) 14%, black 86%);
   --color-fd-card-foreground: var(--cyber-yellow);
-  --color-fd-popover: color-mix(in oklab, var(--cyber-blue) 10%, black 90%);
-  --color-fd-popover-foreground: var(--cyber-yellow);
+  --fd-search-modal-bg: color-mix(in oklab, var(--cyber-blue) 18%, black 82%);
 }
 
 @layer base {
