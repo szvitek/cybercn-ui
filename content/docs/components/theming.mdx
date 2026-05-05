@@ -1,26 +1,62 @@
 ---
 title: Theming
-description: Dark-mode setup and theme switching patterns used by CyberCN UI.
+description: Add a theme switcher and dark mode support to your Next.js application.
 ---
 
 # Theming
 
-CyberCN UI uses `next-themes` for theme orchestration. The library does not expose a dedicated CyberCN theme hook anymore; the public pattern is the shared `ThemeProvider` at the app root plus UI controls like `ModeToggle`.
+Adding dark mode support to your CyberCN project allows components to seamlessly switch between the default dark cyberpunk layout and their alternative high-contrast states.
 
-## Theme provider
+## Install next-themes
 
-```tsx
-import { ThemeProvider } from "@/components/theme-provider";
+To manage client-side themes dynamically, begin by installing `next-themes`:
+
+```bash
+npm install next-themes
 ```
 
+## Install the Dropdown Menu
+
+The mode toggle component uses the dropdown menu primitive. Make sure you install it in your project:
+
+```bash
+npx shadcn@latest add dropdown-menu
+```
+
+## Create a Theme Provider
+
+To make the current theme available throughout your application, create a `ThemeProvider` client component:
+
+```tsx
+"use client";
+
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+export function ThemeProvider({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
+```
+
+## Wrap your Root Layout
+
+Add the `ThemeProvider` to your root layout. Make sure to also add the `suppressHydrationWarning` prop to your `<html>` element to prevent hydration errors from client-side theme transitions.
+
 ```tsx
 import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body>
         <ThemeProvider
           attribute="class"
@@ -36,15 +72,85 @@ export default function RootLayout({
 }
 ```
 
-## Theme toggle
+## Enable the Cyber scrollbar
+
+CyberCN includes a custom scrollbar style in `cybercn.css`. To enable it globally, add the `cyber-scrollbar` class to the `<html>` element in your root `layout.tsx`.
+
+```tsx
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="cyber-scrollbar" suppressHydrationWarning>
+      <head />
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+## Add a Mode Toggle
+
+Create a `mode-toggle.tsx` file inside your components folder. This snippet uses customized brackets, a hard industrial `rounded-none` border, and sharp hover states designed specifically to match the CyberCN design system:
 
 ```tsx
 "use client";
 
-import { ModeToggle } from "@/components/mode-toggle";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-export function HeaderThemeControl() {
-  return <ModeToggle />;
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+export function ModeToggle() {
+  const { setTheme } = useTheme();
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          className="relative rounded-none border-2 border-cybercn-primary bg-transparent transition-all duration-200 group overflow-hidden hover:bg-cybercn-primary hover:text-cybercn-primary-foreground dark:hover:bg-cybercn-primary dark:hover:text-cybercn-background focus-visible:ring-2 focus-visible:ring-cybercn-primary/40 focus-visible:ring-offset-0 focus-visible:outline-none"
+        >
+          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent
+        align="end"
+        className="w-44 rounded-none border-2 border-cybercn-primary bg-cybercn-background text-cybercn-foreground font-medium font-hacked uppercase tracking-tighter p-1"
+      >
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("light")}
+        >
+          [ Light_Mode ]
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("dark")}
+        >
+          [ Dark_Mode ]
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer whitespace-nowrap rounded-none focus:rounded-none focus:bg-cybercn-primary focus:text-cybercn-primary-foreground dark:focus:text-cybercn-background"
+          onClick={() => setTheme("system")}
+        >
+          [ System_Default ]
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
 ```
 
@@ -54,34 +160,65 @@ export function HeaderThemeControl() {
 
 `ModeToggle` uses `useTheme` from `next-themes` internally and lets the user switch between `light`, `dark`, and `system`.
 
-## Current behavior
+## Core CSS variables
 
-- The root layout already mounts `ThemeProvider`, so docs pages and examples inherit theme support automatically.
-- Theme changes are applied through the `class` attribute strategy, which keeps styling aligned with Tailwind's dark-mode conventions.
-- The footer and several color tokens already adapt across light and dark themes without extra component-level logic.
+CyberCN styling is driven by CSS variables in `components/ui/cybercn/styles/cybercn.css`.  
+If you want to tune the visual system for your own project, override these variables in your global stylesheet.
 
-## When to use `useTheme`
+### Semantic theme tokens (recommended override layer)
 
-If you need to build a custom theme-aware control, import `useTheme` directly from `next-themes` inside a client component rather than relying on a CyberCN-specific wrapper.
+These are the most important tokens to customize first:
 
-```tsx
-"use client";
+- `--cybercn-background`
+- `--cybercn-foreground`
+- `--cybercn-primary`
+- `--cybercn-primary-foreground`
+- `--cybercn-secondary`
+- `--cybercn-secondary-foreground`
+- `--cybercn-muted`
+- `--cybercn-muted-foreground`
+- `--cybercn-accent`
+- `--cybercn-accent-foreground`
+- `--cybercn-border`
+- `--cybercn-ring`
+- `--cybercn-radius`
 
-import { useTheme } from "next-themes";
+### Brand/palette helpers used by components
 
-export function ThemeStatus() {
-  const { resolvedTheme, setTheme } = useTheme();
+- `--cyber-yellow`
+- `--cyber-red`
+- `--cyber-blue`
+- `--cyber-green`
+- `--cyber-purple`
+- `--cyber-orange`
+- `--cyber-neon`
+- `--cyber-border`
+- `--cyber-black`
 
-  return (
-    <button onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
-      Active theme: {resolvedTheme}
-    </button>
-  );
+### Example overrides
+
+```css
+:root {
+  --cybercn-background: oklch(0.94 0.16 100);
+  --cybercn-foreground: oklch(0.12 0.01 260);
+  --cybercn-primary: oklch(0.12 0.01 260);
+  --cybercn-primary-foreground: oklch(0.94 0.16 100);
+  --cybercn-accent: oklch(0.65 0.22 245);
+  --cybercn-border: oklch(0.2 0.02 260 / 0.2);
+  --cybercn-radius: 0rem;
+}
+
+.dark {
+  --cybercn-background: oklch(0.08 0 0);
+  --cybercn-foreground: oklch(0.93 0.2 107);
+  --cybercn-primary: oklch(0.93 0.2 107);
+  --cybercn-primary-foreground: oklch(0.08 0 0);
+  --cybercn-accent: oklch(0.6 0.24 250);
+  --cybercn-border: oklch(0.93 0.18 95 / 0.2);
 }
 ```
 
-## Related files
+Start with semantic tokens and only override `--cyber-*` palette helpers when you need to reshape the brand colors globally.
 
-- `components/theme-provider.tsx`
-- `components/mode-toggle.tsx`
-- `app/layout.tsx`
+Glitch timings (`--glitched-duration-*`) and Tailwind `animate-*` utilities are documented in [Motion and effects](./motion-and-effects.mdx).  
+`clip-*` utilities and border framing are summarized in [Shapes and clipping](./shapes-and-clipping.mdx).

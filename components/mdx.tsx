@@ -15,7 +15,7 @@ import { Header } from "@/components/ui/cybercn/header";
 import { Heading } from "@/components/ui/cybercn/heading";
 import { Hr } from "@/components/ui/cybercn/hr";
 import { Image } from "@/components/ui/cybercn/image";
-import { Link } from "@/components/ui/cybercn/link";
+import Link from "next/link";
 import { List, ListItem } from "@/components/ui/cybercn/list";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";

@@ -7,7 +7,13 @@ description: Cyber-themed form controls for text entry, selection, submission, a
 
 CyberCN form components keep the API close to native HTML controls while replacing the visual treatment with the library's clipped, high-contrast style system.
 
-## Barrel imports
+## Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-form @cybercn/cyber-button
+```
+
+## Import
 
 ```tsx
 import {
@@ -18,9 +24,10 @@ import {
   CyberSelection,
   CyberTextarea,
 } from "@/components/ui/cybercn/form";
+import { Button } from "@/components/ui/cybercn/button";
 ```
 
-## Example
+## Usage Example
 
 ```tsx
 import {
@@ -41,11 +48,7 @@ export function IntakeForm() {
         <CyberInput name="scanDate" type="date" />
       </CyberFieldset>
 
-      <CyberTextarea
-        name="manifesto"
-        rows={4}
-        placeholder="SYSTEM_MANIFESTO"
-      />
+      <CyberTextarea name="manifesto" rows={4} placeholder="SYSTEM_MANIFESTO" />
 
       <CyberSelect name="district" defaultValue="HAYWOOD">
         <option value="WATSON">WATSON</option>
@@ -98,30 +101,33 @@ export function IntakeForm() {
     />
 
     <Button type="submit">{"Initialize Handshake"}</Button>
+
   </CyberForm>
 </Preview>
 
 ## CyberForm
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| native form props | `FormHTMLAttributes<HTMLFormElement>` | - | Supports `action`, `onSubmit`, `method`, `className`, and more. |
+| Prop              | Type                                  | Default | Notes                                                           |
+| ----------------- | ------------------------------------- | ------- | --------------------------------------------------------------- |
+| native form props | `FormHTMLAttributes<HTMLFormElement>` | -       | Supports `action`, `onSubmit`, `method`, `className`, and more. |
 
 `CyberForm` is a thin wrapper that adds `space-y-4` by default and forwards the rest of the native form API.
 
 <Preview>
   <CyberForm className="space-y-3">
     <CyberInput placeholder="USER_ALIAS" aria-label="user alias" />
-    <Button type="submit" size="sm">{"Submit"}</Button>
+    <Button type="submit" size="sm">
+      {"Submit"}
+    </Button>
   </CyberForm>
 </Preview>
 
 ## CyberInput
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| native input props | `ComponentProps<"input">` | - | Accepts the full native input surface. |
-| `type` | native HTML input type | `"text"` | Defaults to text, but works with date, file, number, password, and more. |
+| Prop               | Type                      | Default  | Notes                                                                    |
+| ------------------ | ------------------------- | -------- | ------------------------------------------------------------------------ |
+| native input props | `ComponentProps<"input">` | -        | Accepts the full native input surface.                                   |
+| `type`             | native HTML input type    | `"text"` | Defaults to text, but works with date, file, number, password, and more. |
 
 Best fit for single-line text fields, temporal inputs, upload controls, and numeric entries.
 
@@ -132,9 +138,9 @@ Best fit for single-line text fields, temporal inputs, upload controls, and nume
 
 ## CyberTextarea
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| native textarea props | `ComponentProps<"textarea">` | - | Includes `rows`, `placeholder`, `value`, and `onChange`. |
+| Prop                  | Type                         | Default | Notes                                                    |
+| --------------------- | ---------------------------- | ------- | -------------------------------------------------------- |
+| native textarea props | `ComponentProps<"textarea">` | -       | Includes `rows`, `placeholder`, `value`, and `onChange`. |
 
 Adds `cyber-input`, a larger minimum height, and the textarea-specific clipped frame class.
 
@@ -148,9 +154,9 @@ Adds `cyber-input`, a larger minimum height, and the textarea-specific clipped f
 
 ## CyberSelect
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| native select props | `ComponentProps<"select">` | - | Accepts normal select attributes and events. |
+| Prop                | Type                       | Default | Notes                                        |
+| ------------------- | -------------------------- | ------- | -------------------------------------------- |
+| native select props | `ComponentProps<"select">` | -       | Accepts normal select attributes and events. |
 
 Applies the CyberCN input frame with select-specific clipping and `appearance-none`.
 
@@ -164,11 +170,11 @@ Applies the CyberCN input frame with select-specific clipping and `appearance-no
 
 ## CyberSelection
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| `type` | `"checkbox" \| "radio"` | required | Chooses the rendered control style. |
-| `label` | `string` | required | Rendered inline after the input control. |
-| native input props | `Omit<ComponentProps<"input">, "type">` | - | Includes `name`, `value`, `checked`, `onChange`, and `disabled`. |
+| Prop               | Type                                    | Default  | Notes                                                            |
+| ------------------ | --------------------------------------- | -------- | ---------------------------------------------------------------- |
+| `type`             | `"checkbox" \| "radio"`                 | required | Chooses the rendered control style.                              |
+| `label`            | `string`                                | required | Rendered inline after the input control.                         |
+| native input props | `Omit<ComponentProps<"input">, "type">` | -        | Includes `name`, `value`, `checked`, `onChange`, and `disabled`. |
 
 Use this for radios and checkboxes where the visible label should stay attached to the control.
 
@@ -189,10 +195,10 @@ Use this for radios and checkboxes where the visible label should stay attached 
 
 ## CyberFieldset
 
-| Prop | Type | Default | Notes |
-| --- | --- | --- | --- |
-| `className` | `string` | - | Useful for grid layout or spacing overrides. |
-| `children` | `React.ReactNode` | required | Usually a cluster of related form controls. |
+| Prop        | Type              | Default  | Notes                                        |
+| ----------- | ----------------- | -------- | -------------------------------------------- |
+| `className` | `string`          | -        | Useful for grid layout or spacing overrides. |
+| `children`  | `React.ReactNode` | required | Usually a cluster of related form controls.  |
 
 `CyberFieldset` is helpful for grouping date/time pairs, security fields, or multi-input identity blocks.
 

@@ -9,9 +9,19 @@ These primitives carry most of the CyberCN visual language. They are best used t
 
 ## Heading
 
+### Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-heading
+```
+
+### Import
+
 ```tsx
 import { Heading } from "@/components/ui/cybercn/heading";
 ```
+
+### Usage
 
 ```tsx
 <Heading Tag="h1" glitched>
@@ -20,9 +30,13 @@ import { Heading } from "@/components/ui/cybercn/heading";
 ```
 
 <Preview className="space-y-4">
-  <Heading Tag="h1" glitched>{"Threat Assessment"}</Heading>
+  <Heading Tag="h1" glitched>
+    {"Threat Assessment"}
+  </Heading>
   <Heading Tag="h2">Sector Report</Heading>
-  <Heading Tag="h3" glitched>{"Active Signal"}</Heading>
+  <Heading Tag="h3" glitched>
+    {"Active Signal"}
+  </Heading>
   <Heading Tag="h4">Terminal Note</Heading>
 </Preview>
 
@@ -36,9 +50,19 @@ Use `Tag` instead of a separate `as` prop because the style system keys off the 
 
 ## Paragraph
 
+### Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-paragraph
+```
+
+### Import
+
 ```tsx
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 ```
+
+### Usage
 
 ```tsx
 <Paragraph inverse dotted scanned="horizontal">
@@ -47,7 +71,9 @@ import { Paragraph } from "@/components/ui/cybercn/paragraph";
 ```
 
 <Preview className="space-y-4">
-  <Paragraph>{"Standard body copy for longer descriptive passages and inline links."}</Paragraph>
+  <Paragraph>
+    {"Standard body copy for longer descriptive passages and inline links."}
+  </Paragraph>
   <Paragraph inverse dotted scanned="horizontal">
     {"Archive fragments remain readable despite signal corruption."}
   </Paragraph>
@@ -62,9 +88,19 @@ import { Paragraph } from "@/components/ui/cybercn/paragraph";
 
 ## List and List.Item
 
+### Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-list
+```
+
+### Import
+
 ```tsx
 import { List } from "@/components/ui/cybercn/list";
 ```
+
+### Usage
 
 ```tsx
 <List variant="ol">
@@ -99,9 +135,19 @@ import { List } from "@/components/ui/cybercn/list";
 
 ## Hr
 
+### Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-hr
+```
+
+### Import
+
 ```tsx
 import { Hr } from "@/components/ui/cybercn/hr";
 ```
+
+### Usage
 
 ```tsx
 <Hr glitched />
@@ -117,37 +163,21 @@ import { Hr } from "@/components/ui/cybercn/hr";
 | `glitched`  | `boolean` | `false` | Enables the animated divider.    |
 | `className` | `string`  | -       | Adds spacing or color overrides. |
 
-## Link
-
-```tsx
-import { Link } from "@/components/ui/cybercn/link";
-```
-
-```tsx
-<Link href="/docs/components/forms" variant="green">
-  Inspect form controls
-</Link>
-```
-
-<Preview>
-  <Link href="/docs/components/forms" variant="green">
-    Inspect form controls
-  </Link>
-</Preview>
-
-| Prop               | Type                                        | Default | Notes                                                                |
-| ------------------ | ------------------------------------------- | ------- | -------------------------------------------------------------------- |
-| `variant`          | `"red" \| "green" \| "purple" \| "blue"`    | `"red"` | Sets the CyberCN link accent.                                        |
-| `asChild`          | `boolean`                                   | `false` | Uses `Slot.Root` for composition.                                    |
-| Next.js link props | `ComponentPropsWithoutRef<typeof NextLink>` | -       | Accepts `href`, `prefetch`, `replace`, and related navigation props. |
-
-This is a wrapper around `next/link`, so it keeps normal App Router navigation behavior.
-
 ## Image
+
+### Install
+
+```bash
+npx shadcn@latest add @cybercn/cyber-image
+```
+
+### Import
 
 ```tsx
 import { Image } from "@/components/ui/cybercn/image";
 ```
+
+### Usage
 
 ```tsx
 <Image

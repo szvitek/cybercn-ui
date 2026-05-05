@@ -1,0 +1,123 @@
+---
+title: Shapes and clipping
+description: clip-path utilities and border framing patterns from cybercn.css.
+---
+
+# Shapes and clipping
+
+CyberCN’s silhouette comes mostly from **`clip-path` polygons** declared as Tailwind **v4 `@utility`** rules in `components/ui/cybercn/styles/cybercn.css`. With `cybercn.css` imported (see [Getting Started](../getting-started.mdx)), each utility name becomes a usable class (for example `clip-button`, `clip-h1-before`).
+
+Polygon coordinates live only in the stylesheet—this page maps **names → roles** so you can compose or override without reading every vertex.
+
+## Clipping utilities by area
+
+### Typography and body copy
+
+| Utility                             | Wired by                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| `clip-h1-before` … `clip-h4-before` | [`Heading`](./typography-and-media.mdx) via `before:clip-h*-before` per level  |
+| `clip-paragraph`                    | `.cyber-p` ([`Paragraph`](./typography-and-media.mdx))                         |
+| `clip-ul-bullet`                    | `.cyber-ul > li::before`                                                       |
+| `clip-ol-bullet`                    | `.cyber-ol > li::before`                                                       |
+| `clip-hr`                           | `.cyber-hr` ([`Hr`](./typography-and-media.mdx)) — thin horizontal strip       |
+| `clip-hr-glitched`                  | Optional; sharper HR silhouette (not applied by the `Hr` component by default) |
+| `clip-image`                        | `.cyber-image` ([`Image`](./typography-and-media.mdx))                         |
+
+### Forms
+
+| Utility              | Wired by                                                               |
+| -------------------- | ---------------------------------------------------------------------- |
+| `clip-form-input`    | `.cyber-input` (default input shell)                                   |
+| `clip-form-textarea` | [`CyberTextarea`](./forms.mdx) — `cyber-input` plus this clip override |
+| `clip-form-select`   | [`CyberSelect`](./forms.mdx) — `cyber-input` plus this clip override   |
+
+See [Forms](./forms.mdx) for the React wrappers.
+
+### Layout sections
+
+| Utility                    | Wired by                            |
+| -------------------------- | ----------------------------------- |
+| `clip-section-top`         | `.cyber-section::before`            |
+| `clip-section-bottom`      | `.cyber-section::after`             |
+| `clip-section-both-top`    | `.cyber-section.frame-both::before` |
+| `clip-section-both-bottom` | `.cyber-section.frame-both::after`  |
+
+[`Section`](./layout-and-navigation.mdx) applies these on pseudo-elements for the angled header/footer bars. The **`frame-both`** class is added when you pass **`withSide`** to `Section`.
+
+### Buttons and navigation
+
+| Utility         | Wired by                                                        |
+| --------------- | --------------------------------------------------------------- |
+| `clip-button`   | `.cyber-button` ([`Button`](./button.mdx)) — angled bottom edge |
+| `clip-aside-li` | `.cyber-aside li`                                               |
+
+**Button clip tuning:** `clip-button` reads optional CSS variables on the element (defaults in the rule):
+
+- `--cut-x` (default `15px`) — horizontal corner extension
+- `--cut-y` (default `35px`) — vertical lift of the bottom cut
+- `--cut-indent` (default `20px`) — where the bottom edge steps in
+
+Example:
+
+```tsx
+import type { CSSProperties } from "react";
+import { Button } from "@/components/ui/cybercn/button";
+
+export function CustomClipDemo() {
+  return (
+    <Button
+      variant="green"
+      style={
+        {
+          "--cut-x": "20px",
+          "--cut-y": "40px",
+          "--cut-indent": "28px",
+        } as CSSProperties
+      }
+    >
+      Custom cut
+    </Button>
+  );
+}
+```
+
+<Preview className="flex flex-wrap items-center gap-6">
+  <Button variant="green">Default clip</Button>
+  <Button
+    variant="green"
+    style={{
+      "--cut-x": "20px",
+      "--cut-y": "40px",
+      "--cut-indent": "28px",
+    }}
+  >
+    Custom cut
+  </Button>
+</Preview>
+
+### BoxTree
+
+| Utility               | Role                                                             |
+| --------------------- | ---------------------------------------------------------------- |
+| `boxtree-box-after`   | Narrow vertical strip pseudo-element geometry for box connectors |
+| `boxtree-box-after-2` | Dual vertical strips (quarter positions)                         |
+
+Used by `.cyber-box` rules in the BoxTree layout; see [BoxTree](./boxtree.mdx).
+
+## Borders and framing (not clip-path)
+
+Many components combine clipping with **thick or asymmetric borders** and token colors (`--cybercn-foreground`, `--cyber-border`, etc.):
+
+- **Inputs** — heavy left/right/bottom borders and `clip-form-*`; focus ring shifts green / purple in dark mode.
+- **Paragraph** — boxed frame (`border-x`, thick bottom) plus `clip-paragraph`; **inverse** variant swaps fill and adds a right accent bar.
+- **Button** — no box border except a **3px right rail** in `--cyber-border`; hover/focus layers optional frame pseudo-elements.
+- **Aside list items** — skewed tabs with black/yellow borders (`border-l-10`, `border-b-10`).
+- **Fieldset** — `border-dotted` purple frame (`.cyber-fieldset`).
+- **BoxTree** — responsive **dashed** outline whose width tracks breakpoints (`--border-height`).
+
+For palette overrides, use **Core CSS variables** in [Theming](./theming.mdx#core-css-variables).
+
+## See also
+
+- [Motion and effects](./motion-and-effects.mdx) — animations paired with these shapes
+- [Theming](./theming.mdx) — semantic colors and tokens

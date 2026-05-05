@@ -7,45 +7,85 @@ description: Install, import, and structure CyberCN UI inside a Next.js app.
 
 CyberCN UI is a Next.js-first component library for retro-futurist interfaces. The library layers cyberpunk presentation on top of typed React components, Tailwind utilities, and CVA-driven variants.
 
-## What is already wired in this project
+Components install through a **self-hosted** registry URL that works with the shadcn CLI. This project is **not** listed in the **official shadcn registry catalog** at the moment (it is maintained as a hobby). Submitting to that catalog is not planned for now, but could be revisited later if it helps users.
 
-This repository already includes the core runtime pieces:
+## Install from the CyberCN registry
 
-- Global styles are loaded from `app/globals.css`.
-- Fumadocs is mounted under `/docs`.
-- Theme switching is powered by `next-themes`.
-- Component styling tokens are exposed through the CyberCN utility classes and CSS variables.
-
-## Install dependencies
-
-If you are using this library outside this repository, install the peer stack that the components expect:
+Use the shadcn CLI with the hosted registry endpoints:
 
 ```bash
-npm install next react react-dom class-variance-authority clsx tailwind-merge next-themes radix-ui lucide-react
+npx shadcn@latest add https://cybercn-ui.vercel.app/r/cyber-button.json
 ```
+
+You can replace `cyber-button` with any component name from the registry.
+
+If you want a named registry alias in your app `components.json`, add:
+
+```json
+{
+  "registries": {
+    "@cybercn": "https://cybercn-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Then install using the alias:
+
+```bash
+npx shadcn@latest add @cybercn/cyber-button
+```
+
+Registry index:
+
+- https://cybercn-ui.vercel.app/r/registry.json
+
+Currently available component names:
+
+- `cyber-button`
+- `cyber-form`
+- `cyber-header`
+- `cyber-heading`
+- `cyber-steps`
+- `cyber-boxtree`
+- `cyber-aside`
+- `cyber-section`
+- `cyber-list`
+- `cyber-paragraph`
+- `cyber-hr`
+- `cyber-image`
+- `cyber-footer`
+
+The registry also publishes **`cybercn-styles`**, which installs `cybercn.css`. Most components declare it as a dependency so the CLI pulls it in automatically; if you need only the stylesheet, run
+`npx shadcn@latest add https://cybercn-ui.vercel.app/r/cybercn-styles.json`
+
+## Import `cybercn.css` in your global stylesheet
+
+CyberCN primitives depend on **global CSS**: design tokens (`--cybercn-*`, `--cyber-*`), font faces, layer order, and classes such as `cyber-button` and `cyber-section`. **You must import the CyberCN stylesheet** or components will mount without the intended look.
+
+1. Confirm the file exists at **`components/ui/cybercn/styles/cybercn.css`** (it is added when you install CyberCN components from the registry).
+2. In your root CSS entry (typically **`app/globals.css`**), add an `@import` **after** Tailwind and your shadcn/tailwind base, and **before** app-specific theme overrides:
+
+```css
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+/* other base imports as needed */
+
+@import "../components/ui/cybercn/styles/cybercn.css";
+```
+
+If your folder layout differs, adjust the **relative** path from `app/globals.css` to `components/ui/cybercn/styles/cybercn.css`. CSS `@import` does not use the TypeScript path alias, so a path like `@/…` will not work here.
 
 ## Base import pattern
 
-Most primitives live under `components/ui/cybercn`.
+Installed components are added to your local project and can be composed directly in pages and sections.
+
+Import installed components into your page or feature file:
 
 ```tsx
 import { Button } from "@/components/ui/cybercn/button";
 import { Heading } from "@/components/ui/cybercn/heading";
 import { Paragraph } from "@/components/ui/cybercn/paragraph";
 import { Section } from "@/components/ui/cybercn/section";
-```
-
-Form elements can be imported from the barrel:
-
-```tsx
-import {
-  CyberForm,
-  CyberFieldset,
-  CyberInput,
-  CyberSelect,
-  CyberSelection,
-  CyberTextarea,
-} from "@/components/ui/cybercn/form";
 ```
 
 ## Minimal page example
@@ -74,8 +114,12 @@ export default function ExamplePage() {
 ## Styling notes
 
 - `Button`, `Heading`, `Paragraph`, `List`, `Hr`, `Image`, and several layout components rely on CyberCN-specific class names such as `cyber-button`, `cyber-heading`, and `cyber-section`.
-- Those classes are already available in this repo through the global stylesheet imports in `app/globals.css`.
-- Theme switching is handled through `next-themes` and the shared app-level provider.
+- Those classes come from **`cybercn.css`**—ensure you added the `@import` described in **Import `cybercn.css` in your global stylesheet** when setting up a new project.
+- In this repository, `app/globals.css` already imports `cybercn.css`.
+- Theme switching is handled through `next-themes` and the shared app-level provider; see [Theming](./components/theming.mdx).
+- To override palette and semantic design tokens, see **Core CSS variables** in [Theming](./components/theming.mdx#core-css-variables).
+- For glitch timings and animation utilities (`animate-*`, reduced motion), see [Motion and effects](./components/motion-and-effects.mdx).
+- For `clip-*` silhouettes and border framing patterns, see [Shapes and clipping](./components/shapes-and-clipping.mdx).
 
 ## Documentation map
 
@@ -85,3 +129,5 @@ export default function ExamplePage() {
 - [Forms](./components/forms.mdx)
 - [BoxTree](./components/boxtree.mdx)
 - [Theming](./components/theming.mdx)
+- [Motion and effects](./components/motion-and-effects.mdx)
+- [Shapes and clipping](./components/shapes-and-clipping.mdx)
