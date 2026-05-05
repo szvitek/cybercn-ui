@@ -8,6 +8,7 @@ import { Header } from "@/components/ui/cybercn/header";
 import { ModeToggle } from "@/components/mode-toggle";
 import { BookOpen, GithubIcon, LayoutTemplate } from "lucide-react";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -93,6 +94,7 @@ export default function RootLayout({
             {children}
           </RootProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
