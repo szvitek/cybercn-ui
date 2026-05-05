@@ -72,6 +72,25 @@ export default function RootLayout({
 }
 ```
 
+## Enable the Cyber scrollbar
+
+CyberCN includes a custom scrollbar style in `cybercn.css`. To enable it globally, add the `cyber-scrollbar` class to the `<html>` element in your root `layout.tsx`.
+
+```tsx
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="cyber-scrollbar" suppressHydrationWarning>
+      <head />
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
 ## Add a Mode Toggle
 
 Create a `mode-toggle.tsx` file inside your components folder. This snippet uses customized brackets, a hard industrial `rounded-none` border, and sharp hover states designed specifically to match the CyberCN design system:
