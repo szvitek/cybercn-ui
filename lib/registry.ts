@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-import type { Registry, RegistryItem } from "shadcn/schema";
+import type { Registry } from "shadcn/schema";
 
 import registry from "@/registry.json";
 

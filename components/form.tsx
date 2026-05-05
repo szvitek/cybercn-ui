@@ -123,7 +123,7 @@ export function FormComponent() {
       {/* Binary Logic: Radio Path */}
       <div className="flex flex-col space-y-1 my-4">
         <Heading Tag="h2" glitched className="text-[10px] mb-2 tracking-widest">
-          // SELECT_AUG_PATH
+          {"// SELECT_AUG_PATH"}
         </Heading>
         <CyberSelection
           type="radio"

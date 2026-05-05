@@ -29,7 +29,7 @@
       "dependencies": ["class-variance-authority", "radix-ui"],
       "registryDependencies": [
         "button",
-        "https://cybercn-ui.vercel.app/r/cybercn-styles.json"
+        "https://cybercn-ui.vercel.app/r/cybercn-styles"
       ],
       "files": [
         {

@@ -1,6 +1,6 @@
 # 🦾 CyberCN UI
 
-![Status: WIP](https://img.shields.io/badge/status-WIP-orange?style=for-the-badge&logo=git)
+![Status: Beta](https://img.shields.io/badge/status-beta-blue?style=for-the-badge&logo=git)
 ![License: MIT](https://img.shields.io/badge/license-MIT-purple?style=for-the-badge)
 
 A modern, type-safe React component library built with **Next.js**, **Tailwind CSS**, and **CVA**, inspired by the classic retro-future Cyberpunk CSS aesthetics.
@@ -69,6 +69,8 @@ npm run dev
 
 ## 📦 Install via shadcn Registry
 
+CyberCN UI exposes a **self-hosted** registry compatible with the [shadcn CLI](https://ui.shadcn.com/docs/cli); it is **not** part of the official shadcn registry directory today. As a hobby project there are no plans to submit it there for now, though that could change if demand warrants it.
+
 Install a component directly from the hosted registry:
 
 ```bash
@@ -95,8 +97,9 @@ Registry index:
 
 - https://cybercn-ui.vercel.app/r/registry.json
 
-Currently available component names:
+Currently available registry items:
 
+- `cybercn-styles` (global `cybercn.css`; usually pulled in as a dependency of other components)
 - `cyber-button`
 - `cyber-form`
 - `cyber-header`
@@ -125,9 +128,9 @@ Currently available component names:
 - [x] Documentation: Comprehensive guides for every component.
   - Status: Integrated with Fumadocs for seamless MDX management.
 
-- [ ] ~~NPM Packaging: Set up tsup and package structure.~~ — De-scoped: in favor of shadcn reigistry release.
+- [ ] ~~NPM Packaging: Set up tsup and package structure.~~ — De-scoped: in favor of shadcn registry release.
 
-- [ ] Alpha Release: Publish @cybercn/ui.
+- [x] Beta release: Public shadcn registry (`npx shadcn@latest add …`) and [documentation](https://cybercn-ui.vercel.app/docs).
 
 - [x] Shadcn Registry: Prepare project for npx distribution.
 
@@ -135,4 +138,4 @@ Currently available component names:
 
 ## 📄 License
 
-This is an open-source hobby project. Feel free to use it for your own digital underworlds.
+Licensed under the [MIT License](./LICENSE). This is an open-source hobby project—use it freely in your own digital underworlds.

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Fumadocs MDX generated helpers (see source.config.ts / content docs)
+    ".source/**",
   ]),
 ]);
 
