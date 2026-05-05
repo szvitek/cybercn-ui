@@ -12,7 +12,7 @@ CyberCN UI is a Next.js-first component library for retro-futurist interfaces. T
 Use the shadcn CLI with the hosted registry endpoints:
 
 ```bash
-npx shadcn@latest add "https://cybercn-ui.vercel.app/r/cyber-button.json"
+npx shadcn@latest add https://cybercn-ui.vercel.app/r/cyber-button.json
 ```
 
 You can replace `cyber-button` with any component name from the registry.
@@ -30,7 +30,7 @@ If you want a named registry alias in your app `components.json`, add:
 Then install using the alias:
 
 ```bash
-npx shadcn@latest add "@cybercn/cyber-button"
+npx shadcn@latest add @cybercn/cyber-button
 ```
 
 Registry index:
@@ -40,6 +40,7 @@ Registry index:
 Currently available component names:
 
 - `cyber-button`
+- `cyber-form`
 - `cyber-header`
 - `cyber-heading`
 - `cyber-steps`
@@ -51,6 +52,9 @@ Currently available component names:
 - `cyber-hr`
 - `cyber-image`
 - `cyber-footer`
+
+The registry also publishes **`cybercn-styles`**, which installs `cybercn.css`. Most components declare it as a dependency so the CLI pulls it in automatically; if you need only the stylesheet, run
+`npx shadcn@latest add https://cybercn-ui.vercel.app/r/cybercn-styles.json`
 
 ## Import `cybercn.css` in your global stylesheet
 

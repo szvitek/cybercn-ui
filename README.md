@@ -30,7 +30,7 @@ The goal is to provide a "shadcn-like" experience for high-aesthetic interfaces:
 
 ## 🕹️ Tech Stack
 
-- **Framework:** [Next.js 14+](https://nextjs.org/)
+- **Framework:** [Next.js](https://nextjs.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Variants:** [CVA](https://cva.style/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -72,7 +72,7 @@ npm run dev
 Install a component directly from the hosted registry:
 
 ```bash
-npx shadcn@latest add "https://cybercn-ui.vercel.app/r/cyber-button.json"
+npx shadcn@latest add https://cybercn-ui.vercel.app/r/cyber-button.json
 ```
 
 Or register a reusable alias in your consumer app's `components.json`:
@@ -88,7 +88,7 @@ Or register a reusable alias in your consumer app's `components.json`:
 Then install by alias:
 
 ```bash
-npx shadcn@latest add "@cybercn/cyber-button"
+npx shadcn@latest add @cybercn/cyber-button
 ```
 
 Registry index:
