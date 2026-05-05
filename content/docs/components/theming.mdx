@@ -140,3 +140,63 @@ export function ModeToggle() {
 </Preview>
 
 `ModeToggle` uses `useTheme` from `next-themes` internally and lets the user switch between `light`, `dark`, and `system`.
+
+## Core CSS variables
+
+CyberCN styling is driven by CSS variables in `components/ui/cybercn/styles/cybercn.css`.  
+If you want to tune the visual system for your own project, override these variables in your global stylesheet.
+
+### Semantic theme tokens (recommended override layer)
+
+These are the most important tokens to customize first:
+
+- `--cybercn-background`
+- `--cybercn-foreground`
+- `--cybercn-primary`
+- `--cybercn-primary-foreground`
+- `--cybercn-secondary`
+- `--cybercn-secondary-foreground`
+- `--cybercn-muted`
+- `--cybercn-muted-foreground`
+- `--cybercn-accent`
+- `--cybercn-accent-foreground`
+- `--cybercn-border`
+- `--cybercn-ring`
+- `--cybercn-radius`
+
+### Brand/palette helpers used by components
+
+- `--cyber-yellow`
+- `--cyber-red`
+- `--cyber-blue`
+- `--cyber-green`
+- `--cyber-purple`
+- `--cyber-orange`
+- `--cyber-neon`
+- `--cyber-border`
+- `--cyber-black`
+
+### Example overrides
+
+```css
+:root {
+  --cybercn-background: oklch(0.94 0.16 100);
+  --cybercn-foreground: oklch(0.12 0.01 260);
+  --cybercn-primary: oklch(0.12 0.01 260);
+  --cybercn-primary-foreground: oklch(0.94 0.16 100);
+  --cybercn-accent: oklch(0.65 0.22 245);
+  --cybercn-border: oklch(0.2 0.02 260 / 0.2);
+  --cybercn-radius: 0rem;
+}
+
+.dark {
+  --cybercn-background: oklch(0.08 0 0);
+  --cybercn-foreground: oklch(0.93 0.2 107);
+  --cybercn-primary: oklch(0.93 0.2 107);
+  --cybercn-primary-foreground: oklch(0.08 0 0);
+  --cybercn-accent: oklch(0.6 0.24 250);
+  --cybercn-border: oklch(0.93 0.18 95 / 0.2);
+}
+```
+
+Start with semantic tokens and only override `--cyber-*` palette helpers when you need to reshape the brand colors globally.
