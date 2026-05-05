@@ -1,0 +1,71 @@
+---
+title: Motion and effects
+description: Glitch animations, timing tokens, and reduced-motion behavior from cybercn.css.
+---
+
+# Motion and effects
+
+CyberCN’s motion layer lives in `components/ui/cybercn/styles/cybercn.css`. Import that stylesheet (see [Getting Started](../getting-started.mdx)) so keyframes, duration variables, and Tailwind theme animations are available.
+
+## Timing variables
+
+Glitch-style animations read shared durations from `:root`:
+
+| Variable                    | Default | Role                                                     |
+| --------------------------- | ------- | -------------------------------------------------------- |
+| `--glitched-duration-short` | `1s`    | Buttons, list items, link underline scan, heading cursor |
+| `--glitched-duration-long`  | `3s`    | Horizontal rules, wide scan lines                        |
+
+Override them in your global CSS next to other CyberCN tokens:
+
+```css
+:root {
+  --glitched-duration-short: 0.75s;
+  --glitched-duration-long: 2.5s;
+}
+```
+
+## Tailwind animation utilities
+
+`cybercn.css` registers animations under Tailwind’s `@theme`. Each `--animate-*` entry becomes an `animate-*` utility.
+
+| Utility                                       | Keyframes             | Typical use                                                                                                |
+| --------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `animate-glitch-hr`                           | `glitch-hr`           | [`Hr`](./typography-and-media.mdx) with `glitched` (geometry still comes from `.cyber-hr` / `clip-hr`)     |
+| `animate-button-hover`                        | `button-hover`        | `.cyber-button` hover / focus (main label)                                                                 |
+| `animate-button-hover-before`                 | `button-hover-before` | `.cyber-button` hover / focus (`::before` frame)                                                           |
+| `animate-button-hover-after`                  | `button-hover-after`  | `.cyber-button` hover / focus (`::after` tag), `.cyber-p` hover on `::before`                              |
+| `animate-scanned-h`                           | `scanned-h`           | `.scanned-h::after` horizontal scan bar                                                                    |
+| `animate-scanned-v`                           | `scanned-v`           | `.scanned-v::after` vertical scan bar                                                                      |
+| `animate-scanned-a`                           | `scanned-a`           | Default `a:hover::after` underline                                                                         |
+| `animate-li-glitched`                         | `li-glitched`         | [`List`](./typography-and-media.mdx) items with `glitched`                                                 |
+| `animate-h1-glitched`                         | `h1-glitched`         | [`Heading`](./typography-and-media.mdx) `glitched` (all levels use this keyframe set in the component API) |
+| `animate-h2-glitched` … `animate-h4-glitched` | `h1-glitched`         | Alternate timings defined in CSS; use manually if you are not using `Heading`                              |
+| `animate-h1-before-glitched`                  | `h1-before-glitched`  | `Heading` `glitched` + `h1` (`before:` pseudo)                                                             |
+| `animate-h2-before-glitched`                  | `h2-before-glitched`  | `Heading` `glitched` + `h2` (`before:` pseudo)                                                             |
+
+The theme also defines `--animation-hx-after` for the blinking `_` on `.cyber-heading` and `.cyber-p::after` (`hx-after` keyframes). Those rules use a raw `animation` declaration rather than a dedicated `animate-*` utility.
+
+## What components animate for you
+
+You do not need to add `animate-*` classes yourself for:
+
+- **Links** — base `a` styles; hover runs `animate-scanned-a` on the underline pseudo-element.
+- **`Heading`** — with `glitched`, combines `animate-h1-glitched` with level-specific `before:` animations or `cyber-heading-h3-h4-glitched` for `h3` / `h4`.
+- **`Hr`** — with `glitched`, applies `animate-glitch-hr` (often together with `clip-hr-glitched` from the HR variants).
+- **`Button`** — hover / focus drives the three `button-hover*` animations on `.cyber-button`.
+- **`Paragraph`** — `::before` can use `animate-button-hover-after` on hover; `::after` uses `hx-after`.
+- **`List`** — item variant `glitched` adds `animate-li-glitched` plus staggered durations via `:nth-child` rules on `.animate-li-glitched`.
+
+## Building blocks: scan wrappers
+
+Add **`scanned-h`** or **`scanned-v`** on a positioned container; CSS paints a neon bar on `::after` with `animate-scanned-h` or `animate-scanned-v`. Both classes set `position: relative` for layout.
+
+## Reduced motion
+
+Inside `@layer base`, `cybercn.css` applies a global `@media (prefers-reduced-motion: reduce)` rule: animations are effectively shortened to one step, iteration count is forced to `1`, play state is paused, and transitions are minimized. Users who prefer reduced motion therefore get a largely static UI without extra app code.
+
+## See also
+
+- [Theming](./theming.mdx) — semantic colors and **Core CSS variables**
+- [Typography and Media](./typography-and-media.mdx) — `Heading`, `Hr`, `List`, `Paragraph`
