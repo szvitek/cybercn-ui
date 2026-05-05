@@ -101,7 +101,6 @@ Currently available component names:
 - `cyber-form`
 - `cyber-header`
 - `cyber-heading`
-- `cyber-link`
 - `cyber-steps`
 - `cyber-boxtree`
 - `cyber-aside`
